@@ -86,8 +86,8 @@ DATABASES = {
         'NAME': 'jaruratbazaardb',
         'PORT':'3306',
         'HOST':'127.0.0.1',
-        'USER':'root',
-        'PASSWORD':'1234',
+        'USER':'e_commerce',
+        'PASSWORD':'project123',
 
     }
 }
