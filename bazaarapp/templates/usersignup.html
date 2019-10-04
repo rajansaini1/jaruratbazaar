@@ -2,13 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SIGN UP</title>
 </head>
 <body>
-
-
-
-
+<form method="POST">
+    {% csrf_token %}
+    {% if success %}
+    <script type="text/javascript">
+        alert('Successfully Registered');
+    </script>
+    {% endif %}
+    <label>Full Name</label>
+    <input type="text" name="name"><br/>
+    <label>Email Id</label>
+    <input type="text" name="email"><br/>
+    <label>Mobile</label>
+    <input type="text" name="mobile"><br/>
+    <label>Password</label>
+    <input type="password" name="password"><br/>
+    <label>Address</label>
+    <input type="text" name="address"><br/>
+    <label>City</label>
+    <input type="text" name="city"><br/>
+    <label>Gender</label>
+    <input type="text" name="gender"><br/>
+    <label>Pin Code</label>
+    <input type="text" name="pincode"><br/>
+    <label>Date of Birth</label>
+    <input type="text" name="dob"><br/>
+    <label>State</label>
+    <input type="text" name="state"><br/>
+    <input type="submit" value="SIGN UP">
 </form>
 </body>
 </html>
