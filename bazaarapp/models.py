@@ -24,6 +24,7 @@ class UserSignup(models.Model):
     userOtpTime=models.CharField(max_length=200,default="")
     userConfirmationLink=models.CharField(max_length=200,default="")
     userToken=models.CharField(max_length=200,default="")
+
     isActive=models.BooleanField(default=True)
     isAvailable = models.BooleanField(default=True)
     isQueue = models.BooleanField(default=False)
