@@ -20,6 +20,9 @@ class UserSignup(models.Model):
     userPinCode=models.CharField(max_length=200,default="")
     userDob=models.CharField(max_length=200,default="")
     userState=models.CharField(max_length=200,default="")
+    userOtp=models.CharField(max_length=200,default="")
+    userOtpTime=models.CharField(max_length=200,default="")
+    userConfirmationLink=models.CharField(max_length=200,default="")
 
     isActive=models.BooleanField(default=True)
     isAvailable = models.BooleanField(default=True)
