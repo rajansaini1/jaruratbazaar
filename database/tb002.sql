@@ -10,7 +10,7 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
+bazaarapp_usersignup
 
 -- Dumping database structure for jaruratbazaardb
 CREATE DATABASE IF NOT EXISTS `jaruratbazaardb` /*!40100 DEFAULT CHARACTER SET latin1 */;
