@@ -11,6 +11,7 @@ def usersignup(request):
         email=request.POST['emailid']
         otp,time=sendmail.OtpSend()
 
+
     confirmationlink="https://127.0.0.1.8000/verifyuser/?email="+email+"&token="+otp
     sendmail.sendmail("Confirmation Link",email,confirmationlink)
 def verify(request):
