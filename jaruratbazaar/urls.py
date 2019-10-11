@@ -18,11 +18,25 @@ from django.urls import path
 from django.conf.urls import url,include
 from django.conf import settings
 from bazaarapp import views
+from django.conf.urls.static import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/',include('bazaarapp.urls')),
     url(r'^$',views.index),
+    url(r'^verifyuser/$', views.verify),
+    url(r'^demo/$',views.first),
+    url(r'^usersignup/$', views.usersignup,name="usersignup"),
+    url(r'^login/$', views.login,name="login"),
+    url(r'^manager/$', views.security),
+    url(r'^pagenotfound/$',views.pagenotfound,name="pagenotfound"),
+    url(r'^notlogin/$',views.notlogin),
+    url(r'^unauhtorize_access/$',views.unauth),
+    url(r'^home/$',views.home),
 
-]
+
+
+
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

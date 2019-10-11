@@ -1,0 +1,26 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {% if wrongem %}
+    <script type="text/javascript">
+        alert('wrong email');
+    </script>
+    {% endif %}
+       {% if wrongpw %}
+    <script type="text/javascript">
+        alert('wrong password');
+    </script>
+    {% endif %}
+<label>Email:</label>
+<input type="text" name="email"><br>
+
+<label>Password:</label>
+<input type="password" name="password"><br>
+
+<input type="submit" value="LOGIN">
+
+</form>
+
+{% endblock %}

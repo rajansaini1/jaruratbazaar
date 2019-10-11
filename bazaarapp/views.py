@@ -1,9 +1,9 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from bazaarapp.forms import UserSignupForm
 from bazaarapp.models import UserSignup
 from miscellaneous import mailsend,myconstants
 from authorize import authcheck
-from django.core.files.storage import FileSystemStorage,os    #to store image in ,edia directory in project--
+from django.core.files.storage import FileSystemStorage,os    #to store image in ,media directory in project--
 from django.contrib.auth.hashers import make_password,check_password
 
 # Create your views here.
@@ -11,11 +11,22 @@ def index(request):
     return HttpResponse("<h1>hello</h1>")
 def first(request):
     return render(request,"demo.html")
+def pagenotfound(request):
+    return render(request,"pagenotfound.html")
+def notlogin(request):
+    return render(request,"notlogin.html")
+
+def unauth(request):
+    return render(request,"unauthaccess.html")
+def home(request):
+    return render(request,"home.html")
+
+
 def usersignup(request):
     if request.method == "POST":
-        email = request.POST['useremail']
+        email = request.POST['email']
         otp, time = mailsend.OtpSend()
-        confirmationlink = "https://127.0.0.1.8000/verifyuser/?email=" + email +"&token" + otp
+        confirmationlink = "http://127.0.0.1.8000/verifyuser/?email=" + email +"&token=" + otp
 
         form = UserSignupForm(request.POST)
         if form.is_valid():
@@ -23,7 +34,7 @@ def usersignup(request):
             f.userName = request.POST["name"]
             f.userEmail = email
             f.userMobile = request.POST["mobile"]
-            f.userPassword = request.POST["password"]
+            f.userPassword =make_password( request.POST["password"])
             f.userAddress = request.POST["address"]
             f.userCity = request.POST["city"]
             f.userGender = request.POST["gender"]
@@ -34,45 +45,73 @@ def usersignup(request):
             f.isAvailable = True
             f.isQueue = False
             f.isVarified = False
-            f.userToken = ""
-            f.userConfirmationLink = ""
+            f.userToken = otp
+            f.userConfirmationLink = confirmationlink
             f.userOtp = otp
             f.userOtpTime = time
             f.roleid_id = 2
             f.save()
+            mailsend.mail("succesfully done",email,confirmationlink)
+            return render(request, "usersignup.html", {'success': True})
         else:
             return HttpResponse("Error")
-            mailsend.sendmail()
-            return render(request, "usersignup.html",{'success':True})
-        return render(request,"usersignup.html")
+    return render(request,"usersignup.html" )
 
 
 
 def verify(request):
     email=request.GET['email']
-    token=request.GET['link']
-    form = UserSignupForm(request.POST)
-    if request.method == "POST":
-        f = form.save(commit=False)
-        f.userEmail=request.POST['email']
-        f.userName = request.POST['name']
-        f.userPassword = request.POST['password']
-        f.userMobile = request.POST['mobile']
-        f.userState = request.POST['state']
-        otp, time = mailsend.OtpSend()
-        email = request['email']
-        f.userOtp = otp
-        f.userOtpTime = time
-        token = mailsend.OtpSend()
-        token = make_password(token)
-        token = token.replace("+","")
-        f.userToken = token
-        confirmationlink="http://127.0.0.1/verifyuser/?email="+email+"&token="+token
-        f.userConfirmationLink = confirmationlink
-        f.isVarified = False
-        f.isActive = True
-        f.roleid_id = 1
-        f.save()
-        mailsend.sendmail("Confirmation Link",email,confirmationlink)
+    token=request.GET['token']
+    try:
+        data=UserSignup.objects.get(userEmail=email)
+        dbtoken=data.userToken
+        if(dbtoken==token):
+            updateuser=UserSignup(
+                userEmail=email,
+                userToken='',
+                userConfirmationLink='',
+                isVerified=True
+            )
+            updateuser.save(update_fields=["userToken","userConfirmationLink","isVerified"])
+            return render(request,"verified.html")
+        else:
+            return render(request,"verified1.html")
+
+    except:
+        return render(request, "verified2.html")
 
 
+def security(request):
+    try:
+        authdata=authcheck.authentication(request.session['Authentication'],request.session['roleid'])
+        if(authcheck==True):
+            return render(request,"notlogin.html")
+        else:
+            authinfo,message=authdata
+            if(message=="invalid-user"):
+                return redirect("/unauhtorize_access/")
+            elif(message=="not_login"):
+                return redirect("/notlogin/")
+    except:
+        return redirect("/notlogin/")
+
+
+
+def login(request):
+    if(request.method=="POST"):
+        email=request.POST["email"]
+        password=request.POST["password"]
+        try:
+            data=UserSignup.objects.get(userEmail=email)
+            dbpassword=data.userPassword
+            auth=check_password(password,dbpassword)
+            if(auth==True):
+                request.session['Authentication']=True
+                request.session['emailid']=email
+                request.session['roleid']=data.roleid_id
+                return redirect("/manager/")
+            else:
+                return render(request,"login.html",{'wrongpw':True})
+        except:
+            return render(request,"login.html",{'wrongem':True})
+    return render(request,"login.html")

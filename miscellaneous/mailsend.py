@@ -3,27 +3,30 @@ import random,string
 import datetime as dt
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-def sendmail():
+def mail(subject,receiver,link):
     msg=MIMEMultipart()
     msg['From']='jaruratbazaar008@gmail.com'
-    msg['To']='bharti.rajput.0531@gmail.com'
-    msg['Subject']="Hiiiiiii......"
-    body="Hello...."
+    msg['To']=receiver
+    msg['Subject']=subject
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    body=link
     msg.attach(MIMEText (body,"Plain"))
+    server.starttls()
     try:
-       server=smtplib.SMTP('smtp.gmail.com',587)
-       server.starttls()
+
+
        server.login('jaruratbazaar008@gmail.com','jarurat123')
        text=msg.as_string()
-       server.sendmail('jaruratbazaar008@gmail.com','bharti.rajput.0531@gmail.com',text)
+       server.sendmail(msg["from"],msg["To"],text)
        print("Email sent successfully!")
+       server.quit()
        return True
     except smtplib.SMTPException:
                                  print("Email not send")
                                  return False
                                  # server.quit()
 
-sendmail()
+
 
 
 
