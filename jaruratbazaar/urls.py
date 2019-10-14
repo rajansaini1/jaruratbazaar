@@ -30,12 +30,13 @@ urlpatterns = [
     url(r'^demo/$',views.first),
     url(r'^usersignup/$', views.usersignup,name="usersignup"),
     url(r'^login/$', views.login,name="login"),
-    url(r'^manager/$', views.security),
+    url(r'^manager/$', views.manager),
     url(r'^pagenotfound/$',views.pagenotfound,name="pagenotfound"),
     url(r'^notlogin/$',views.notlogin),
     url(r'^unauhtorize_access/$',views.unauth),
     url(r'^home/$',views.home),
-    url(r'^logout/$',views.logout)
+    url(r'^logout/$',views.logout),
+url(r'^changepassword/$',views.changepassword)
 
 
 

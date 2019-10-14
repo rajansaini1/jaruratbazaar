@@ -8,11 +8,19 @@
         alert('wrong email');
     </script>
     {% endif %}
+
        {% if wrongpw %}
     <script type="text/javascript">
         alert('wrong password');
     </script>
     {% endif %}
+
+    {% if isv %}
+    <script type="text/javascript">
+        alert('please verify your email');
+    </script>
+    {% endif %}
+
 <label>Email:</label>
 <input type="text" name="email"><br>
 

@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bazaarapp'
+    'bazaarapp',
+    'managerapp'
+
+
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+SESSION_COOKIE_AGE=1*60
+SESSION_SAVE_EVERY_REQUEST=True
 
 ROOT_URLCONF = 'jaruratbazaar.urls'
 

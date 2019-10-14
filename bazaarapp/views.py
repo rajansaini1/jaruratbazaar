@@ -26,7 +26,7 @@ def usersignup(request):
     if request.method == "POST":
         email = request.POST['email']
         otp, time = mailsend.OtpSend()
-        confirmationlink = "http://127.0.0.1.8000/verifyuser/?email=" + email +"&token=" + otp
+        confirmationlink = "127.0.0.1:8000/verifyuser/?email=" + email +"&token=" + otp
 
         form = UserSignupForm(request.POST)
         if form.is_valid():
@@ -81,16 +81,19 @@ def verify(request):
         return render(request, "verified2.html")
 
 
-def security(request):
+def manager(request):
     try:
-        authdata=authcheck.authentication(request.session['Authentication'],request.session['roleid'])
-        if(authcheck==True):
-            return render(request,"notlogin.html")
+        authdata=authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.USER)
+
+        if(authdata==True):
+
+
+            return render(request,"manager.html")
         else:
             authinfo,message=authdata
-            if(message=="invalid-user"):
+            if(message=="Invalid_user"):
                 return redirect("/unauhtorize_access/")
-            elif(message=="not_login"):
+            elif(message=="Not Login"):
                 return redirect("/notlogin/")
     except:
         return redirect("/notlogin/")
@@ -103,15 +106,19 @@ def login(request):
         password=request.POST["password"]
         try:
             data=UserSignup.objects.get(userEmail=email)
+            isVerified=data.isVerified
             dbpassword=data.userPassword
             auth=check_password(password,dbpassword)
-            if(auth==True):
-                request.session['Authentication']=True
-                request.session['emailid']=email
-                request.session['roleid']=data.roleid_id
-                return redirect("/manager/")
+            if(isVerified==True):
+                if(auth==True):
+                    request.session['Authentication']=True
+                    request.session['email']=email
+                    request.session['roleid']=data.roleid_id
+                    return redirect("/manager/")
+                else:
+                    return render(request,"login.html",{'wrongpw':True})
             else:
-                return render(request,"login.html",{'wrongpw':True})
+                return render(request,"login.html",{"isv":True})
         except:
             return render(request,"login.html",{'wrongem':True})
     return render(request,"login.html")
@@ -120,8 +127,26 @@ def login(request):
 def logout(request):
     try:
         request.session.pop("Authentication")
-        request.session.pop("emailid")
+        request.session.pop("email")
         request.session.pop("roleid")
         return redirect("/login/")
     except:
         return redirect("/login/")
+
+def changepassword(request):
+    if(request.method=="POST"):
+        currentpassword=request.POST['currentpass']
+        againpassword=request.POST['againpass']
+        newpassword=request.POST['newpass']
+        email=request.session['email']
+        emailid=UserSignup.objects.get(userEmail=email)
+        oldpassword=emailid.userPassword
+        auth=check_password(currentpassword,oldpassword)
+        auth2=check_password(againpassword,newpassword)
+        if auth==True and auth2==True:
+            updatepassword=UserSignup(userEmail=emailid.userEmail,userPassword=newpassword)
+            updatepassword.save(update_fields=["userPassword"])
+            return HttpResponse("chnaged successfully")
+        else:
+            return render(request,"changepassword.html",{"cpass":True})
+    return render(request,"changepassword.html")
