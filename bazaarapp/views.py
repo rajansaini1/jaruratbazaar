@@ -20,7 +20,8 @@ def unauth(request):
     return render(request,"unauthaccess.html")
 def home(request):
     return render(request,"home.html")
-
+def bharti(request):
+    return render(request,"bharti.html")
 
 def usersignup(request):
     if request.method == "POST":
