@@ -49,7 +49,7 @@ def usersignup(request):
             f.userConfirmationLink = confirmationlink
             f.userOtp = otp
             f.userOtpTime = time
-            f.roleid_id = 2
+            f.roleid_id =2
             f.save()
             mailsend.mail("succesfully done",email,confirmationlink)
             return render(request, "usersignup.html", {'success': True})
@@ -137,7 +137,7 @@ def changepassword(request):
     if(request.method=="POST"):
         currentpassword=request.POST['currentpass']
         againpassword=request.POST['againpass']
-        newpassword=request.POST['newpass']
+        newpassword=make_password(request.POST['newpass'])
         email=request.session['email']
         emailid=UserSignup.objects.get(userEmail=email)
         oldpassword=emailid.userPassword
@@ -146,7 +146,7 @@ def changepassword(request):
         if auth==True and auth2==True:
             updatepassword=UserSignup(userEmail=emailid.userEmail,userPassword=newpassword)
             updatepassword.save(update_fields=["userPassword"])
-            return HttpResponse("chnaged successfully")
+            return HttpResponse("changed successfully")
         else:
             return render(request,"changepassword.html",{"cpass":True})
     return render(request,"changepassword.html")
