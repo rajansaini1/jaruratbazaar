@@ -151,3 +151,26 @@ def changepassword(request):
         else:
             return render(request,"changepassword.html",{"cpass":True})
     return render(request,"changepassword.html")
+
+def showprofile(request):
+    email=request.session['email']
+    data=UserSignup.objects.get(userEmail=email)
+    if(request.method=="POST"):
+        emailid=request.POST["email"]
+        name=request.POST["name"]
+        mobile=request.POST["mobile"]
+        address=request.POST["address"]
+        city=request.POST["city"]
+        gender = request.POST["gender"]
+        pincode = request.POST["pincode"]
+        dob = request.POST["dob"]
+        state=request.POST["state"]
+        updatedata=UserSignup(userEmail=emailid,userName=name,userMobile=mobile,userAddress=address,userCity=city,
+                              userGender=gender, userPinCode=pincode,userDob=dob,userState=state)
+        updatedata.save(update_fields=["userMobile","userName","userAddress","userGender","userPinCode",
+                                       "userDob","userState"])
+        return render(request,"viewprofile.html",{'view':True, 'd':data})
+    return render(request,"viewprofile.html",{'d':data})
+
+
+

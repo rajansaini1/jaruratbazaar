@@ -1,0 +1,37 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% if view %}
+    <script type="text/javascript">
+        alert("profile updated")
+    </script>
+    {% endif %}
+
+
+
+    <label>Name</label>
+    <input type="text" value="{{d.userName}}" name="name"><br>
+    <label>Email</label>
+    <input type="text" value="{{d.userEmail}}" name="email" readonly><br>
+    <label>Mobile</label>
+    <input type="text" value="{{d.userMobile}}" name="mobile"><br>
+    <label>address</label>
+    <input type="text" value="{{d.userAddress}}" name="address"><br>
+    <label>city</label>
+    <input type="text" value="{{d.userCity}}" name="city"><br>
+    <label>gender</label>
+    <input type="text" value="{{d.userGender}}" name="gender"><br>
+    <label>pincode</label>
+    <input type="text" value="{{d.userPinCode}}" name="pincode"><br>
+    <label>Dob</label>
+    <input type="text" value="{{d.userDob}}" name="dob"><br>
+    <label>state</label>
+    <input type="text" value="{{d.userState}}" name="state"><br>
+    <input type="submit" value="UpdateProfile">
+
+
+
+</form>
+
+{% endblock %}
