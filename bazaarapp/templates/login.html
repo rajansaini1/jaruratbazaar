@@ -1,7 +1,9 @@
 {% extends 'masterpage.html' %}
 {% block content %}
+<br><br><br><br><div>
 
-<form method="POST">
+<form method="POST" style="border:4px solid black;width:600px;padding:50px;display:inline-block;border-radius:23px;
+          background-color:gray;position:relative;left:400px;color:white;align:center;">
     {% csrf_token %}
     {% if wrongem %}
     <script type="text/javascript">
@@ -21,14 +23,20 @@
     </script>
     {% endif %}
 
-<label>Email:</label>
-<input type="text" name="email"><br>
+  <div class="form-group col-sm-8">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
 
-<label>Password:</label>
-<input type="password" name="password"><br>
-
-<input type="submit" value="LOGIN">
-
+  </div>
+  <div class="form-group col-sm-8">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</div><br><br><br><br>
 {% endblock %}

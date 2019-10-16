@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>MS</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css/" type="text/css">
@@ -11,10 +12,10 @@
 
 
 </head>
-<body>
+<body background="/assets/images/bg.jpg">
 <div>
   <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#"><img src="/assets/images/jbb.jpg" width="100px" height="50px"></a>
+  <a class="navbar-brand" href="/user/home/"><img src="/assets/images/jbb.jpg" width="100px" height="50px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -78,8 +79,15 @@
     <a class="dropdown-item" href="#">Pans</a>
     <a class="dropdown-item" href="#">Chairs</a>
   </div>
-</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <div class="dropdown">
+
+
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search for Products" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0 bg-light" type="submit">Search</button>
+</form>
+      <div class="dropdown">
   <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Profile
   </button>`
@@ -92,25 +100,17 @@
   </div>
 </div>
 
+
 </nav><br><br><br><br>
-     <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Search for Products,Brands and more.....</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-</div>
-<div></div>
 
 
 
-<div>
     {%block content %}
 
     {% endblock%}
-</div>
+    <br><br><br><br><br><br>
 
+<footer class="footer">
 
 <div class="alert alert-dark" role="alert">
 		<div class="footer-widget">
@@ -120,11 +120,11 @@
 						<div class="single-widget">
 							<h2>Service</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Order Status</a></li>
-								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQ’s</a></li>
+								<li><a href="help.html">Online Help</a></li>
+								<li><a href="contact.html">Contact Us</a></li>
+								<li><a href="#"></a></li>
+								<li><a href="#"></a></li>
+								<li><a href="#"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -132,11 +132,12 @@
 						<div class="single-widget">
 							<h2>Quock Shop</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
+								<li><a href="#">Mens</a></li><br>
 								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
+								<li><a href="#">Kids & Baby</a></li>
+                                <li><a href="#">Home & Living</a></li>
 								<li><a href="#">Shoes</a></li>
+
 							</ul>
 						</div>
 					</div>
@@ -144,31 +145,30 @@
 						<div class="single-widget">
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
-							</ul>
+								<li><a href="terms.html">Terms of Use</a></li>
+								<li><a href="privacy.html">Privecy Policy</a></li>
+								<li><a href="refund.html">Refund Policy</a></li>
+								<li><a href="billing.html">Billing System</a></li>
+                            </ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
 							<h2>About Shopper</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Company Information</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Store Location</a></li>
-								<li><a href="#">Affillate Program</a></li>
-								<li><a href="#">Copyright</a></li>
+								<li><a href="info.html">Company Information</a></li>
+								<li><a href="carees.html">Careers</a></li>
+								<li><a href="location.html">Store Location</a></li>
+
 							</ul>
 						</div>
 					</div>
 					</div>
 			</div>
 			</div>
+
 </div>
-	</footer><!--/Footer-->
+</footer><!--/Footer-->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
