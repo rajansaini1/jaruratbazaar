@@ -25,20 +25,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/',include('bazaarapp.urls')),
+    url(r'^user/',include('managerapp.urls')),
     url(r'^$',views.index),
     url(r'^verifyuser/$', views.verify),
     url(r'^demo/$',views.first),
-    url(r'^usersignup/$', views.usersignup,name="usersignup"),
-    url(r'^login/$', views.login,name="login"),
-    url(r'^manager/$', views.manager),
-    url(r'^pagenotfound/$',views.pagenotfound,name="pagenotfound"),
-    url(r'^notlogin/$',views.notlogin),
-    url(r'^unauhtorize_access/$',views.unauth),
-    url(r'^home/$',views.home),
-    url(r'^logout/$',views.logout),
-url(r'^changepassword/$',views.changepassword),
-    url(r'^bharti/$',views.bharti),
-url(r'^viewprofile/$',views.showprofile)
 
 
 

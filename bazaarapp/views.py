@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import make_password,check_password
 
 # Create your views here.
 def index(request):
-    return HttpResponse("<h1>hello</h1>")
+    return HttpResponse("<img src=/assets/images/keepbuy.gif/>" )
 def first(request):
     return render(request,"demo.html")
 def pagenotfound(request):
@@ -50,7 +50,7 @@ def usersignup(request):
             f.userConfirmationLink = confirmationlink
             f.userOtp = otp
             f.userOtpTime = time
-            f.roleid_id =2
+            f.roleid_id =myconstants.USER
             f.save()
             mailsend.mail("succesfully done",email,confirmationlink)
             return render(request, "usersignup.html", {'success': True})
@@ -82,22 +82,7 @@ def verify(request):
         return render(request, "verified2.html")
 
 
-def manager(request):
-    try:
-        authdata=authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.USER)
 
-        if(authdata==True):
-
-
-            return render(request,"manager.html")
-        else:
-            authinfo,message=authdata
-            if(message=="Invalid_user"):
-                return redirect("/unauhtorize_access/")
-            elif(message=="Not Login"):
-                return redirect("/notlogin/")
-    except:
-        return redirect("/notlogin/")
 
 
 
@@ -115,7 +100,12 @@ def login(request):
                     request.session['Authentication']=True
                     request.session['email']=email
                     request.session['roleid']=data.roleid_id
-                    return redirect("/manager/")
+                    if(request.session['roleid']==1):
+                        return redirect("/user/manager/")
+                    elif (request.session['roleid'] == 2):
+                        return redirect("/user/home/")
+                    elif (request.session['roleid'] == 3):
+                        return redirect("/shopkeeper/")
                 else:
                     return render(request,"login.html",{'wrongpw':True})
             else:
@@ -130,9 +120,9 @@ def logout(request):
         request.session.pop("Authentication")
         request.session.pop("email")
         request.session.pop("roleid")
-        return redirect("/login/")
+        return redirect("/user/login/")
     except:
-        return redirect("/login/")
+        return redirect("/user/login/")
 
 def changepassword(request):
     if(request.method=="POST"):
@@ -156,6 +146,7 @@ def showprofile(request):
     email=request.session['email']
     data=UserSignup.objects.get(userEmail=email)
     if(request.method=="POST"):
+        confirmationlink ="congrats! Your profile is updated successfully"
         emailid=request.POST["email"]
         name=request.POST["name"]
         mobile=request.POST["mobile"]
@@ -169,8 +160,13 @@ def showprofile(request):
                               userGender=gender, userPinCode=pincode,userDob=dob,userState=state)
         updatedata.save(update_fields=["userMobile","userName","userAddress","userGender","userPinCode",
                                        "userDob","userState"])
+        mailsend.mail("Profile Edit", email, confirmationlink)
         return render(request,"viewprofile.html",{'view':True, 'd':data})
     return render(request,"viewprofile.html",{'d':data})
 
 
+def viewprofile(request):
+    email = request.session['email']
+    seedata = UserSignup.objects.get(userEmail=email)
+    return render(request,"seeprofile.html",{'v':seedata})
 

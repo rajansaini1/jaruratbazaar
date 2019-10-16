@@ -1,0 +1,32 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {% if v %}
+
+   <label>Name</label>
+    <input type="text" value="{{v.userName}}" name="name" readonly><br>
+    <label>Email</label>
+    <input type="text" value="{{v.userEmail}}" name="email" readonly><br>
+    <label>Mobile</label>
+    <input type="text" value="{{v.userMobile}}" name="mobile" readonly><br>
+    <label>address</label>
+    <input type="text" value="{{v.userAddress}}" name="address" readonly><br>
+    <label>city</label>
+    <input type="text" value="{{v.userCity}}" name="city" readonly><br>
+    <label>gender</label>
+    <input type="text" value="{{v.userGender}}" name="gender" readonly><br>
+    <label>pincode</label>
+    <input type="text" value="{{v.userPinCode}}" name="pincode" readonly><br>
+    <label>Dob</label>
+    <input type="text" value="{{v.userDob}}" name="dob" readonly><br>
+    <label>state</label>
+    <input type="text" value="{{v.userState}}" name="state" readonly><br>
+
+    <a href="/viewprofile/"><input type="button" value="editprofile"></a>
+
+    {% endif %}
+</form>
+
+{% endblock %}
