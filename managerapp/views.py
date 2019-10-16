@@ -6,7 +6,7 @@ from authorize import authcheck
 # Create your views here.
 def manager(request):
     try:
-        authdata=authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.USER)
+        authdata=authcheck.authentication(request.session['Authentication'],request.session['roleid'],myconstants.MANAGER)
 
         if(authdata==True):
 

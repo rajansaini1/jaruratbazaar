@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/',include('bazaarapp.urls')),
-    url(r'^user/',include('managerapp.urls')),
+    url(r'^manager/',include('managerapp.urls')),
     url(r'^$',views.index),
     url(r'^verifyuser/$', views.verify),
     url(r'^demo/$',views.first),

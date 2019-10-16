@@ -8,7 +8,7 @@ app_name='managerapp'
 urlpatterns=[
 
 
-url(r'^manager/$', views.manager),
+url(r'^$', views.manager),
 
 
 

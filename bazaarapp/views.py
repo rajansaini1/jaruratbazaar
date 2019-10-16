@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import make_password,check_password
 
 # Create your views here.
 def index(request):
-    return HttpResponse("<img src=/assets/images/keepbuy.gif/>" )
+    return HttpResponse("<img src=/assets/images/keepbuy.gif/> <a href=/home/>hlo</a>" )
 def first(request):
     return render(request,"demo.html")
 def pagenotfound(request):
@@ -19,7 +19,21 @@ def notlogin(request):
 def unauth(request):
     return render(request,"unauthaccess.html")
 def home(request):
-    return render(request,"home.html")
+    try:
+        authdata = authcheck.authentication(request.session['Authentication'], request.session['roleid'],
+                                            myconstants.USER)
+
+        if (authdata == True):
+
+            return render(request, "home.html")
+        else:
+            authinfo, message = authdata
+            if (message == "Invalid_user"):
+                return redirect("/user/unauhtorize_access/")
+            elif (message == "Not Login"):
+                return redirect("/user/notlogin/")
+    except:
+        return redirect("/user/notlogin/")
 
 
 def usersignup(request):
@@ -100,9 +114,9 @@ def login(request):
                     request.session['email']=email
                     request.session['roleid']=data.roleid_id
                     if(request.session['roleid']==1):
-                        return redirect("/user/manager/")
+                        return redirect("/manager/")
                     elif (request.session['roleid'] == 2):
-                        return redirect("/user/home/")
+                        return redirect("/user/")
                     elif (request.session['roleid'] == 3):
                         return redirect("/shopkeeper/")
                 else:
