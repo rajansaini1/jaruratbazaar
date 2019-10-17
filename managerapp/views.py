@@ -20,3 +20,4 @@ def manager(request):
                 return redirect("/user/notlogin/")
     except:
         return redirect("/user/notlogin/")
+
