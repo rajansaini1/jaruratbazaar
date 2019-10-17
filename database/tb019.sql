@@ -10,7 +10,7 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
+jaruratbazaardb
 -- Dumping structure for table jaruratbazaardb.managerapp_productscategories
 CREATE TABLE IF NOT EXISTS `managerapp_productscategories` (
   `categories_id` int(11) NOT NULL AUTO_INCREMENT,

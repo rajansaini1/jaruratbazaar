@@ -16,6 +16,7 @@ url(r'^showcategories/$', views.showcategories),
 url(r'^showtype/$', views.showtype),
 url(r'^showbrand/$', views.showbrand),
 url(r'^updatecategories/$', views.updatecategories),
+url(r'^updatetype/$', views.updatetype),
 
 
 

@@ -12,8 +12,7 @@
 
 </head>
 <body>
-
-<form style="border:3px solid black;width:850px;height:1025px;padding:20px;position:absolute;
+<form method="post" style="border:3px solid black;width:850px;height:800px;padding:20px;position:absolute;
 left:200px;background-color:skyblue;" >
     {% csrf_token %}
     {% if success %}
@@ -22,72 +21,69 @@ left:200px;background-color:skyblue;" >
     </script>
     {% endif %}
 <div><h1>Sign In</h1></div>
-  <div class="form-row">
-    <div class="form-group col-md-8">
-      <label for="inputname">Name</label>
-      <input type="text" class="form-control" id="inputname" placeholder="name" name="name">
-    </div>
-    <div class="form-group col-md-8">
-      <label for="inputemail">Email</label>
-      <input type="Email" class="form-control" id="inputemail" placeholder="Email" name="email">
-    </div>
-    <div class="form-group col-md-8">
-      <label for="inputPassword">Password</label>
-      <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
-    </div>
-      <div class="form-group col-md-8">
-      <label for="inputmobile">Mobile</label>
-      <input type="text" class="form-control" id="inputmobile" placeholder="Mobile" name="mobile">
-    </div>
-  </div>
-  <div class="form-group col-md-8">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="address" name="address">
-  </div>
-  <div class="form-group col-md-8">
-    <label for="inputGender">Gender</label>
-    <input type="text" class="form-control" id="inputgender" placeholder="Gender" name="gender">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-8">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="city" name="city">
-    </div>
-      <div class="form-group col-md-8">
-      <label for="inputpincode">PinCode</label>
-      <input type="text" class="form-control" id="inputpincode" placeholder="pincode" name="pincode">
-    </div>
-      <div class="form-group col-md-8">
-      <label for="inputdob">Dob</label>
-      <input type="text" class="form-control" id="inputdob" placeholder="Dob" name="dob">
-    </div>
-    <div class="form-group">
-    <label for="inputFile">Profile</label>
-    <input type="file" class="form-control-file" id="inputFile" name="profile">
-  </div>
-    <div class="form-group col-md-8">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control"  name="state">
-        <option selected>choose...</option>
-        <option>Haryana</option>
-          <option>Himachal pradesh</option>
-          <option>jammu</option>
-      </select>
-    </div>
 
+  <div class="form-row">
+     <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
+     </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+    </div>
+  <div class="form-group">
+    <label for="inputMobile">Mobile</label>
+    <input type="text" class="form-control" id="inputMobile" name="mobile" placeholder="Mobile">
   </div>
   <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity" name="city">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" name="state" class="form-control">
+        <option selected>Choose...</option>
+        <option>Mandi</option>
+        <option>Chandigarh</option>
+        <option>Haryana</option>
+      </select>
+    </div>
+     <div class="form-group col-md-6">
+      <label for="inputGender">Gender</label>
+      <input type="text" class="form-control" id="inputGender" name="gender">
+    </div>
+      <div class="form-group col-md-6">
+      <label for="inputPincode">PinCode</label>
+      <input type="text" class="form-control" id="inputPincode" name="pincode">
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="inputDob">DOB</label>
+      <input type="text" class="form-control" id="inputDob" name="dob">
     </div>
   </div>
+
+  </div>
+
   <button type="submit" class="btn btn-primary">Sign in</button>
 
-</form>
-<br><br><br><br><br><br>
 
+</form>
 </body>
 </html>
+<br><br><br><br><br><br>
+
+
+
+
+

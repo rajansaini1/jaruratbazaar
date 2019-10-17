@@ -66,4 +66,12 @@ def updatecategories(request):
         return redirect("/manager/showcategories/")
     return render(request,"updatecategories.html",{'d':data})
 
-
+def updatetype(request):
+    typeid = request.GET["id"]
+    data = ProductsType.objects.get(type_id=typeid)
+    if request.method == "POST":
+        typename=request.POST["name"]
+        updatetype=ProductsType(categories_id=typeid,type_Name=typename)
+        updatetype.save(update_fields=["type_Name"])
+        return redirect("/manager/showtype/")
+    return render(request,"updatetype.html",{'d':data})
