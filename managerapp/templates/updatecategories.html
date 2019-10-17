@@ -1,0 +1,15 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% if uc %}
+    <script>
+        alert("successfully updated")
+    </script>
+    {% endif %}
+    <label>name</label>
+    <input type="text" name="name"><br>
+
+    <input type="submit" value="updatecategory">
+</form>
+{% endblock %}

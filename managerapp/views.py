@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from managerapp.forms import ProductsCategoriesForm,ProductsTypeForm,ProductsBrandForm
-from bazaarapp.models import UserSignup
+from managerapp.models import ProductsCategories,ProductsType,ProductsBrand
 from miscellaneous import mailsend,myconstants
 from authorize import authcheck
 # Create your views here.
@@ -46,4 +46,24 @@ def productsbrand(request):
         f.brand_isActive=True
         f.save()
     return render(request,"productsbrand.html",{'wb':True})
+
+def showcategories(request):
+    data=ProductsCategories.objects.all()
+    return render(request,"showcategories.html",{'showc':data})
+def showtype(request):
+    data=ProductsType.objects.all()
+    return render(request,"showtype.html",{'showt':data})
+def showbrand(request):
+    data=ProductsBrand.objects.all()
+    return render(request,"showbrand.html",{'showb':data})
+def updatecategories(request):
+    catid = request.GET["id"]
+    data = ProductsCategories.objects.get(categories_id=catid)
+    if request.method == "POST":
+        catname=request.POST["name"]
+        updatecategories=ProductsCategories(categories_id=catid,categories_Name=catname)
+        updatecategories.save(update_fields=["categories_Name"])
+        return redirect("/manager/showcategories/")
+    return render(request,"updatecategories.html",{'d':data})
+
 
