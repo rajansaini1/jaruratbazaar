@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import make_password,check_password
 
 # Create your views here.
 def index(request):
-    return HttpResponse("<img src=/assets/images/keepbuy.gif/> <a href=/home/>hlo</a>" )
+    return render(request,"index.html")
 def first(request):
     return render(request,"demo.html")
 def pagenotfound(request):
