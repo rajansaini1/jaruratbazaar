@@ -11,13 +11,22 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping data for table jaruratbazaardb.managerapp_productsbrand: ~3 rows (approximately)
-/*!40000 ALTER TABLE `managerapp_productsbrand` DISABLE KEYS */;
-INSERT INTO `managerapp_productsbrand` (`brand_id`, `brand_Name`, `brand_isActive`) VALUES
-	(1, '', 0),
-	(2, 'Addidas', 0),
-	(3, 'Puma', 1);
-/*!40000 ALTER TABLE `managerapp_productsbrand` ENABLE KEYS */;
+-- Dumping structure for table jaruratbazaardb.managerapp_productscategories
+CREATE TABLE IF NOT EXISTS `managerapp_productscategories` (
+  `categories_id` int(11) NOT NULL AUTO_INCREMENT,
+  `categories_Name` varchar(250) NOT NULL,
+  PRIMARY KEY (`categories_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table jaruratbazaardb.managerapp_productscategories: ~1 rows (approximately)
+/*!40000 ALTER TABLE `managerapp_productscategories` DISABLE KEYS */;
+INSERT INTO `managerapp_productscategories` (`categories_id`, `categories_Name`) VALUES
+	(1, 'Man'),
+	(2, 'Women'),
+	(3, 'Kids'),
+	(4, 'Electronics'),
+	(5, 'Home&Living');
+/*!40000 ALTER TABLE `managerapp_productscategories` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
