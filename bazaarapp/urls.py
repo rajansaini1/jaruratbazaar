@@ -15,6 +15,8 @@ urlpatterns=[
     url(r'^logout/$', views.logout),
     url(r'^changepassword/$', views.changepassword),
     url(r'^viewprofile/$', views.showprofile),
-    url(r'^seeprofile/$', views.viewprofile)
+    url(r'^seeprofile/$', views.viewprofile),
+
+
 
 ]
