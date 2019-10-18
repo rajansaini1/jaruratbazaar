@@ -19,12 +19,12 @@ class UserSignup(models.Model):
     userGender=models.CharField(max_length=10,default="")
     userPinCode=models.CharField(max_length=200,default="")
     userDob=models.CharField(max_length=200,default="")
+    userProfile=models.CharField(max_length=255,default="")
     userState=models.CharField(max_length=200,default="")
     userOtp=models.CharField(max_length=200,default="")
     userOtpTime=models.CharField(max_length=200,default="")
     userConfirmationLink=models.CharField(max_length=200,default="")
     userToken=models.CharField(max_length=200,default="")
-
     isActive=models.BooleanField(default=True)
     isAvailable = models.BooleanField(default=True)
     isQueue = models.BooleanField(default=False)

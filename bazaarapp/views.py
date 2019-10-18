@@ -41,34 +41,41 @@ def usersignup(request):
         email = request.POST['email']
         otp, time = mailsend.OtpSend()
         confirmationlink = "127.0.0.1:8000/verifyuser/?email=" + email +"&token=" + otp
-
         form = UserSignupForm(request.POST)
-        if form.is_valid():
-            f=form.save(commit=False)
-            f.userName = request.POST["name"]
-            f.userEmail = email
-            f.userMobile = request.POST["mobile"]
-            f.userPassword =make_password( request.POST["password"])
-            f.userAddress = request.POST["address"]
-            f.userCity = request.POST["city"]
-            f.userGender = request.POST["gender"]
-            f.userPinCode = request.POST["pincode"]
-            f.userDob = request.POST["dob"]
-            f.userState = request.POST["state"]
-            f.isActive = True
-            f.isAvailable = True
-            f.isQueue = False
-            f.isVarified = False
-            f.userToken = otp
-            f.userConfirmationLink = confirmationlink
-            f.userOtp = otp
-            f.userOtpTime = time
-            f.roleid_id =myconstants.USER
-            f.save()
-            mailsend.mail("succesfully done",email,confirmationlink)
-            return render(request, "usersignup.html", {'success': True})
-        else:
-            return HttpResponse("Error")
+        image=None
+        try:
+            if request.FILES["profile"]:
+                my_files = request.FILES["profile"]
+                fs = FileSystemStorage()
+                files_name = fs.save(my_files.name, my_files)
+                image = fs.url(files_name)
+                image = my_files.name
+        except:
+            pass
+        f=form.save(commit=False)
+        f.userName = request.POST["name"]
+        f.userEmail = email
+        f.userMobile = request.POST["mobile"]
+        f.userPassword =make_password( request.POST["password"])
+        f.userAddress = request.POST["address"]
+        f.userCity = request.POST["city"]
+        f.userGender = request.POST["gender"]
+        f.userPinCode = request.POST["pincode"]
+        f.userDob = request.POST["dob"]
+        f.userProfile = image
+        f.userState = request.POST["state"]
+        f.isActive = True
+        f.isAvailable = True
+        f.isQueue = False
+        f.isVarified = False
+        f.userToken = otp
+        f.userConfirmationLink = confirmationlink
+        f.userOtp = otp
+        f.userOtpTime = time
+        f.roleid_id =myconstants.USER
+        f.save()
+        mailsend.mail("succesfully done",email,confirmationlink)
+        return render(request, "usersignup.html", {'success': True})
     return render(request,"usersignup.html" )
 
 
