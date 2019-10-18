@@ -72,7 +72,7 @@ def usersignup(request):
         f.userConfirmationLink = confirmationlink
         f.userOtp = otp
         f.userOtpTime = time
-        f.roleid_id =myconstants.MANAGER
+        f.roleid_id =myconstants.USER
         f.save()
         mailsend.mail("succesfully done",email,confirmationlink)
         return render(request, "usersignup.html", {'success': True})
@@ -100,10 +100,6 @@ def verify(request):
 
     except:
         return render(request, "verified2.html")
-
-
-
-
 
 
 def login(request):
