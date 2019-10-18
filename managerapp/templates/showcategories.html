@@ -10,7 +10,8 @@
         <th>
             ProductCategory Name:
         </th>
-        <th>action</th>
+        <th>Action</th>
+        <th>Action</th>
     </tr>
     {% if showc %}
 
@@ -21,6 +22,7 @@
             {{i.categories_Name}}
         </td>
         <td><a href="/manager/updatecategories/?id={{i.categories_id}}">Edit</a></td>
+        <td><a href="/manager/deletecategories/?id={{i.categories_id}}">Delete</a></td>
     </tr>
 
 

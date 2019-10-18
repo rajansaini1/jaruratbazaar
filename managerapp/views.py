@@ -71,7 +71,40 @@ def updatetype(request):
     data = ProductsType.objects.get(type_id=typeid)
     if request.method == "POST":
         typename=request.POST["name"]
-        updatetype=ProductsType(categories_id=typeid,type_Name=typename)
+        updatetype=ProductsType(type_id=typeid,type_Name=typename)
         updatetype.save(update_fields=["type_Name"])
         return redirect("/manager/showtype/")
     return render(request,"updatetype.html",{'d':data})
+
+
+def updatebrand(request):
+    brandid = request.GET["id"]
+    data = ProductsBrand.objects.get(brand_id=brandid)
+    if request.method == "POST":
+        brandname=request.POST["name"]
+        updatebrand=ProductsBrand(brand_id=brandid,brand_Name=brandname)
+        updatebrand.save(update_fields=["brand_Name"])
+        return redirect("/manager/showbrand/")
+    return render(request,"updatebrand.html",{'d':data})
+
+
+def deletecategories(request):
+        catid = request.GET["id"]
+        data = ProductsCategories.objects.get(categories_id=catid)
+        data.delete()
+        return redirect("/manager/showcategories/")
+
+
+def deletetype(request):
+    catid = request.GET["id"]
+    data = ProductsType.objects.get(type_id=catid)
+    data.delete()
+    return redirect("/manager/showtype/")
+
+
+def deletebrand(request):
+    brandid = request.GET["id"]
+    data = ProductsBrand.objects.get(brand_id=brandid)
+    data.delete()
+    return redirect("/manager/showbrand/")
+

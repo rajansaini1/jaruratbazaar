@@ -17,7 +17,10 @@ url(r'^showtype/$', views.showtype),
 url(r'^showbrand/$', views.showbrand),
 url(r'^updatecategories/$', views.updatecategories),
 url(r'^updatetype/$', views.updatetype),
-
+url(r'^updatebrand/$', views.updatebrand),
+url(r'^deletecategories/$', views.deletecategories),
+url(r'^deletetype/$', views.deletetype),
+url(r'^deletebrand/$', views.deletebrand),
 
 
 ]

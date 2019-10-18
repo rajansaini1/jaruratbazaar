@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'masterpage.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% if ub %}
+    <script>
+        alert("successfully updated")
+    </script>
+    {% endif %}
+    <label>name</label>
+    <input type="text" name="name"><br>
 
-</body>
-</html>
+    <input type="submit" value="updatebrand">
+</form>
+{% endblock %}

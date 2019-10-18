@@ -10,6 +10,8 @@
         <th>
             ProductBrand Name:
         </th>
+        <th>Action</th>
+        <th>Action</th>
     </tr>
     {% if showb %}
     {% for i in showb %}
@@ -18,6 +20,8 @@
         <td >
             {{i.brand_Name}}
         </td>
+        <td><a href="/manager/updatebrand/?id={{i.brand_id}}">Edit</a></td>
+        <td><a href="/manager/deletebrand/?id={{i.brand_id}}">Delete</a></td>
     </tr>
 
 

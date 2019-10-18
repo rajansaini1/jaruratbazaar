@@ -10,6 +10,8 @@
         <th>
             ProductType Name:
         </th>
+        <th>Action</th>
+        <th>Action</th>
     </tr>
     {% if showt %}
     {% for i in showt %}
@@ -18,6 +20,8 @@
         <td >
             {{i.type_Name}}
         </td>
+         <td><a href="/manager/updatetype/?id={{i.type_id}}">Edit</a></td>
+        <td><a href="/manager/deletetype/?id={{i.type_id}}">Delete</a></td>
     </tr>
 
 
