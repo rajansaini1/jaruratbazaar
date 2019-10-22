@@ -30,5 +30,13 @@ class UserSignup(models.Model):
     isQueue = models.BooleanField(default=False)
     isVerified=models.BooleanField(default=False)
 
+class LoginRecord(models.Model):
+    logid=models.AutoField(primary_key=True)
+    loginTime=models.CharField(max_length=255,default="",null=True)
+    logoutTime = models.CharField(max_length=255, default="", null=True)
+    userEmail = models.CharField(max_length=255, default="", null=True)
+    ipAddress = models.CharField(max_length=255, default="", null=True)
+    macAddress = models.CharField(max_length=255, default="", null=True)
+
 
 

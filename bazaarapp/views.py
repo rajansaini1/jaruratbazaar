@@ -1,10 +1,11 @@
 from django.shortcuts import render,HttpResponse,redirect
-from bazaarapp.forms import UserSignupForm
+from bazaarapp.forms import UserSignupForm,LoginRecordForm
 from bazaarapp.models import UserSignup
 from miscellaneous import mailsend,myconstants
 from authorize import authcheck
 from django.core.files.storage import FileSystemStorage,os    #to store image in ,media directory in project--
 from django.contrib.auth.hashers import make_password,check_password
+import datetime as dt
 
 # Create your views here.
 def index(request):
@@ -38,18 +39,18 @@ def home(request):
 
 def usersignup(request):
     if request.method == "POST":
+        form = UserSignupForm(request.POST)
         email = request.POST['email']
         otp, time = mailsend.OtpSend()
         confirmationlink = "127.0.0.1:8000/verifyuser/?email=" + email +"&token=" + otp
-        form = UserSignupForm(request.POST)
-        image=None
+        image= ""
         try:
-            if request.FILES["profile"]:
-                my_files = request.FILES["profile"]
+            if request.FILES:
+                my_file = request.FILES["profile"]
                 fs = FileSystemStorage()
-                files_name = fs.save(my_files.name, my_files)
-                image = fs.url(files_name)
-                image = my_files.name
+                file_name = fs.save(my_file.name, my_file)
+                image = fs.url(file_name)
+                image = my_file.name
         except:
             pass
         f=form.save(commit=False)
@@ -74,11 +75,9 @@ def usersignup(request):
         f.userOtpTime = time
         f.roleid_id =myconstants.USER
         f.save()
-        mailsend.mail("succesfully done",email,confirmationlink)
+        mailsend.mail("succesfully done",email,confirmationlink )
         return render(request, "usersignup.html", {'success': True})
     return render(request,"usersignup.html" )
-
-
 
 def verify(request):
     email=request.GET['email']
@@ -116,6 +115,11 @@ def login(request):
                     request.session['Authentication']=True
                     request.session['email']=email
                     request.session['roleid']=data.roleid_id
+                    records=LoginRecordForm(request.POST)
+                    r=records.save(commit=False)
+                    r.loginTime=dt.datetime.now()
+                    r.userEmail=email
+                    r.save()
                     if(request.session['roleid']==1):
                         return redirect("/manager/")
                     elif (request.session['roleid'] == 2):
