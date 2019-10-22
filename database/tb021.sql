@@ -12,7 +12,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table jaruratbazaardb.bazaarapp_usersignup
-CREATE TABLE IF NOT EXISTS `bazaarapp_usersignup` (
+jaruratbazaardbbazaarapp_usersignupCREATE TABLE IF NOT EXISTS `bazaarapp_usersignup` (
   `userName` varchar(200) NOT NULL,
   `userEmail` varchar(200) NOT NULL,
   `userMobile` varchar(10) NOT NULL,
