@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from bazaarapp.forms import UserSignupForm,LoginRecordForm
-from bazaarapp.models import UserSignup
+from bazaarapp.models import UserSignup,LoginRecord
 from miscellaneous import mailsend,myconstants
 from authorize import authcheck
 from django.core.files.storage import FileSystemStorage,os    #to store image in ,media directory in project--
@@ -140,10 +140,22 @@ def login(request):
 
 
 def logout(request):
+    email=request.session['emailid']
+    data=LoginRecord.objects.filter(userEmil=email).order_by("-id")[0:1]
+    idd=0
+    for i in data:
+        idd=i.id
+        break
     try:
         request.session.pop("Authentication")
         request.session.pop("email")
         request.session.pop("roleid")
+        logoutTime=str(dt.datetime.now())
+        if idd>0:
+            updatedata=LoginRecord(id=idd,logoutTime=logoutTime)
+            updatedata.save(update_fields=["logoutTime"])
+        else:
+            pass
         return redirect("/user/login/")
     except:
         return redirect("/user/login/")
