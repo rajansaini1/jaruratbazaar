@@ -6,6 +6,7 @@ from authorize import authcheck
 from django.core.files.storage import FileSystemStorage,os    #to store image in ,media directory in project--
 from django.contrib.auth.hashers import make_password,check_password
 import datetime as dt
+import uuid,socket
 
 # Create your views here.
 def index(request):
@@ -118,6 +119,9 @@ def login(request):
                     records=LoginRecordForm(request.POST)
                     r=records.save(commit=False)
                     r.loginTime=dt.datetime.now()
+                    r.macAddress=hex(uuid.getnode())
+                    ipname=socket.gethostname()
+                    r.ipAddress=socket.gethostbyname(ipname)
                     r.userEmail=email
                     r.save()
                     if(request.session['roleid']==1):
