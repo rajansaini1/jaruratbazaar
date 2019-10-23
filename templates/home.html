@@ -1,43 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "usermasterpage.html" %}
+{% block content %}
     <script src="/assets/js/mainjquery.js/" type="text/javascript"></script>
     <script src="/assets/js/bootstrap.min.js/" type="text/javascript"></script>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css/" >
-</head>
-<body>
- <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#">JARURATBAZAAR</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active" >
-        <a class="nav-link" href="#">About</a>
-      </li>
+<!-- Start WOWSlider.com BODY section -->
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav><br><br><br>
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+		<li><img src="/assets/data1/images/m12140873darknavyjackjonesoriginalimaf9pgpakqqfzcm.jpg/" alt="m-12140873dark-navy-jack-jones-original-imaf9pgpakqqfzcm" title="m-12140873dark-navy-jack-jones-original-imaf9pgpakqqfzcm" id="wows1_0"/></li>
+		<li><img src="/assets/data1/images/xlbmwdddbenmartinoriginalimafdnm92bw79ktz.jpg/" alt="xl-bmw-ddd-ben-martin-original-imafdnm92bw79ktz" title="xl-bmw-ddd-ben-martin-original-imafdnm92bw79ktz" id="wows1_1"/></li>
+		<li><img src="/assets/data1/images/sm3239sparxwhiteoriginalimaezvxwmp6qz6tg.jpg/" alt="sm323-9-sparx-white-original-imaezvxwmp6qz6tg" title="sm323-9-sparx-white-original-imaezvxwmp6qz6tg" id="wows1_2"/></li>
+		<li><img src="/assets/data1/images/mauw19jkdbtmplncrcampussutraoriginalimafjaqyxyk9fcqf.jpg/" alt="m-auw19-jkdbt-m-pln-cr-campus-sutra-original-imafjaqyxyk9fcqf" title="m-auw19-jkdbt-m-pln-cr-campus-sutra-original-imafjaqyxyk9fcqf" id="wows1_3"/></li>
+		<li><img src="/assets/data1/images/s745350001denizenoriginalimafgg4npzcauuep.jpg/" alt="s-74535-0001-denizen-original-imafgg4npzcauuep" title="s-74535-0001-denizen-original-imafgg4npzcauuep" id="wows1_4"/></li>
+		<li><a href="http://wowslider.net"><img src="/assets/data1/images/miredmi8mzb8251inoriginalimafhyacng8eqqwb.jpg/" alt="jquery slider" title="mi-redmi-8-mzb8251in-original-imafhyacng8eqqwb" id="wows1_5"/></a></li>
+		<li><img src="assetsdata1/images/3feetstuffedspongyhugablecutepandateddybear91cmblackoriginalimafec6bxckp5zcz.jpg/" alt="3-feet-stuffed-spongy-hugable-cute-panda-teddy-bear-91-cm-black-original-imafec6bxckp5zcz" title="3-feet-stuffed-spongy-hugable-cute-panda-teddy-bear-91-cm-black-original-imafec6bxckp5zcz" id="wows1_6"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="m-12140873dark-navy-jack-jones-original-imaf9pgpakqqfzcm"><span><img src="/assets/data1/tooltips/m12140873darknavyjackjonesoriginalimaf9pgpakqqfzcm.jpg/" alt="m-12140873dark-navy-jack-jones-original-imaf9pgpakqqfzcm"/>1</span></a>
+		<a href="#" title="xl-bmw-ddd-ben-martin-original-imafdnm92bw79ktz"><span><img src="/assets/data1/tooltips/xlbmwdddbenmartinoriginalimafdnm92bw79ktz.jpg/" alt="xl-bmw-ddd-ben-martin-original-imafdnm92bw79ktz"/>2</span></a>
+		<a href="#" title="sm323-9-sparx-white-original-imaezvxwmp6qz6tg"><span><img src="/assets/data1/tooltips/sm3239sparxwhiteoriginalimaezvxwmp6qz6tg.jpg/" alt="sm323-9-sparx-white-original-imaezvxwmp6qz6tg"/>3</span></a>
+		<a href="#" title="m-auw19-jkdbt-m-pln-cr-campus-sutra-original-imafjaqyxyk9fcqf"><span><img src="/assets/data1/tooltips/mauw19jkdbtmplncrcampussutraoriginalimafjaqyxyk9fcqf.jpg/" alt="m-auw19-jkdbt-m-pln-cr-campus-sutra-original-imafjaqyxyk9fcqf"/>4</span></a>
+		<a href="#" title="s-74535-0001-denizen-original-imafgg4npzcauuep"><span><img src="/assets/data1/tooltips/s745350001denizenoriginalimafgg4npzcauuep.jpg/" alt="s-74535-0001-denizen-original-imafgg4npzcauuep"/>5</span></a>
+		<a href="#" title="mi-redmi-8-mzb8251in-original-imafhyacng8eqqwb"><span><img src="/assets/data1/tooltips/miredmi8mzb8251inoriginalimafhyacng8eqqwb.jpg/" alt="mi-redmi-8-mzb8251in-original-imafhyacng8eqqwb"/>6</span></a>
+		<a href="#" title="3-feet-stuffed-spongy-hugable-cute-panda-teddy-bear-91-cm-black-original-imafec6bxckp5zcz"><span><img src="/assets/data1/tooltips/3feetstuffedspongyhugablecutepandateddybear91cmblackoriginalimafec6bxckp5zcz.jpg/" alt="3-feet-stuffed-spongy-hugable-cute-panda-teddy-bear-91-cm-black-original-imafec6bxckp5zcz"/>7</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">wow slider</a> by WOWSlider.com v8.8</div>
+<div class="ws_shadow"></div>
+</div>
+<script type="text/javascript" src="/assets/engine1/wowslider.js/"></script>
+<script type="text/javascript" src="/assets/engine1/script.js/"></script>
+<!-- End WOWSlider.com BODY section -->
+
+
+
+
+
+
 
 <div class="bd-example">
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -133,5 +135,4 @@
   </div>
 </div>
 
-</body>
-</html>
+{% endblock %}

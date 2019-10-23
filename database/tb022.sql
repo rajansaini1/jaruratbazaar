@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `bazaarapp_loginrecord` (
 -- Dumping data for table jaruratbazaardb.bazaarapp_loginrecord: ~4 rows (approximately)
 /*!40000 ALTER TABLE `bazaarapp_loginrecord` DISABLE KEYS */;
 INSERT INTO `bazaarapp_loginrecord` (`logid`, `loginTime`, `logoutTime`, `userEmail`, `ipAddress`, `macAddress`) VALUES
-	(1, '', '', '', '', ''),
+	(1jaruratbazaardbbazaarapp_loginrecord, '', '', '', '', ''),
 	(2, '', '', '', '', ''),
 	(3, '2019-10-22 14:06:31.047413', '', 'rajanynrsaini@gmail.com', '', ''),
 	(4, '2019-10-22 16:50:31.878995', '', 'rajanynrsaini@gmail.com', '192.168.137.1', '0xec8eb5fb35be'),
