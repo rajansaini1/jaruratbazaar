@@ -7,7 +7,8 @@ class UserSignupForm(forms.ModelForm):
         exclude=["roleid","userName","userEmail","userMobile","userPassword",
                  "userAddress","userCity","userGender","userPinCode","userDob","userProfile",
                  "userState","userOtp","userOtpTime","userConfirmationLink",
-                 "userToken","isActive","isAvailable","isQueue","isVarified"]
+                 "userToken","isActive","isAvailable","isQueue","isVarified","shopAadhar",
+                 "shopPan","shopGst","shopAddress","shopAadharImage","shopPanImage",]
 
 class LoginRecordForm(forms.ModelForm):
     class Meta():

@@ -52,6 +52,28 @@ def usersignup(request):
                 file_name = fs.save(my_file.name, my_file)
                 image = fs.url(file_name)
                 image = my_file.name
+
+        except:
+            pass
+        aimage=""
+        try:
+            if request.FILES:
+                my_file = request.FILES["aadharimage"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                aimage=fs.url(file_name)
+                aimage=my_file.name
+
+        except:
+            pass
+        pimage=""
+        try:
+            if request.FILES:
+                my_file = request.FILES["panimage"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                pimage = fs.url(file_name)
+                pimage = my_file.name
         except:
             pass
         f=form.save(commit=False)
@@ -66,6 +88,12 @@ def usersignup(request):
         f.userDob = request.POST["dob"]
         f.userProfile = image
         f.userState = request.POST["state"]
+        f.shopAadhar=request.POST["aadharno"]
+        f.shopPan=request.POST["pan"]
+        f.shopGst=request.POST["gst"]
+        f.shopAddress=request.POST["shopaddress"]
+        f.shopAadharImage=aimage
+        f.shopPanImage = pimage
         f.isActive = True
         f.isAvailable = True
         f.isQueue = False
@@ -74,7 +102,7 @@ def usersignup(request):
         f.userConfirmationLink = confirmationlink
         f.userOtp = otp
         f.userOtpTime = time
-        f.roleid_id =myconstants.USER
+        f.roleid_id =request.POST["role"]
         f.save()
         mailsend.mail("succesfully done",email,confirmationlink )
         return render(request, "usersignup.html", {'success': True})
@@ -140,19 +168,20 @@ def login(request):
 
 
 def logout(request):
-    email=request.session['emailid']
-    data=LoginRecord.objects.filter(userEmil=email).order_by("-id")[0:1]
+    email=request.session['email']
+    data=LoginRecord.objects.filter(userEmail=email).order_by("-logid")[0:1]
     idd=0
     for i in data:
-        idd=i.id
+        idd=i.logid
         break
+
     try:
         request.session.pop("Authentication")
         request.session.pop("email")
         request.session.pop("roleid")
         logoutTime=str(dt.datetime.now())
         if idd>0:
-            updatedata=LoginRecord(id=idd,logoutTime=logoutTime)
+            updatedata=LoginRecord(logid=idd,logoutTime=logoutTime)
             updatedata.save(update_fields=["logoutTime"])
         else:
             pass
