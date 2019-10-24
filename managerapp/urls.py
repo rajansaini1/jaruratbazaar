@@ -21,6 +21,7 @@ url(r'^updatebrand/$', views.updatebrand),
 url(r'^deletecategories/$', views.deletecategories),
 url(r'^deletetype/$', views.deletetype),
 url(r'^deletebrand/$', views.deletebrand),
+url(r'^addproducts/$', views.addproducts),
 
 
 ]
