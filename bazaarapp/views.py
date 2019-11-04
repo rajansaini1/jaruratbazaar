@@ -102,7 +102,7 @@ def usersignup(request):
         f.userConfirmationLink = confirmationlink
         f.userOtp = otp
         f.userOtpTime = time
-        f.roleid_id =request.POST["role"]
+        f.roleid_id =request.POST["b1"]
         f.save()
         mailsend.mail("succesfully done",email,confirmationlink )
         return render(request, "usersignup.html", {'success': True})
@@ -156,7 +156,7 @@ def login(request):
                         return redirect("/manager/")
                     elif (request.session['roleid'] == 2):
                         return redirect("/user/")
-                    elif (request.session['roleid'] == 3):
+                    elif (request. session['roleid'] == 3):
                         return redirect("/shopkeeper/")
                 else:
                     return render(request,"login.html",{'wrongpw':True})
