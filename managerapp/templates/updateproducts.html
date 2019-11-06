@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>up</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if d %}
+    <script type="text/javascript">
+        alert("products successfully updated")
+    </script>
+    {% endif %}
+    <label>name</label>
+    <input type="text" name="pname" value="{{d.product_name}}" ><br>
+     <label>description</label>
+    <input type="text" name="description" value="{{d.product_description}}" ><br>
+     <label>size</label>
+    <input type="text" name="size" value="{{d.product_size}}" ><br>
+     <label>size2</label>
+    <input type="text" name="size2" value="{{d.product_size2}}" ><br>
+     <label>size3</label>
+    <input type="text" name="size3" value="{{d.product_size3}}" ><br>
+     <label>size4</label>
+    <input type="text" name="size4" value="{{d.product_size4}}"><br>
+     <label>qty</label>
+    <input type="text" name="qty" value="{{d.product_qty}}" ><br>
+     <label>price</label>
+    <input type="text" name="price" value="{{d.product_price}}" ><br><br>
+     <label>image1</label>
+    <img src="/media/{{d.product_image1}}" height="60px" width="80px"  ><input type="file" name="image1"><br><br>
+     <label>image2</label>
+    <img src="/media/{{d.product_image2}}" height="60px" width="80px" ><input type="file" name="image2"><br><br>
+     <label>image3</label>
+    <img src="/media/{{d.product_image3}}" height="60px" width="80px" ><input type="file" name="image3"><br><br>
+    <label>image4</label>
+    <img src="/media/{{d.product_image4}}" height="60px" width="80px" ><input type="file" name="image4"><br><br>
+    <input type="submit" value="updateproducts">
+</form>
+
+</body>
+</html>

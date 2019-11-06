@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SP</title>
+</head>
+<body>
+<table cellpadding="10" cellspacing="0" border="2px">
+
+    <tr>
+    <th>name</th>
+    <th>description</th>
+    <th>size</th>
+    <th>size2</th>
+    <th>size3</th>
+    <th>size4</th>
+    <th>qty</th>
+    <th>price</th>
+    <th>image1</th>
+    <th>image2</th>
+    <th>image3</th>
+    <th>image4</th>
+    <th>action</th>
+        <th>action</th>
+    </tr>
+
+
+    {% if showpro %}
+    {% for i in showpro %}
+    <tr>
+        <td>{{i.product_name}}</td>
+        <td>{{i.product_description}}</td>
+        <td>{{i.product_size}}</td>
+        <td>{{i.product_size2}}</td>
+        <td>{{i.product_size3}}</td>
+        <td>{{i.product_size4}}</td>
+        <td>{{i.product_qty}}</td>
+        <td>{{i.product_price}}</td>
+        <td><img src="/media/{{i.product_image1}}" height="60px" width="80px"></td>
+        <td><img src="/media/{{i.product_image2}}"  height="60px" width="80px"></td>
+        <td><img src="/media/{{i.product_image3}}"  height="60px" width="80px"></td>
+        <td><img src="/media/{{i.product_image4}}"  height="60px" width="80px" ></td>
+        <td><a href="/manager/updateproducts/?id={{i.product_id}}">Edit</a></td>
+        <td><a href="/manager/deleteproducts/?id={{i.product_id}}">Delete</a></td>
+    </tr>
+
+    {% endfor %}
+    {% endif %}
+
+</table>
+
+
+
+</body>
+</html>

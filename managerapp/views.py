@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from managerapp.forms import ProductsCategoriesForm,ProductsTypeForm,ProductsBrandForm,AddProductsForm
-from managerapp.models import ProductsCategories,ProductsType,ProductsBrand
+from managerapp.models import ProductsCategories,ProductsType,ProductsBrand,Products
 from miscellaneous import mailsend,myconstants
 from django.core.files.storage import FileSystemStorage,os
 from authorize import authcheck
@@ -184,6 +184,85 @@ def addproducts(request):
 
     return render(request,"addproducts.html",{'catg':catg,'typeg':typeg,'brandg':branddata})
 
+def showproducts(request):
+    data=Products.objects.all()
+    return render(request,"showproducts.html",{'showpro':data})
 
+def updateproducts(request):
+    productid=request.GET["id"]
+    data = Products.objects.get(product_id=productid)
+    if request.method=="POST":
+        image1=None
+        try:
+            if request.FILES:
+                my_file = request.FILES["image1"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                image1=fs.url(file_name)
+                image1=my_file.name
+        except:
+            return HttpResponse("not done")
 
+        image2 = None
+        try:
+            if request.FILES:
+                my_file = request.FILES["image2"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                image2 = fs.url(file_name)
+                image2 = my_file.name
+
+        except:
+            pass
+        image3 = None
+        try:
+            if request.FILES:
+                my_file = request.FILES["image3"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                image3 = fs.url(file_name)
+                image3 = my_file.name
+
+        except:
+            pass
+        image4 = None
+        try:
+            if request.FILES:
+                my_file = request.FILES["image4"]
+                fs = FileSystemStorage()
+                file_name = fs.save(my_file.name, my_file)
+                image4 = fs.url(file_name)
+                image4 = my_file.name
+
+        except:
+            pass
+        productname=request.POST["pname"]
+        description=request.POST["description"]
+        size=request.POST["size"]
+        size2 = request.POST["size2"]
+        size3 = request.POST["size3"]
+        size4 = request.POST["size4"]
+        qty=request.POST["qty"]
+        price=request.POST["price"]
+        img1=image1
+        img2 = image2
+        img3 = image3
+        img4 = image4
+        updateproduct=Products(product_id=productid,product_name=productname,product_description=description,
+                               product_size=size,product_size2=size2,product_size3=size3,product_size4=size4,product_qty=qty,
+                               product_price=price,product_image1=img1,product_image2=img2,product_image3=img3,
+                               product_image4=img4)
+        updateproduct.save(update_fields=["product_name","product_description","product_size","product_size2","product_size3",
+                                          "product_size4","product_qty","product_price","product_image1","product_image2",
+                                          "product_image3","product_image4",
+
+        ])
+
+    return render(request,"updateproducts.html",{'d':data})
+
+def deleteproducts(request):
+    productsid=request.GET["id"]
+    data=Products.objects.get(product_id=productsid)
+    data.delete()
+    return redirect("/manager/showproducts/")
 
