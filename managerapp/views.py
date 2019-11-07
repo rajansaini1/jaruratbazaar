@@ -201,7 +201,7 @@ def updateproducts(request):
                 image1=fs.url(file_name)
                 image1=my_file.name
         except:
-            return HttpResponse("not done")
+            pass
 
         image2 = None
         try:
