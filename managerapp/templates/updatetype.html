@@ -1,5 +1,7 @@
 {% extends 'masterpage.html' %}
 {% block content %}
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4" align="center">Updatte Type</h1>
 <form method="post">
     {% csrf_token %}
     {% if ut %}
@@ -7,9 +9,12 @@
         alert("successfully updated")
     </script>
     {% endif %}
-    <label>name</label>
-    <input type="text" name="name"><br>
+    <div>
+    <label>Product Type Name</label>
+    <input type="text" name="name">&nbsp;&nbsp;
 
     <input type="submit" value="updatetype">
+</div>
 </form>
+</div>
 {% endblock %}

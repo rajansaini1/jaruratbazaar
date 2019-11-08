@@ -43,6 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <span class="fa fa-lock"></span>
 <div class="clear"></div>
 <div class="login-agileits-top">
+    <div class="outer-w3-agile mt-3">
 <form action="#" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 {% if success %}
@@ -51,41 +52,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </script>
 
     {% endif %}
-    <input type="radio" value="2" name="b1" id="b1"> user
-    <input type="radio" value="3" name="b1" id="b2"> shopkeeper<br><br>
-     <input type="text" class="name" id="name" name="name" placeholder="Name">
-    <input type="email" class="email" id=email name="email" Placeholder="Useremail" required=""/>
-    <input type="text" class="mobile" id="mobile" name="mobile" placeholder="Mobile">
-    <input type="text" class="address" id="address" name="address" placeholder="Address">
-    <input type="text" class="city" id="city" name="city" placeholder="City">
+    <div style="color:white;">
 
-    <select  style="width:100%;height:50px;" id="state" name="state" class="state">
+    <input type="radio" value="2" name="b1" id="b1"> user
+
+        <input type="radio" value="3" name="b1" id="b2"> shopkeeper</div>
+    <br>
+    <label style="color:white;">Name</label>
+     <input type="text" id="name" name="name" placeholder="Name">
+    <label style="color:white;">Email</label>
+    <input type="email" id=email name="email" Placeholder="Useremail" required=""/>
+    <label style="color:white;">Mobile</label>
+    <input type="text" id="mobile" name="mobile" placeholder="Mobile">
+    <label style="color:white;">Address</label>
+    <input type="text"  id="address" name="address" placeholder="Address">
+    <label style="color:white;">City</label>
+    <input type="text" id="city" name="city" placeholder="City">
+<label style="color:white;">State</label>
+    <select  style="width:320px;height:50px;" class="form-control" id="state" name="state">
         <option selected>Choose...</option>
         <option>Haryana</option>
         <option>Punjab</option>
         <option>Himachal Pradesh</option>
         <option>Delhi</option>
         <option>Chandigarh</option>
-      </select><br><br>
-    <input type="text" class="gender" id="gender" name="gender" placeholder="Gender">
-    <input type="text" class="pincode" id="pincode" name="pincode" placeholder="Pin Code">
-    <input type="text" class="dob" id="dob" name="dob" placeholder="Date of Birth">
+      </select><br>
+    <label style="color:white;">Gender</label>
+    <input type="text" id="gender" name="gender" placeholder="Gender">
+    <label style="color:white;">Pin Code</label>
+    <input type="text" id="pincode" name="pincode" placeholder="Pin Code">
+    <label style="color:white;">Date Of Birth</label>
+    <input type="text" id="dob" name="dob" placeholder="Date of Birth">
+
     <label style="color:white;">Profile</label>
-    <input type="file" class="file" id="file" name="profile" placeholder="profile">
-	<input type="password" class="password" id="password" name="password" Placeholder="Password" required=""/>
+    <input type="file" id="file" name="profile" placeholder="profile">
+    <label style="color:white;">Password</label>
+	<input type="password" id="password" name="password" Placeholder="Password" required=""/>
     <div id="div1">
-        <input type="text" class="aadharno"  name="aadharno" placeholder="AadharCardNo:">
-        <input type="text" class="panno" id="panno" name="pan" placeholder="Pan Card No:">
-        <input type="text" class="gst" id="gst" name="gst" placeholder="GST No:">
-        <input type="text" class="shopaddress" id="shopaddress" name="shopaddress" placeholder="Shop Address">
-        <label>AadharCardImage</label>
-        <input type="file" class="aadharimage" id="aadharimage" name="aadharimage" placeholder="Aadhar Card Image">
-        <label>PanCardImage</label>
-        <input type="file" class="panimage" id="panimage" name="panimage" placeholder="Pan Card Image">
+        <label style="color:white;">Aadhar Card No.</label>
+        <input type="text" name="aadharno" placeholder="AadharCardNo:">
+        <label style="color:white;">PAN Card No.</label>
+        <input type="text"  id="panno" name="pan" placeholder="Pan Card No:">
+        <input type="text"  id="gst" name="gst" placeholder="GST No:">
+        <input type="text" id="shopaddress" name="shopaddress" placeholder="Shop Address">
+        <label style="color:white;">AadharCardImage</label>
+        <input type="file"  id="aadharimage" name="aadharimage" placeholder="Aadhar Card Image">
+        <label style="color:white;">PanCardImage</label>
+        <input type="file" id="panimage" name="panimage" placeholder="Pan Card Image">
     </div>
 	<input type="submit" value="SignUp">
 	</form>
 	</div>
+</div>
 </div>
 </div>
 </div>

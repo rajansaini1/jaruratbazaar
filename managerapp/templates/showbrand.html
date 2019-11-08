@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<table cellspacing="0" cellpadding="10" border="2px solid blue">
-    <tr>
+{% extends 'masterpage.html' %}
+{% block content %}
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4" align="center">Show Categories</h1>
+
+<table cellspacing="0" class="table table-bordered"  cellpadding="10" border="2px solid blue" align="center">
+    <tr class="thead-dark">
         <th>
             ProductBrand Name:
         </th>
@@ -29,6 +27,5 @@
     {% endif %}
 </table>
 
-
-</body>
-</html>
+</div>
+{% endblock %}

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AP</title>
-</head>
-<body>
+{% extends 'masterpage.html' %}
+{% block content %}
+
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4" align="center">Add Product</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% if d %}
@@ -12,8 +10,10 @@
         alert("products added successfully ")
     </script>
     {% endif %}
+<div class="form-row">
+<div class="form-group col-md-4">
     <label>Product category</label>
-<select name="category">
+<select name="category"  class="form-control">
     <option value="-1">Select Category</option>
 
     {% if catg %}
@@ -22,9 +22,10 @@
     {% endfor %}
     {% endif %}
 </select><br>
-
+</div>
+<div class="form-group col-md-4">
     <label>Product Type</label>
-    <select name="type">
+    <select name="type"  class="form-control">
         <option value="-1">Select Type</option>
 
         {% if typeg %}
@@ -33,10 +34,11 @@
         {% endfor %}
         {% endif %}
     </select><br>
-
+</div>
+<div class="form-group col-md-4">
 
     <label>Product Brand</label>
-<select name="brand">
+<select name="brand"  class="form-control">
     <option value="-1">select Brand</option>
     {% if brandg %}
     {% for i in brandg %}
@@ -44,36 +46,73 @@
     {% endfor %}
     {% endif %}
 </select><br>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
 
-
-    <label>product Name</label>
-<input type="text" name="name"><br>
-<label>product description</label>
-<input type="text" name="description"><br>
-<label>size</label>
-<input type="text" name="size"><br>
-<label>size2</label>
-<input type="text" name="size2"><br>
-<label>size3</label>
-<input type="text" name="size3"><br>
-<label>size4</label>
-<input type="text" name="size4"><br>
-<label>product quantity</label>
-<input type="text" name="quantity"><br>
-<label>product price</label>
-<input type="text" name="price"><br>
-<label>product image1</label>
-<input type="file" name="image1"><br>
-<label>product image2</label>
-<input type="file" name="image2"><br>
-<label>product image3</label>
-<input type="file" name="image3"><br>
-<label>product image4</label>
-<input type="file" name="image4"><br>
-
-<input type="submit" value="add products">
-
+    <label>Product Name</label>
+<input type="text" class="form-control" name="name"><br>
+</div>
+<div class="form-group col-md-6">
+<label>Product Description</label>
+<input type="text" class="form-control" name="description"><br>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-3">
+<label>Size</label>
+<input type="text" class="form-control" name="size"><br>
+</div>
+<div class="form-group col-md-3">
+<label>Size2</label>
+<input type="text" class="form-control" name="size2"><br>
+</div>
+<div class="form-group col-md-3">
+<label>Size3</label>
+<input type="text" class="form-control" name="size3"><br>
+</div>
+<div class="form-group col-md-3">
+<label>Size4</label>
+<input type="text" class="form-control" name="size4"><br>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Product Quantity</label>
+<input type="text" class="form-control" name="quantity"><br>
+</div>
+<div class="form-group col-md-6">
+<label>Product Price</label>
+<input type="text" class="form-control" name="price"><br>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Product Image1</label>
+<input type="file" class="form-control" name="image1"><br>
+</div>
+<div class="form-group col-md-6">
+<label>Product Image2</label>
+<input type="file" class="form-control" name="image2"><br>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Product Image3</label>
+<input type="file" class="form-control" name="image3"><br>
+</div>
+<div class="form-group col-md-6">
+<label>Product Image4</label>
+<input type="file" class="form-control" name="image4"><br>
+</div>
+</div>
+<div align="center" class="form-group col-md-12">
+    <input type="submit" value="add products">
+</div>
 </form>
+</div>
+{% endblock %}
 
-</body>
-</html>
+
+

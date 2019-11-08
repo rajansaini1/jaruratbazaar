@@ -1,8 +1,9 @@
 {% extends 'masterpage.html' %}
 {% block content %}
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4">Add Categories</h1>
 
-<form method="POST" style="border:4px solid black;width:600px;padding:50px;display:inline-block;border-radius:23px;
-          background-color:skyblue;position:relative;left:400px;color:white;align:center;">
+<form method="POST" class="form-inline">
     {% csrf_token %}
     {% if wc %}
     <script type="text/javascript">
@@ -12,15 +13,18 @@
 
 
 
+<div>
 
-<div><h1>Add Categories</h1></div>
-  <div class="form-group col-sm-8">
-    <label for="exampleInputCat">Add Categories</label>
     <input type="text" class="form-control" id="exampleInputCat" aria-describedby="emailHelp" name="category" placeholder="Enter Prouduct Category">
+</div>&nbsp;&nbsp;
 
-  </div>
 
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+</div>
+
+
+
 {% endblock %}

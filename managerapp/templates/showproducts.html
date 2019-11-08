@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SP</title>
-</head>
-<body>
-<table cellpadding="10" cellspacing="0" border="2px">
+{% extends 'masterpage.html' %}
+{% block content %}
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4" align="center">Show Products</h1>
+<table  class="table table-bordered" cellpadding="6" cellspacing="0" border="1px">
 
-    <tr>
-    <th>name</th>
-    <th>description</th>
-    <th>size</th>
-    <th>size2</th>
-    <th>size3</th>
-    <th>size4</th>
-    <th>qty</th>
-    <th>price</th>
-    <th>image1</th>
-    <th>image2</th>
-    <th>image3</th>
-    <th>image4</th>
-    <th>action</th>
-        <th>action</th>
+    <tr class="thead-dark">
+    <th>Name</th>
+    <th>Description</th>
+    <th>Size</th>
+    <th>Size2</th>
+    <th>Size3</th>
+    <th>Size4</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Image1</th>
+    <th>Image2</th>
+    <th>Image3</th>
+    <th>Image4</th>
+    <th>Action</th>
+
     </tr>
 
 
@@ -36,12 +33,12 @@
         <td>{{i.product_size4}}</td>
         <td>{{i.product_qty}}</td>
         <td>{{i.product_price}}</td>
-        <td><img src="/media/{{i.product_image1}}" height="60px" width="80px"></td>
-        <td><img src="/media/{{i.product_image2}}"  height="60px" width="80px"></td>
-        <td><img src="/media/{{i.product_image3}}"  height="60px" width="80px"></td>
-        <td><img src="/media/{{i.product_image4}}"  height="60px" width="80px" ></td>
-        <td><a href="/manager/updateproducts/?id={{i.product_id}}">Edit</a></td>
-        <td><a href="/manager/deleteproducts/?id={{i.product_id}}">Delete</a></td>
+        <td><img src="/media/{{i.product_image1}}" height="50px" width="60px"></td>
+        <td><img src="/media/{{i.product_image2}}"  height="50px" width="60px"></td>
+        <td><img src="/media/{{i.product_image3}}"  height="50px" width="60px"></td>
+        <td><img src="/media/{{i.product_image4}}"  height="50px" width="60px" ></td>
+        <td><a href="/manager/updateproducts/?id={{i.product_id}}">Edit</a><br>
+            <a href="/manager/deleteproducts/?id={{i.product_id}}">Delete</a></td>
     </tr>
 
     {% endfor %}
@@ -50,6 +47,5 @@
 </table>
 
 
-
-</body>
-</html>
+</div>
+{% endblock %}
