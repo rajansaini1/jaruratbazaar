@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table cellpadding="10" cellspacing="0" border="3px" >
+    <tr>
+        <th>Name</th>
+    <th>Description</th>
+    <th>Size</th>
+    <th>Size2</th>
+    <th>Size3</th>
+    <th>Size4</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Image1</th>
+    <th>Image2</th>
+    <th>Image3</th>
+    <th>Image4</th>
+        <th>Action</th>
+    </tr>
+    {% if showshop %}
+    {% for i in showshop %}
+
+    <tr>
+        <td>{{i.product_name}}</td>
+        <td>{{i.product_description}}</td>
+        <td>{{i.product_size}}</td>
+        <td>{{i.product_size2}}</td>
+        <td>{{i.product_size3}}</td>
+        <td>{{i.product_size4}}</td>
+        <td>{{i.product_qty}}</td>
+        <td>{{i.product_price}}</td>
+        <td><img src="/media/{{i.product_image1}}" height="50px" width="60px"></td>
+        <td><img src="/media/{{i.product_image2}}"  height="50px" width="60px"></td>
+        <td><img src="/media/{{i.product_image3}}"  height="50px" width="60px"></td>
+        <td><img src="/media/{{i.product_image4}}"  height="50px" width="60px" ></td>
+        <td><a href="/shopkeeper/showshopproducts/?id={{ i.product_id }}">Delete</a><br>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+
+</body>
+</html>

@@ -9,5 +9,6 @@ urlpatterns=[
 
 
 url(r'^$', views.shopkeeper),
+url(r'^showshopproducts/$',views.showshopproducts),
 
 ]

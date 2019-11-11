@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from miscellaneous import mailsend,myconstants
-
+from managerapp.models import Products
+from managerapp.views import updateproducts
 # Create your views here.
 from authorize import authcheck
 
@@ -21,3 +22,14 @@ def shopkeeper(request):
                 return redirect("/user/notlogin/")
     except:
         return redirect("/user/notlogin/")
+
+
+def showshopproducts(request):
+    data=Products.objects.filter(user_email=request.session['email'])
+    return render(request,"showshopproducts.html",{'showshop':data})
+
+def deleteproducts(request):
+    productsid=request.GET["id"]
+    data=Products.objects.get(product_id=productsid)
+    data.delete()
+    return redirect("/shopkeeper/showshopproducts/")

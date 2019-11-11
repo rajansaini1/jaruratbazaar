@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from bazaarapp.forms import UserSignupForm,LoginRecordForm
 from bazaarapp.models import UserSignup,LoginRecord
+from managerapp.models import Products
 from miscellaneous import mailsend,myconstants
 from authorize import authcheck
 from django.core.files.storage import FileSystemStorage,os    #to store image in ,media directory in project--
@@ -235,3 +236,9 @@ def viewprofile(request):
     seedata = UserSignup.objects.get(userEmail=email)
     return render(request,"seeprofile.html",{'v':seedata})
 
+def mantype(request):
+    data=Products.objects.filter()
+    return render(request,"usermasterpage.html",{'d1':data})
+def mancloths(request):
+    data=Products.objects.filter(productstype=7)
+    return render(request,"mancloths.html",{'d':data})
