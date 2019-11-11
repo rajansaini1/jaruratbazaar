@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/',include('bazaarapp.urls')),
     url(r'^manager/',include('managerapp.urls')),
+    url(r'^shopkeeper/',include('shopkeeperapp.urls')),
     url(r'^$',views.index),
     url(r'^verifyuser/$', views.verify),
     url(r'^demo/$',views.first),
