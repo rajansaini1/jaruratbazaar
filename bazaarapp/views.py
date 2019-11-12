@@ -8,10 +8,27 @@ from django.core.files.storage import FileSystemStorage,os    #to store image in
 from django.contrib.auth.hashers import make_password,check_password
 import datetime as dt
 import uuid,socket
+from managerapp.models import Products
 
 # Create your views here.
 def index(request):
-    return render(request,"index.html")
+    latestmen=Products.objects.filter(productcategory_id=9).order_by('-product_id')[0:1]
+    latestmencollection = Products.objects.filter(productcategory_id=9).order_by('product_id')[0:1]
+    latestmencollection1 = Products.objects.filter(productcategory_id=9).order_by('-product_id')[4:5]
+    latestmencollection2 = Products.objects.filter(productcategory_id=9).order_by('-product_id')[2:3]
+
+    latestwomen = Products.objects.filter(productcategory_id=10).order_by('-product_id')[0:1]
+    latestwomencollection = Products.objects.filter(productcategory_id=10).order_by('-product_id')[2:4]
+
+    latestkids = Products.objects.filter(productcategory_id=11).order_by('-product_id')[2:3]
+    latestkidcollection = Products.objects.filter(productcategory_id=11).order_by('-product_id')[1:2]
+
+    return render(request,"index.html",{'lm':latestmen,'lm1':latestmencollection,'lm2': latestmencollection1,'lm3':latestmencollection2, 'lmgirl': latestwomen,
+                                        'lmgkids': latestkids,'lmgirl1':latestwomencollection,'imgkids1': latestkidcollection,
+                                        })
+
+
+
 def first(request):
     return render(request,"demo.html")
 def pagenotfound(request):

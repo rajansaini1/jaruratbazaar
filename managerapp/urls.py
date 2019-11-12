@@ -9,6 +9,8 @@ urlpatterns=[
 
 
 url(r'^$', views.manager),
+url(r'^viewyourprofile/$', views.viewyourprofile),
+url(r'^updateyourprofile/$', views.updateyourprofile),
 url(r'^productscategories/$', views.productscategories),
 url(r'^productstype/$', views.productstype),
 url(r'^productsbrand/$', views.productsbrand),
@@ -25,6 +27,7 @@ url(r'^addproducts/$', views.addproducts),
 url(r'^updateproducts/$', views.updateproducts),
 url(r'^showproducts/$', views.showproducts),
 url(r'^deleteproducts/$', views.deleteproducts),
+
 
 
 ]

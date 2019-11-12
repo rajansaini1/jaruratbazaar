@@ -48,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!-- nav -->
                 <nav class="py-2">
                     <div id="logo">
-                        <h1> <a class="navbar-brand" href="/user/index/">Jarurat<span>Baazar</span> </a>
+                        <h1> <a class="navbar-brand" href="/index/">Jarurat<span>Bazaar</span> </a>
                         </h1>
                     </div>
 
@@ -102,8 +102,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     <section id="content1">
                         <div class="row">
+
                             <div class="col-lg-6">
-                                <img src="/assets/home/images/man.jpg/" class="img-fluid" alt="mobile-image">
+                                <div>
+
+                                    {% for i in lm %}
+                                    <h1>
+                                        {{ i.product_name }}
+                                        </h1>
+
+
+                            </div>
+                                <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="mobile-image">
                             </div>
 
                             <div class="col-lg-6  p-3">
@@ -113,27 +123,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <br>
                                 <div>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/man2.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image2 }}" class="img-fluid" alt="mobile-image">
                                 </div><br>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/man3.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image3 }}" class="img-fluid" alt="mobile-image">
                                 </div><br>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/man4.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image4 }}" class="img-fluid" alt="mobile-image">
                                 </div>
                                 </div>
 
                             </div>
                         </div>
                     </section>
-
+{% endfor %}
 
 
 
                     <section id="content2">
                         <div class="row">
                               <div class="col-lg-6">
-                                <img src="/assets/home/images/girl1.jpg/" class="img-fluid" alt="mobile-image">
+                                  <div>
+
+                                    {% for i in lmgirl %}
+                                    <h1>
+                                        {{ i.product_name }}
+                                        </h1>
+
+
+                            </div>
+                                <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="mobile-image">
                               </div>
                             <div class="col-lg-6 p-3">
 
@@ -143,10 +162,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                  </div><br>
                                  <div>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/girl1.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image2 }}" class="img-fluid" alt="mobile-image">
                                 </div><br>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/girl1.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image2 }}" class="img-fluid" alt="mobile-image">
+                                </div><br>
+                                     <div class="col-lg-3">
+                                <img src="/media/{{ i.product_image3 }}" class="img-fluid" alt="mobile-image">
                                 </div><br>
 
                                 </div>
@@ -157,13 +179,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
                     </section>
+                    {% endfor %}
 
                     <section id="content3">
                         <div class="row">
                             <div class="col-lg-6">
-                                <img src="/assets/home/images/kids.jpg/" class="img-fluid" alt="mobile-image">
+                                 <div>
+
+                                    {% for i in lmgkids %}
+                                    <h1>
+                                        {{ i.product_name }}
+                                        </h1>
+
+
+                            </div>
+                                <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="mobile-image">
                             </div>
                             <div class="col-lg-6 p-3">
+
 
                              <div class="text-center">
                                      <a href="/user/login/" class="btn" style="background:red";>Buy Now</a>
@@ -172,107 +205,124 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <br>
                                  <div>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/kids.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="mobile-image">
                                 </div><br>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/kids.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image2 }}" class="img-fluid" alt="mobile-image">
                                 </div><br>
                                 <div class="col-lg-3">
-                                <img src="/assets/home/images/kids.jpg/" class="img-fluid" alt="mobile-image">
+                                <img src="/media/{{ i.product_image3 }}" class="img-fluid" alt="mobile-image">
                                 </div>
                                 </div>
                             </div>
                         </div>
                     </section>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </section>
     <!--/tabs-->
     <!-- /skills -->
-    <section class="skills-w3pvt py-5" id="skills">
-        <div class="container py-md-5">
-            <div class="row">
-                <div class="col-lg-6 progress-content text-left">
-                    <div class="py-lg-3 px-lg-5 p-md-5 p-3">
-                        <div class="progress-w3ls mt-5">
-                            <div class="progress-one">
-                                <h4 class="progress-wthree">Simple Websites</h4>
+<!--    <section class="skills-w3pvt py-5" id="skills">-->
+<!--        <div class="container py-md-5">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-6 progress-content text-left">-->
+<!--                    <div class="py-lg-3 px-lg-5 p-md-5 p-3">-->
+<!--                        <div class="progress-w3ls mt-5">-->
+<!--                            <div class="progress-one">-->
+<!--                                <h4 class="progress-wthree">Simple Websites</h4>-->
 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="progress-one">
-                                <h4 class="progress-wthree">Online Marketing</h4>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="progress-one">
-                                <h4 class="progress-wthree">Social Media</h4>
+<!--                            <div class="progress-one">-->
+<!--                                <h4 class="progress-wthree">Online Marketing</h4>-->
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="progress-one">-->
+<!--                                <h4 class="progress-wthree">Social Media</h4>-->
 
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="progress-one">
-                                <h4 class="progress-wthree">24/7 support</h4>
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="progress-one">-->
+<!--                                <h4 class="progress-wthree">24/7 support</h4>-->
 
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 progress-content-img">
-                    <h3 class="title-w3ls mb-3"></h3>
-                    <img src="/assets/home/images/girl1.jpg/" alt="" class="img-fluid image1">
-                    <p class="mt-3">        </p>
-                </div>
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 progress-content-img">-->
+<!--                    <h3 class="title-w3ls mb-3"></h3>-->
+<!--                    <img src="/assets/home/images/girl1.jpg/" alt="" class="img-fluid image1">-->
+<!--                    <p class="mt-3">        </p>-->
+<!--                </div>-->
 
 
-            </div>
-        </div>
-    </section>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     <!-- /skills -->
     <!--//team -->
 
-
-
-
-
-
-
     <section class="banner-bottom py-lg-5 py-4">
-        <div class="container">
+        <div class="product-thumball">
+             <div>
+                 {% for i in lm1 %}
+                 <h1>
+                     {{ i.product_name }}
+                 </h1>
+             </div>
             <div class="row mt-lg-5 mt-4">
                 <div class="col-md-4 team-gd text-center">
-                    <div class="team-img mb-4">
-                        <img src="assets/home/images/team1.jpg" class="img-fluid" alt="user-image">
+                    <div class="team-img mb-4" >
+
+
+                        <img src="/media/{{ i.product_image1 }}" height="400px" width="400px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
                         <h3 class="mt-md-4 mt-3">Men Wearing</h3>
 
                     </div>
                 </div>
-
+{% endfor %}
+                <div>
+                 {% for i in lm2 %}
+                 <h1>
+                     {{ i.product_name }}
+                 </h1>
+             </div>
                 <div class="col-md-4 team-gd second text-center">
-                    <div class="team-img mb-4">
-                        <img src="/assets/home/images/girl.jpg/" class="img-fluid" alt="user-image">
+                    <div class="team-img mb-4" >
+                        <img src="/media/{{ i.product_image1 }}" height="400px" width="400px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Women Wearing</h3>
+                        <h3 class="mt-md-4 mt-3">Men Wearing</h3>
                     </div>
                 </div>
+                {% endfor %}
+             <div>
+                 {% for i in lm3 %}
+                 <h1>
+                     {{ i.product_name }}
+                 </h1>
+             </div>
+
                 <div class="col-md-4 team-gd text-center">
                     <div class="team-img mb-4">
-                        <img src="/assets/home/images/panda.jpg/" class="img-fluid" alt="user-image">
+                        <img src="/media/{{ i.product_image1 }}" height="400px" width="400px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Kids&Baby</h3>
+                        <h3 class="mt-md-4 mt-3">Men Wearing</h3>
 
 
                     </div>
@@ -281,38 +331,109 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
     </section>
+{% endfor %}
 
 
 
 
 
      <section class="banner-bottom py-lg-5 py-4">
-        <div class="container">
+        <div class="product-thumball">
+             <div>
+
+                                    {% for i in lmgirl %}
+                                    <h1>
+                                        {{ i.product_name }}
+                                        </h1>
+                         </div>
             <div class="row mt-lg-5 mt-4">
                 <div class="col-md-4 team-gd text-center">
                     <div class="team-img mb-4">
-                        <img src="assets/home/images/A50.jpg" class="img-fluid" alt="user-image">
+
+
+                        <img src="/media/{{ i.product_image1 }}" height="400px" width="400px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Samsung A50</h3>
+                        <h3 class="mt-md-4 mt-3">footwear </h3>
+
+                    </div>
+                </div>
+                {% endfor %}
+                <div>
+                 {% for i in imgkids %}
+                 <h1>
+                     {{ i.product_name }}
+                 </h1>
+                 </div>
+                <div class="col-md-4 team-gd second text-center">
+                    <div class="team-img mb-4">
+                        <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="user-image">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="mt-md-4 mt-3">footwear</h3>
+                    </div>
+                </div>
+                {% endfor %}
+                <div>
+                 {% for i in imgkids1 %}
+                 <h1>
+                     {{ i.product_name }}
+                 </h1>
+             </div>
+                <div class="col-md-4 team-gd text-center">
+                    <div class="team-img mb-4">
+                        <img src="/media/{{ i.product_image3 }}" class="img-fluid" alt="user-image">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="mt-md-4 mt-3">footwear</h3>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+{% endfor %}
+
+    <section class="banner-bottom py-lg-5 py-4">
+        <div class="container">
+             <div>
+
+                                    {% for i in lmgirl1 %}
+                                    <h1>
+                                        {{ i.product_name }}
+                                        </h1>
+                         </div>
+            <div class="row mt-lg-5 mt-4">
+                <div class="col-md-4 team-gd text-center">
+                    <div class="team-img mb-4">
+
+
+                        <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="user-image">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="mt-md-4 mt-3">footwear </h3>
 
                     </div>
                 </div>
 
                 <div class="col-md-4 team-gd second text-center">
                     <div class="team-img mb-4">
-                        <img src="/assets/home/images/A20.jpg/" class="img-fluid" alt="user-image">
+                        <img src="/media/{{ i.product_image2 }}" class="img-fluid" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Samsung A20</h3>
+                        <h3 class="mt-md-4 mt-3">footwear</h3>
                     </div>
                 </div>
                 <div class="col-md-4 team-gd text-center">
                     <div class="team-img mb-4">
-                        <img src="/assets/home/images/redmi8.jpg/" class="img-fluid" alt="user-image">
+                        <img src="/media/{{ i.product_image3 }}" class="img-fluid" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Redmi 8</h3>
+                        <h3 class="mt-md-4 mt-3">footwear</h3>
 
 
                     </div>
@@ -321,37 +442,44 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
     </section>
+{% endfor %}
 
-
-
-
-     <section class="banner-bottom py-lg-5 py-4">
+        <section class="banner-bottom py-lg-5 py-4">
         <div class="container">
+             <div>
+
+                                    {% for i in lmgirl1 %}
+                                    <h1>
+                                        {{ i.product_name }}
+                                        </h1>
+                         </div>
             <div class="row mt-lg-5 mt-4">
                 <div class="col-md-4 team-gd text-center">
                     <div class="team-img mb-4">
-                        <img src="assets/home/images/doll.jpg" class="img-fluid" alt="user-image">
+
+
+                        <img src="/media/{{ i.product_image1 }}" class="img-fluid" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Barbie Doll</h3>
+                        <h3 class="mt-md-4 mt-3">footwear </h3>
 
                     </div>
                 </div>
 
                 <div class="col-md-4 team-gd second text-center">
                     <div class="team-img mb-4">
-                        <img src="/assets/home/images/saree.jpg/" class="img-fluid" alt="user-image">
+                        <img src="/media/{{ i.product_image2 }}" class="img-fluid" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Sarees</h3>
+                        <h3 class="mt-md-4 mt-3">footwear</h3>
                     </div>
                 </div>
                 <div class="col-md-4 team-gd text-center">
                     <div class="team-img mb-4">
-                        <img src="/assets/home/images/girll.jpg/" class="img-fluid" alt="user-image">
+                        <img src="/media/{{ i.product_image3 }}" class="img-fluid" alt="user-image">
                     </div>
                     <div class="team-info">
-                        <h3 class="mt-md-4 mt-3">Girl's Outfit</h3>
+                        <h3 class="mt-md-4 mt-3">footwear</h3>
 
 
                     </div>
@@ -359,7 +487,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
         </div>
+
     </section>
+{% endfor %}
+
 
 
     <!-- contact -->

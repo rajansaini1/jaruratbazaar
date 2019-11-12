@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'masterpage.html' %}
+{% block content %}
 <table cellpadding="10" cellspacing="0" border="3px" >
     <tr>
         <th>Name</th>
@@ -19,7 +14,8 @@
     <th>Image2</th>
     <th>Image3</th>
     <th>Image4</th>
-        <th>Action</th>
+    <th>Action</th>
+    <th>Action</th>
     </tr>
     {% if showshop %}
     {% for i in showshop %}
@@ -37,11 +33,11 @@
         <td><img src="/media/{{i.product_image2}}"  height="50px" width="60px"></td>
         <td><img src="/media/{{i.product_image3}}"  height="50px" width="60px"></td>
         <td><img src="/media/{{i.product_image4}}"  height="50px" width="60px" ></td>
-        <td><a href="/shopkeeper/showshopproducts/?id={{ i.product_id }}">Delete</a><br>
+        <td><a href="/shopkeeper/deleteproducts/?id={{ i.product_id }}">Delete</a>
+        <td><a href="/manager/updateproducts/?id={{ i.product_id }}">Edit</a>
     </tr>
     {% endfor %}
     {% endif %}
 </table>
 
-</body>
-</html>
+{% endblock %}

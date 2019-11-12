@@ -68,16 +68,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="active">
                     <a href="../manager/">
                         <i class="fas fa-th-large"></i>
-                        HELLO ADMIN
+                        WELCOME
                     </a>
                 </li>
+
                   <li>
                     <a href="/manager/addproducts/">
                         <i class="fas fa-th"></i>
                         ADD PRODUCTS
                     </a>
                 </li>
-
+                {% if request.session.roleid == 1 %}
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="fas fa-laptop"></i>
@@ -114,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
                         <li>
-                            <a href="/manager/showcategorie/">SHOW CATEGORIES</a>
+                            <a href="/manager/showcategories/">SHOW CATEGORIES</a>
                         </li>
                         <li>
                             <a href="/manager/showtype/">SHOW TYPES</a>
@@ -124,27 +125,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                     </ul>
                 </li>
-
-
+                {% endif %}
+                {% if request.session.roleid == 3 %}
                 <li>
-                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
-                        <i class="far fa-file"></i>
-                        SHOW PRODUCT's DETAIL
-                        <i class="fas fa-angle-down fa-pull-right"></i>
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu2">
-                        <li>
-                            <a href="/shopkeeper/showshopproducts/">SHOW CATEGORIES</a>
-                        </li>
-                        <li>
-                            <a href="/manager/showtype/">SHOW TYPES</a>
-                        </li>
-                        <li>
-                            <a href="/manager/showbrand/">SHOW BRANDS</a>
-                        </li>
-                    </ul>
+                    <a href="/shopkeeper/showshopproducts/">VIEW PRODUCTS</a>
                 </li>
 
+                {% endif %}
 
                 <li>
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
@@ -154,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
                         <li>
-                            <a href="/user/seeprofile/">EDIT PROFILE</a>
+                            <a href="/manager/viewyourprofile/">EDIT PROFILE</a>
                         </li>
                         <li>
                             <a href="/user/changepassword/">FORGOT PASSWORD</a>

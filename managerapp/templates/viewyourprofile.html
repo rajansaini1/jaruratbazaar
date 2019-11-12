@@ -1,0 +1,68 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {% if v1 %}
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">Name</label>
+      <input type="text" class="form-control" value="{{v1.userName}}" name="name" id="inputname4" readonly >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">Email</label>
+      <input type="email" class="form-control" value="{{v1.userEmail}}" name="email" readonly id="inputemail4" >
+    </div>
+   </div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">Mobile</label>
+      <input type="text" class="form-control" value="{{v1.userMobile}}" name="mobile"  readonly >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">Address</label>
+      <input type="email" class="form-control" value="{{v1.userAddress}}" name="address" readonly  >
+    </div>
+   </div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">City</label>
+      <input type="text" class="form-control" value="{{v1.userCity}}" name="city"  readonly >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">Gender</label>
+      <input type="email" class="form-control" value="{{v1.userGender}}" name="gender" readonly  >
+    </div>
+   </div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">Pin Code</label>
+      <input type="text" class="form-control" value="{{v1.userPinCode}}" name="pincode"  readonly >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">DOB</label>
+      <input type="email" class="form-control" value="{{v1.userDob}}" name="dob" readonly >
+    </div>
+   </div>
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">State</label>
+      <input type="email" class="form-control" value="{{v1.userState}}" name="state" readonly  >
+    </div>
+   </div>
+<a href="/manager/updateyourprofile/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a>
+
+
+    {% endif %}
+</form>
+
+{% endblock %}

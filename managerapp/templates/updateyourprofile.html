@@ -1,0 +1,69 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% if update %}
+    <script type="text/javascript">
+        alert("profile updated")
+    </script>
+    {% endif %}
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">Name</label>
+      <input type="text" class="form-control" value="{{d1.userName}}" name="name" id="inputname4"  >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">Email</label>
+      <input type="email" class="form-control" value="{{d1.userEmail}}" name="email" readonly id="inputemail4" >
+    </div>
+   </div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">Mobile</label>
+      <input type="text" class="form-control" value="{{d1.userMobile}}" name="mobile"   >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">Address</label>
+      <input type="email" class="form-control" value="{{d1.userAddress}}" name="address"   >
+    </div>
+   </div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">City</label>
+      <input type="text" class="form-control" value="{{d1.userCity}}" name="city"   >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">Gender</label>
+      <input type="email" class="form-control" value="{{d1.userGender}}" name="gender"  >
+    </div>
+   </div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputname4">Pin Code</label>
+      <input type="text" class="form-control" value="{{d1.userPinCode}}" name="pincode"   >
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">DOB</label>
+      <input type="email" class="form-control" value="{{d1.userDob}}" name="dob" >
+    </div>
+   </div>
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail4">State</label>
+      <input type="email" class="form-control" value="{{d1.userState}}" name="state"   >
+    </div>
+   </div>
+<input class="btn btn-primary" type="submit" value="Update Profile">
+
+</form>
+
+{% endblock %}

@@ -5,6 +5,7 @@ from miscellaneous import mailsend,myconstants
 from django.core.files.storage import FileSystemStorage,os
 from authorize import authcheck
 import datetime as dt
+from bazaarapp.models import UserSignup
 # Create your views here.
 def manager(request):
     try:
@@ -22,6 +23,36 @@ def manager(request):
                 return redirect("/user/notlogin/")
     except:
         return redirect("/user/notlogin/")
+
+def viewyourprofile(request):
+    email = request.session['email']
+    seedata = UserSignup.objects.get(userEmail=email)
+    return render(request,"viewyourprofile.html",{'v1':seedata})
+
+def updateyourprofile(request):
+    email=request.session['email']
+    data=UserSignup.objects.get(userEmail=email)
+    if(request.method=="POST"):
+        confirmationlink ="congrats! Your profile is updated successfully"
+        emailid=request.POST["email"]
+        name=request.POST["name"]
+        mobile=request.POST["mobile"]
+        address=request.POST["address"]
+        city=request.POST["city"]
+        gender = request.POST["gender"]
+        pincode = request.POST["pincode"]
+        dob = request.POST["dob"]
+        state=request.POST["state"]
+        updatedata=UserSignup(userEmail=emailid,userName=name,userMobile=mobile,userAddress=address,userCity=city,
+                              userGender=gender, userPinCode=pincode,userDob=dob,userState=state)
+        updatedata.save(update_fields=["userMobile","userName","userAddress","userGender","userPinCode",
+                                       "userDob","userState"])
+        mailsend.mail("Profile Edit", email, confirmationlink)
+        return render(request,"updateyourprofile.html",{'update':True, 'd1':data})
+    return render(request,"updateyourprofile.html",{'d1':data})
+
+
+
 
 def productscategories(request):
     form = ProductsCategoriesForm(request.POST)
