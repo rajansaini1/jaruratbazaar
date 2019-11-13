@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `managerapp_products` (
   CONSTRAINT `managerapp_products_brand_id_cd103159_fk_managerap` FOREIGN KEY (`brand_id`) REFERENCES `managerapp_productsbrand` (`brand_id`),
   CONSTRAINT `managerapp_products_productcategory_id_1f66a185_fk_managerap` FOREIGN KEY (`productcategory_id`) REFERENCES `managerapp_productscategories` (`categories_id`),
   CONSTRAINT `managerapp_products_productstype_id_be466a2c_fk_managerap` FOREIGN KEY (`productstype_id`) REFERENCES `managerapp_productstype` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
--- Dumping data for table jaruratbazaardb.managerapp_products: ~19 rows (approximately)
+-- Dumping data for table jaruratbazaardb.managerapp_products: ~20 rows (approximately)
 /*!40000 ALTER TABLE `managerapp_products` DISABLE KEYS */;
 INSERT INTO `managerapp_products` (`product_id`, `product_name`, `product_description`, `product_size`, `product_size2`, `product_size3`, `product_size4`, `product_qty`, `product_price`, `product_image1`, `product_image2`, `product_image3`, `product_image4`, `product_isactive`, `product_creation_date`, `brand_id`, `productcategory_id`, `productstype_id`, `user_email_id`) VALUES
 	(32, 'Boy\'Hoodie', 'Boy\'s Hoodie', 'S', 'M', 'L', 'XL', 4, 2200, 'boyhud.jpg', 'boyhud2.jpg', 'boyhud3.jpg', 'boyhud4.jpg', 1, '2019-11-07 22:03:38.815317', 11, 9, 7, 'sainimanraj01@gmail.com'),
@@ -64,7 +64,7 @@ INSERT INTO `managerapp_products` (`product_id`, `product_name`, `product_descri
 	(50, 'Samsung A20', '', '6.4 inch', '', '', '', 4, 16000, 'A20.jpg', 'A202.jpg', 'A203.jpg', 'A204.jpg', 1, '2019-11-07 23:37:24.486496', 54, 12, 13, 'sainimanraj01@gmail.com'),
 	(51, 'Xiaomi Redmi 8', '', '6.2 inch', '', '', '', 2, 18000, 'redmi8.jpg', 'redmi82.jpg', 'redmi83.jpg', 'redmi84.jpg', 1, '2019-11-07 23:39:44.555284', 55, 12, 13, 'sainimanraj01@gmail.com'),
 	(52, 'Samsung A50', '', '7.7mm', '', '', '', 2, 22000, 'A50 .jpg', 'A502.jpg', 'A503.jpg', 'A504.jpg', 1, '2019-11-07 23:42:37.168576', 54, 12, 13, 'sainimanraj01@gmail.com'),
-	(53, 'Samsung A50', '', '7.7mm', '', '', '', 2, 22000, 'A50 .jpg', 'A502.jpg', 'A503.jpg', 'A504.jpg', 1, '2019-11-07 23:46:15.572989', 54, 12, 13, 'sainimanraj01@gmail.com');
+	(59, 'testing', 'testing products', '4', '5', '5', '7', 88, 13333, 'card1.jpg', 'thomas-kelley-JoH60FhTp50-unsplash.jpg', 'thomas-kelley-JoH60FhTp50-unsplash.jpg', 'card2.jpg', 1, '2019-11-11 09:56:11.426914', 17, 11, 11, 'tusharsaini503@gmail.com');
 /*!40000 ALTER TABLE `managerapp_products` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -216,7 +216,7 @@ def addproducts(request):
     return render(request,"addproducts.html",{'catg':catg,'typeg':typeg,'brandg':branddata})
 
 def showproducts(request):
-    data=Products.objects.all()
+    data=Products.objects.filter(user_email=request.session['email'])
     return render(request,"showproducts.html",{'showpro':data})
 
 def updateproducts(request):

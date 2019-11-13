@@ -18,14 +18,24 @@ def index(request):
     latestmencollection2 = Products.objects.filter(productcategory_id=9).order_by('-product_id')[2:3]
 
     latestwomen = Products.objects.filter(productcategory_id=10).order_by('-product_id')[0:1]
-    latestwomencollection = Products.objects.filter(productcategory_id=10).order_by('-product_id')[2:4]
+    latestwomencollection = Products.objects.filter(productcategory_id=10).order_by('-product_id')[1:2]
+    latestwomencollection1 = Products.objects.filter(productcategory_id=10).order_by('-product_id')[2:3]
+    latestwomencollection2 = Products.objects.filter(productcategory_id=10).order_by('-product_id')[3:4]
 
     latestkids = Products.objects.filter(productcategory_id=11).order_by('-product_id')[2:3]
     latestkidcollection = Products.objects.filter(productcategory_id=11).order_by('-product_id')[1:2]
 
-    return render(request,"index.html",{'lm':latestmen,'lm1':latestmencollection,'lm2': latestmencollection1,'lm3':latestmencollection2, 'lmgirl': latestwomen,
-                                        'lmgkids': latestkids,'lmgirl1':latestwomencollection,'imgkids1': latestkidcollection,
-                                        })
+    latestelectronics = Products.objects.filter(productcategory_id=12).order_by('-product_id')[0:1]
+    latestelectroniccollection = Products.objects.filter(productcategory_id=12).order_by('-product_id')[1:2]
+    latestelectroniccollection1 = Products.objects.filter(productcategory_id=12).order_by('-product_id')[2:3]
+    latestelectroniccollection2 = Products.objects.filter(productcategory_id=12).order_by('-product_id')[3:4]
+
+    return render(request,"index.html",{'lm':latestmen,'lm1':latestmencollection,'lm2': latestmencollection1,
+                                        'lm3':latestmencollection2, 'lmgirl': latestwomen,'lmgkids': latestkids,
+                                        'lmgirl1':latestwomencollection,'imgkids1': latestkidcollection,
+                                        'lmgirl2':latestwomencollection1,'lmgirl3':latestwomencollection2,
+                                        'le':latestelectronics,'le1':latestelectroniccollection,
+                                        'le2':latestelectroniccollection1,'le3':latestelectroniccollection2,})
 
 
 
