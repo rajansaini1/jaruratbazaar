@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="outer-w3-agile mt-3">
-    <h1 class="tittle-w3-agileits mb-4" align="center">Add Product</h1>
+    <h1 class="tittle-w3-agileits mb-4" align="center">ADD PRODUCT</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% if d %}
@@ -81,11 +81,11 @@
 <div class="form-row">
 <div class="form-group col-md-6">
 <label>Product Quantity</label>
-<input type="text" class="form-control" name="quantity"><br>
+<input type="number" class="form-control" name="quantity"><br>
 </div>
 <div class="form-group col-md-6">
 <label>Product Price</label>
-<input type="text" class="form-control" name="price"><br>
+<input type="number" class="form-control" name="price"><br>
 </div>
 </div>
 <div class="form-row">

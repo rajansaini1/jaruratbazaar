@@ -1,37 +1,76 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4" align="center">Update Profile</h1>
 <form method="post">
     {% csrf_token %}
     {% if view %}
     <script type="text/javascript">
-        alert("profile updated")
+        alert("Profile Updated")
     </script>
     {% endif %}
 
 
+<div class="form-row">
+    <div class="form-group col-md-6">
+    <label for="inputName">Name</label>
+    <input type="text" value="{{d.userName}}" name="name" id="InputName" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputEmail">Email</label>
+    <input type="text" value="{{d.userEmail}}" name="email" id="InputEmail" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputMobile">Mobile</label>
+    <input type="text" value="{{d.userMobile}}" name="mobile" id="InputMobile" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputAddress">Address</label>
+    <input type="text" value="{{d.userAddress}}" name="address" id="InputAddress" class="form-control">
+    </div>
+     <div class="form-group col-md-6">
+    <label for="inputPinCode">Pin Code</label>
+    <input type="text" value="{{d.userPinCode}}" name="pincode" id="InputPinCode" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputCity">City</label>
+    <input type="text" value="{{d.userCity}}" name="city" id="InputCity" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputState">State</label>
+    <input type="text" value="{{d.userState}}" name="state" id="InputState" class="form-control">
+    </div>
+     <div class="form-group col-md-6">
+    <label for="inputState">Dob</label>
+    <input type="text" value="{{d.userDob}}" name="dob" id="InputDob" class="form-control">
+    </div>
 
-    <label>Name</label>
-    <input type="text" value="{{d.userName}}" name="name"><br>
-    <label>Email</label>
-    <input type="text" value="{{d.userEmail}}" name="email" readonly><br>
-    <label>Mobile</label>
-    <input type="text" value="{{d.userMobile}}" name="mobile"><br>
-    <label>address</label>
-    <input type="text" value="{{d.userAddress}}" name="address"><br>
-    <label>city</label>
-    <input type="text" value="{{d.userCity}}" name="city"><br>
-    <label>gender</label>
-    <input type="text" value="{{d.userGender}}" name="gender"><br>
-    <label>pincode</label>
-    <input type="text" value="{{d.userPinCode}}" name="pincode"><br>
-    <label>Dob</label>
-    <input type="text" value="{{d.userDob}}" name="dob"><br>
-    <label>state</label>
-    <input type="text" value="{{d.userState}}" name="state"><br>
-    <input type="submit" value="UpdateProfile">
+
+
+    <div class="form-check">
+  <input class="form-check-input" type="radio" value="{{v.userGender}}" name="gender" id="exampleRadios1"  checked>
+  <label class="form-check-label" for="exampleRadios1">
+      Male
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" value="{{v.userGender}}" name="gender" id="exampleRadios2" >
+  <label class="form-check-label" for="exampleRadios2">
+    Female
+  </label>
+</div>
+
+
+
+
+    <div align="center" class="form-group col-md-12">
+    <input type="submit" value="Update Profile">
+    </div>
 
 
 
 </form>
-
+</div>
 {% endblock %}
+
+

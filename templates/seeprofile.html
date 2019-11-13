@@ -1,32 +1,71 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
-
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4" align="center">View Profile</h1>
 <form method="post">
     {% csrf_token %}
     {% if v %}
+<div class="form-row">
+    <div class="form-group col-md-6">
+   <label for="inputName">Name</label>
+    <input type="text" value="{{v.userName}}" name="name" id="InputName" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputEmail">Email</label>
+    <input type="text" value="{{v.userEmail}}" name="email" id="InputEmail" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputMobile">Mobile</label>
+    <input type="text" value="{{v.userMobile}}" name="mobile" id="InputMobile" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputAddress">Address</label>
+    <input type="text" value="{{v.userAddress}}" name="address" id="InputAddress" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputPinCode">Pin Code</label>
+    <input type="text" value="{{v.userPinCode}}" name="pincode" id="InputPinCode" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputCity">City</label>
+    <input type="text" value="{{v.userCity}}" name="city" id="InputCity" class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="inputState">State</label>
+    <input type="text" value="{{v.userState}}" name="state" id="InputState" class="form-control"readonly>
+    </div>
 
-   <label>Name</label>
-    <input type="text" value="{{v.userName}}" name="name" readonly><br>
-    <label>Email</label>
-    <input type="text" value="{{v.userEmail}}" name="email" readonly><br>
-    <label>Mobile</label>
-    <input type="text" value="{{v.userMobile}}" name="mobile" readonly><br>
-    <label>address</label>
-    <input type="text" value="{{v.userAddress}}" name="address" readonly><br>
-    <label>city</label>
-    <input type="text" value="{{v.userCity}}" name="city" readonly><br>
-    <label>gender</label>
-    <input type="text" value="{{v.userGender}}" name="gender" readonly><br>
-    <label>pincode</label>
-    <input type="text" value="{{v.userPinCode}}" name="pincode" readonly><br>
-    <label>Dob</label>
-    <input type="text" value="{{v.userDob}}" name="dob" readonly><br>
-    <label>state</label>
-    <input type="text" value="{{v.userState}}" name="state" readonly><br>
+    <div class="form-group col-md-6">
+    <label for="inputDob">Dob</label>
+    <input type="text" value="{{v.userDob}}" name="dob" id="InputDob" class="form-control" readonly>
+    </div>
 
-    <a href="/user/viewprofile/"><input type="button" value="editprofile"></a>
 
-    {% endif %}
+
+    <div class="form-check">
+  <input class="form-check-input" type="radio" value="{{v.userGender}}" name="gender" id="exampleRadios1"  checked>
+  <label class="form-check-label" for="exampleRadios1">
+      Male
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" value="{{v.userGender}}" name="gender" id="exampleRadios2" >
+  <label class="form-check-label" for="exampleRadios2">
+    Female
+  </label>
+</div>
+
+
+
+
+
+
+
+</div>
+<div align="center" class="form-group col-md-12">
+    <a href="/user/viewprofile/"><input type="button" value="Edit Profile"></a>
+</div>
 </form>
-
+    {% endif %}
+</div>
 {% endblock %}

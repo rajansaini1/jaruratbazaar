@@ -54,33 +54,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     {% endif %}
     <div style="color:white;">
 
-    <input type="radio" value="2" name="b1" id="b1"> user
+    <input type="radio" value="2" name="b1" id="b1"> User
 
-        <input type="radio" value="3" name="b1" id="b2"> shopkeeper</div>
+        <input type="radio" value="3" name="b1" id="b2"> Shopkeeper</div>
     <br>
     <div>
         <label style="color:white; position:relative;right:150px;">Name</label>
-     <input   type="text" id="exampleName" name="name" placeholder="Name">
+     <input   type="text" class="form-control" id="exampleName" name="name" placeholder="Name">
     </div>
     <div  >
     <label style="color:white;position:relative;right:150px;">Email</label>
-    <input type="email" id=email name="email" Placeholder="Useremail" required=""/>
+    <input type="email" class="form-control" id=email name="email" Placeholder="Useremail" required=""/>
     </div>
     <div  >
-        <label style="color:white;position:relative;right:150px;">Mobile</label>
-    <input type="text" id="mobile" name="mobile" placeholder="Mobile">
+        <label style="color:white;position:relative;right:150px;">Mobile</label><br>
+    <input type="number" style="width:320px;" class="form-control" id="mobile" name="mobile" placeholder="Mobile">
     </div>
     <div >
     <label style="color:white;position:relative;right:140px;">Address</label>
-    <input type="text"  id="address" name="address" placeholder="Address">
+    <input type="text" class="form-control" id="address" name="address" placeholder="Address">
     </div>
     <div >
     <label style="color:white;position:relative;right:150px;">City</label>
-    <input type="text" id="city" name="city" placeholder="City">
+    <input type="text" class="form-control" id="city" name="city" placeholder="City">
     </div>
     <div>
 <label style="color:white;position:relative;right:150px;">State</label>
-    <select  style="width:320px;height:50px;" class="form-control" id="state" name="state">
+    <select  class="form-control" style="width:320px;height:37px;" class="form-control" id="state" name="state">
         <option selected>Choose...</option>
         <option>Haryana</option>
         <option>Punjab</option>
@@ -89,41 +89,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <option>Chandigarh</option>
       </select><br>
     </div>
-    <div >
-        <label style="color:white;position:relative;right:140px;">Gender</label>
-        <input type="text" id="gender" name="gender" placeholder="Gender">
-    </div>
-    <div >
+
+
+    <div style="color:white;">
+
+        <label style="color:white;position:relative;right:140px;">Gender:</label><br>
+
+    <input type="radio" value="2" name="b1" id="gender1"> Male
+
+        <input type="radio" value="3" name="b1" id="gender2"> Female</div>
+    <br>
+    <div>
+    <div>
         <label style="color:white;position:relative;right:140px;">Pin Code</label>
-    <input type="text" id="pincode" name="pincode" placeholder="Pin Code">
+    <input type="number"  style="width:320px;"  class="form-control" id="pincode" name="pincode" placeholder="Pin Code">
     </div>
     <div >
         <label style="color:white;position:relative;right:120px;">Date Of Birth</label>
-    <input type="text" id="dob" name="dob" placeholder="Date of Birth">
+    <input type="date" style="width:320px;height:37px;"  class="form-control-file" id="dob" name="dob" placeholder="Date of Birth">
     </div>
     <div >
         <label style="color:white;position:relative;right:150px;">Profile</label>
-    <input type="file" id="file" name="profile" placeholder="profile">
+    <input type="file" id="file" style="width:320px;" name="profile" placeholder="profile">
     </div>
     <div>
         <label style="color:white;position:relative;right:130px;">Password</label>
-	<input type="password" id="password" name="password" Placeholder="Password" required=""/>
+	<input type="password" class="form-control" id="password" name="password" Placeholder="Password" required=""/>
     </div>
     <div id="div1">
         <label style="color:white;position:relative;right:100px;">Aadhar Card No.</label>
-        <input type="text" name="aadharno" placeholder="AadharCardNo:">
+        <input type="number" class="form-control" style="width:320px;" name="aadharno" placeholder="AadharCardNo:">
         <label style="color:white;position:relative;right:120px;">PAN Card No.</label>
-        <input type="text"  id="panno" name="pan" placeholder="Pan Card No:">
+        <input type="text" class="form-control" id="panno" name="pan" placeholder="Pan Card No:">
         <label style="color:white;position:relative;right:140px;">GST NO:</label>
-        <input type="text"  id="gst" name="gst" placeholder="GST No:">
+        <input type="text" class="form-control" id="gst" name="gst" placeholder="GST No:">
         <label style="color:white;position:relative;right:120px;">Shop Address</label>
-        <input type="text" id="shopaddress" name="shopaddress" placeholder="Shop Address">
+        <input type="text" class="form-control" id="shopaddress" name="shopaddress" placeholder="Shop Address">
         <label style="color:white;position:relative;right:100px;">AadharCardImage</label>
-        <input type="file"  id="aadharimage" name="aadharimage" placeholder="Aadhar Card Image">
+        <input type="file" class="form-control-file"  id="aadharimage" name="aadharimage" placeholder="Aadhar Card Image">
         <label style="color:white;position:relative;right:120px;">PanCardImage</label>
-        <input type="file" id="panimage" name="panimage" placeholder="Pan Card Image">
+        <input type="file" class="form-control-file" id="panimage" name="panimage" placeholder="Pan Card Image">
     </div>
-	<input type="submit" value="SignUp">
+	<input type="submit" style="width:320px;" value="SignUp">
 	</form>
 	</div>
 </div>
