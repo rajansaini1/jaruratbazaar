@@ -263,9 +263,11 @@ def viewprofile(request):
     seedata = UserSignup.objects.get(userEmail=email)
     return render(request,"seeprofile.html",{'v':seedata})
 
-def mantype(request):
-    data=Products.objects.filter()
-    return render(request,"usermasterpage.html",{'d1':data})
-def mancloths(request):
-    data=Products.objects.filter(productstype=7)
-    return render(request,"mancloths.html",{'d':data})
+def productdetail(request):
+    pid=request.GET['prid']
+    data = Products.objects.get(product_id=pid)
+    return render(request,"productdetail.html",{'d1':data})
+
+def productcategory(request):
+    data=Products.objects.filter(productcategory=9)
+    return render(request,"productcategory.html",{'d':data})

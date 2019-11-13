@@ -16,7 +16,8 @@ urlpatterns=[
     url(r'^changepassword/$', views.changepassword),
     url(r'^viewprofile/$', views.showprofile),
     url(r'^seeprofile/$', views.viewprofile),
-    url(r'^mancloths/$', views.mancloths),
+    url(r'^productcategory/$', views.productcategory),
+    url(r'^productdetail/$', views.productdetail),
 
 
 
