@@ -279,15 +279,28 @@ def updateproducts(request):
         img2 = image2
         img3 = image3
         img4 = image4
-        updateproduct=Products(product_id=productid,product_name=productname,product_description=description,
+        if img1 is None and img2 is None and img3 is None and img4 is None:
+            updateproduct = Products(product_id=productid, product_name=productname, product_description=description,
+                                     product_size=size, product_size2=size2, product_size3=size3, product_size4=size4,
+                                     product_qty=qty,
+                                     product_price=price)
+            updateproduct.save(
+                update_fields=["product_name", "product_description", "product_size", "product_size2", "product_size3",
+                               "product_size4", "product_qty", "product_price",
+
+                               ])
+        else:
+
+            updateproduct=Products(product_id=productid,product_name=productname,product_description=description,
                                product_size=size,product_size2=size2,product_size3=size3,product_size4=size4,product_qty=qty,
                                product_price=price,product_image1=img1,product_image2=img2,product_image3=img3,
                                product_image4=img4)
-        updateproduct.save(update_fields=["product_name","product_description","product_size","product_size2","product_size3",
+            updateproduct.save(update_fields=["product_name","product_description","product_size","product_size2","product_size3",
                                           "product_size4","product_qty","product_price","product_image1","product_image2",
                                           "product_image3","product_image4",
 
         ])
+        return redirect("/manager/showproducts/")
 
     return render(request,"updateproducts.html",{'d':data})
 

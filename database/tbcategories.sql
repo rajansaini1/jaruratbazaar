@@ -24,7 +24,7 @@ INSERT INTO `managerapp_productscategories` (`categories_id`, `categories_Name`)
 	(9, 'Men'),
 	(10, 'Women'),
 	(11, 'Kids & Baby'),
-	(12, 'Mobile');
+	(12, 'Electronics');
 /*!40000 ALTER TABLE `managerapp_productscategories` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
