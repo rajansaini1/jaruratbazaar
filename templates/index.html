@@ -292,6 +292,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="product-thumball">
              <div>
                  {% for i in lm1 %}
+
                  <h6>
 
                  </h6>
@@ -302,27 +303,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="team-img mb-4" >
 
 
-                        <img src="/media/{{ i.product_image1 }}" height="300px" width="300px" class="log-responsive" alt="user-image">
+                        <img src="/media/{{ i.product_image1 }}" height="100px" width="100px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
                         <h3 class="mt-md-4 mt-3">{{ i.product_name }}</h3>
 
                     </div>
                 </div>
-{% endfor %}
+                {% endfor %}
                 <div>
                  {% for i in lm2 %}
 
              </div>
                 <div class="col-md-4 team-gd second text-center">
                     <div class="team-img mb-4" >
-                        <img src="/media/{{ i.product_image1 }}" height="300px" width="300px" class="log-responsive" alt="user-image">
+                        <img src="/media/{{ i.product_image1 }}" height="100px" width="100px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
                         <h3 class="mt-md-4 mt-3">{{ i.product_name }}</h3>
                     </div>
                 </div>
                 {% endfor %}
+
              <div>
                  {% for i in lm3 %}
                  <h6>
@@ -332,7 +334,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 <div class="col-md-4 team-gd text-center">
                     <div class="team-img mb-4">
-                        <img src="/media/{{ i.product_image1 }}" height="300px" width="300px" class="log-responsive" alt="user-image">
+                        <img src="/media/{{ i.product_image1 }}" height="100px" width="100px" class="log-responsive" alt="user-image">
                     </div>
                     <div class="team-info">
                         <h3 class="mt-md-4 mt-3">{{ i.product_name }}</h3>
@@ -344,7 +346,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
     </section>
-{% endfor %}
+                {% endfor %}
 
 
 
