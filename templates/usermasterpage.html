@@ -9,112 +9,41 @@
     <script src="/assets/js/bootstrap.min.js/" type="text/javascript"></script>
     <link rel="stylesheet" href="/assets/css/sliding.css/" type="text/css">
     <script src="/assets/js/sliding.js/" type="text/javascript"></script>
-
+    <link rel="stylesheet" href="/assets/home/css/bootstrap.css/">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="/assets/home/css/style.css/" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="/assets/home/css/font-awesome.css/" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <!-- //Fonts -->
 
 </head>
 <body>
 <div>
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="/user/"><img src="/assets/images/jbb.jpg" width="100px" height="50px"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="py-2" style="border:solid 2px black;background-color:skyblue;">
+                    <div id="logo">
+                        <h1> <a class="navbar-brand" href="/#/"><img src="/assets/images/jbb.jpg/"> </a>
+                        </h1>
+                    </div>
 
-<div class="dropdown">
-
-    <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Men
-    </button>
-
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
-
-      <a class="dropdown-item" href="/user/productcategory/">cloths</a>
-
-    <a class="dropdown-item" href="#">Shirts</a>
-    <a class="dropdown-item" href="#">Jackets</a>
-      <a class="dropdown-item" href="#">Shoes</a>
-      <a class="dropdown-item" href="#">Watches</a>
-  </div>
-</div>
-      <div class="dropdown">
-  <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Women
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-    <a class="dropdown-item" href="#">Sarees</a>
-    <a class="dropdown-item" href="#">Top,T-Shirts & Shirts</a>
-    <a class="dropdown-item" href="#">Jeans</a>
-    <a class="dropdown-item" href="#">Shoes</a>
-    <a class="dropdown-item" href="#">Sandles</a>
-  </div>
-</div>
-      <div class="dropdown">
-  <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Kids & Baby
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-    <a class="dropdown-item" href="#">Dresses</a>
-    <a class="dropdown-item" href="#">Toys</a>
-    <a class="dropdown-item" href="#">Barbies</a>
-    <a class="dropdown-item" href="#">Dolls</a>
-  </div>
-</div>
-      <div class="dropdown">
-  <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Electronics
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-    <a class="dropdown-item" href="#">Redmi</a>
-    <a class="dropdown-item" href="#">Samsung</a>
-    <a class="dropdown-item" href="#">Oppo</a>
-    <a class="dropdown-item" href="#">Realme</a>
-    <a class="dropdown-item" href="#">Vivo</a>
-    <a class="dropdown-item" href="#">Asus</a>
-  </div>
-</div>
-       <div class="dropdown">
-  <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Home & Living
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
-    <a class="dropdown-item" href="#">Paintings</a>
-    <a class="dropdown-item" href="#">Clocks</a>
-    <a class="dropdown-item" href="#">Coffee Mugs</a>
-    <a class="dropdown-item" href="#">Dinner Set</a>
-    <a class="dropdown-item" href="#">Pans</a>
-    <a class="dropdown-item" href="#">Chairs</a>
-  </div>
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu">
+                        <li><a href="/user/productcategory/">Men</a></li>
+                        <li><a href="/user/productcategory1/">Women</a></li>
+                        <li><a href="/user/productcategory2/">Kids</a></li>
+                        <li><a href="/user/productcategory3/">Electronics</a></li>&nbsp;&nbsp;
+                        <button class="btn"><a href="/user/seeprofile/">Profile</a></button>
 
 
-</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;
+                    </ul>
 
 
-
-
-
-
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search for Products" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0 bg-light" type="submit">Search</button>
-</form>
-      <div class="dropdown">
-  <button class="btn btn-primary bg-primary dropdown-toggle" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="/assets/images/profile2.jpg/" height="40px" width="40px">
-  </button>`
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-     <a class="dropdown-item" href="/user/login/">LogIn</a>
-          <a class="dropdown-item" href="/user/usersignup/">SignUp</a>
-          <a class="dropdown-item" href="/user/seeprofile/">ViewProfile</a>
-          <a class="dropdown-item" href="/user/changepassword/">ChangePassword</a>
-          <a class="dropdown-item" href="/user/logout/">LogOut</a>
-  </div>
-</div>
-
-</nav><br><br><br><br>
-</div>
-
+                </nav><br>
 
 <div>
     {% block content %}

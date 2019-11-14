@@ -5,11 +5,9 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-<!DOCTYPE html>
-<html lang="zxx">
+{% extends 'usermasterpage.html' %}
+{% block content %}
 
-<head>
-    <title>JaruratBazaar</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
@@ -37,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
     <!-- //Fonts -->
-</head>
+
 
 <body>
 
@@ -45,37 +43,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- header -->
         <header class="header">
             <div class="container">
-                <!-- nav -->
-                <nav class="py-2">
-                    <div id="logo">
-                        <h1> <a class="navbar-brand" href="/index/">Jarurat<span>Bazaar</span> </a>
-                        </h1>
-                    </div>
 
-                    <label for="drop" class="toggle">Menu</label>
-                    <input type="checkbox" id="drop" />
-                    <ul class="menu">
-                        <li><a href="/user/usersignup/">Men</a></li>
-                        <li><a href="/user/about/">Women</a></li>
-                        <li><a href="/user/usersignup/">Kids</a></li>
-                        <li><a href="/user/about/">Electronics</a></li>&nbsp;&nbsp;
-                        <button class="btn"><a href="/user/seeprofile/">Profile</a></button>
-
-
-                    </ul>
-
-
-                </nav>
-                <!-- //nav -->
             </div>
         </header>
-
-
-
-
-
-
-
 
 
         <div class="banner-w3pvt-info ">
@@ -623,4 +593,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </body>
 
-</html>
+{% endblock %}

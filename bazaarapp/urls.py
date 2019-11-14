@@ -17,6 +17,10 @@ urlpatterns=[
     url(r'^viewprofile/$', views.showprofile),
     url(r'^seeprofile/$', views.viewprofile),
     url(r'^productcategory/$', views.productcategory),
+    url(r'^productcategory1/$', views.productcategory1),
+    url(r'^productcategory2/$', views.productcategory2),
+    url(r'^productcategory3/$', views.productcategory3),
+
     url(r'^productdetail/$', views.productdetail),
 
 

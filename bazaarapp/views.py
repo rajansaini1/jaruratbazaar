@@ -271,3 +271,12 @@ def productdetail(request):
 def productcategory(request):
     data=Products.objects.filter(productcategory=9)
     return render(request,"productcategory.html",{'d':data})
+def productcategory1(request):
+    data=Products.objects.filter(productcategory=10)
+    return render(request,"womencategory.html",{'d2':data})
+def productcategory2(request):
+    data=Products.objects.filter(productcategory=11)
+    return render(request,"kidcategory.html",{'d3':data})
+def productcategory3(request):
+    data=Products.objects.filter(productcategory=12)
+    return render(request,"electroniccategory.html",{'d4':data})

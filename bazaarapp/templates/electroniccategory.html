@@ -1,15 +1,12 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
-{% if d %}
-{% for i in d %}
-
+{% if d4 %}
+{% for i in d4 %}
 <a href="/user/productdetail/?prid={{i.product_id}}">
-<img src="/media/{{i.product_image1}}" height="250px" width="250px" >
+<img src="/media/{{i.product_image1}}" height="250px" width="150px" >
+
 </a>
-
-
 {% endfor %}
-
 {% endif %}
 
 

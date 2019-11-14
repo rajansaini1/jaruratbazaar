@@ -92,6 +92,7 @@ header {
 nav {
     margin: 0;
     padding: 0;
+
 }
 
 a.navbar-brand {
@@ -106,6 +107,7 @@ a.navbar-brand {
 #logo a {
     float: left;
     display: initial;
+
 }
 
 a.navbar-brand span {

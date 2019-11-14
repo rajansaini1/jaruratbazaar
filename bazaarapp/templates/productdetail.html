@@ -3,17 +3,26 @@
 
 
 {% if d1 %}
+<div style="color:seagreen;">
+    <h1>Your Choice:{{d1.product_name}}</h1>
+</div>
+
+<img src="/media/{{d1.product_image1}}" height="300px" width="250px" >
+    <img src="/media/{{d1.product_image2}}" height="300px" width="250px" >
+    <img src="/media/{{d1.product_image3}}" height="300px" width="250px" >
+    <img src="/media/{{d1.product_image4}}" height="300px" width="250px" >
+<div style="color:black;"><h1>Rs.{{d1.product_price}}/-    <span style="color:lime;">You Save 20% 💥
+</span></h1></div>
+<div style="color:;"><h2>{{d1.product_description}}</h2></div>
+<div style="color:;"><h3>Available Sizes:     {{d1.product_size}} , {{d1.product_size2}} ,
+    {{d1.product_size3}} , {{d1.product_size4}}</h3></div>
+
+<br><br>
 
 
-<img src="/media/{{d1.product_image1}}" height="300px" width="300px" >
-    <img src="/media/{{d1.product_image2}}" height="300px" width="300px" >
-    <img src="/media/{{d1.product_image3}}" height="300px" width="300px" >
-    <img src="/media/{{d1.product_image4}}" height="300px" width="300px" >&nbsp;
+<a href="#" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
 
-
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
-
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">BUY NOW</a>
+<a href="#" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">BUY NOW</a>
 {% endif %}
 
 
