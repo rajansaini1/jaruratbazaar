@@ -229,7 +229,7 @@ def login(request):
                     if(request.session['roleid']==1):
                         return redirect("/manager/")
                     elif (request.session['roleid'] == 2):
-                        return redirect("/user/")
+                        return redirect("/")
                     elif (request. session['roleid'] == 3):
                         return redirect("/shopkeeper/")
                 else:
@@ -329,13 +329,11 @@ def productcategory3(request):
 
 def addtocart(request):
         form = TempdataTableForm()
-        form1=UserSignupForm()
         pid = request.GET["id"]
-        userid=request.session['email']
-        prodetail = Products.objects.filter(product_id=pid)
-        userdetail=UserSignup.objects.get(userEmail=userid)
+        uid=request.session['email']
+        prodetail = Products.objects.get(product_id=pid)
+        userdetail=UserSignup.objects.get(userEmail=uid)
         f=form.save(commit=False)
-        f1=form1.save(commit=False)
         f.product_id=prodetail.product_id
         f.product_name=prodetail.product_name
         f.product_image=prodetail. product_image1
@@ -343,27 +341,28 @@ def addtocart(request):
         f.product_price=prodetail.product_price
         f.comapany_name = prodetail.brand
         f.product_size= prodetail.product_size
-        f1.email =userdetail.userEmail
+        f.email =userdetail.userEmail
         f.total=""
         f.country=""
-        f1.street_address=userdetail.userAddress
-        f1.apartment_address=userdetail.userAddress
-        f1.state=userdetail.userState
-        f1.zip=userdetail.userPinCode
-        f1.phone=userdetail.userMobile
-        f.product_disc=""
+        f.street_address=userdetail.userAddress
+        f.apartment_address=userdetail.userAddress
+        f.state=userdetail.userState
+        f.zip=userdetail.userPinCode
+        f.phone=userdetail.userMobile
+        f.product_disc=prodetail.product_description
         f.order_notes=""
-        f1.first_name=userdetail.userName
-        f.last_name=""
+        f.first_name=userdetail.userName
+        f.last_name=userdetail.userName
+        f.roleid_id = 2
         f.save()
-        f1.save()
-        return redirect("/user/addtocart/")
-def added(request):
+        return redirect("/user/viewcart/")
+
+def viewcart(request):
     tepdata=TempdataTable.objects.all()
-    return render(request,"addtocart.html",{'tpd':tepdata})
+    return render(request,"viewcart.html",{'tpd':tepdata})
 
 def remove(request):
     pro=request.GET["id"]
     data=TempdataTable.objects.get(table_id=pro)
     data.delete()
-    return redirect("/user/addtocart/")
+    return redirect("/user/viewcart/")

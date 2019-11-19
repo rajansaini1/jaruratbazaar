@@ -21,8 +21,9 @@ urlpatterns=[
     url(r'^productcategory2/$', views.productcategory2),
     url(r'^productcategory3/$', views.productcategory3),
     url(r'^productdetail/$', views.productdetail),
-    url(r'^addtocart/$', views.added),
+    url(r'^viewcart/$', views.viewcart),
     url(r'^remove/$', views.remove),
+    url(r'^addcart/$',views.addtocart)
 
 
 

@@ -40,9 +40,13 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<li><a href="/user/login/">Login</a></li>
-						<li><a href="/user/usersignup/">Signup</a></li>&nbsp;&nbsp;
-                        <li><img src="/assets/images/profile.jpg/" width="50px" height="50px"></li>
+						{% if request.session.Authentication %}
+							<li><a href="/user/logout/">LogOut</a></li>
+							{% else %}
+								<li><a href="/user/login/">Login</a></li>
+								<li><a href="/user/usersignup/">Signup</a></li>&nbsp;&nbsp;
+                        {% endif %}
+						<li><img src="/assets/images/profile.jpg/" width="50px" height="50px"></li>
 						<li></li>
 
                     </ul>
