@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `managerapp_productscategories` (
 -- Dumping data for table jaruratbazaardb.managerapp_productscategories: ~4 rows (approximately)
 /*!40000 ALTER TABLE `managerapp_productscategories` DISABLE KEYS */;
 INSERT INTO `managerapp_productscategories` (`categories_id`, `categories_Name`) VALUES
-	(9, 'Men'),
+	(9managerapp_productscategories, 'Men'),
 	(10, 'Women'),
 	(11, 'Kids & Baby'),
 	(12, 'Electronics');
@@ -30,3 +30,4 @@ INSERT INTO `managerapp_productscategories` (`categories_id`, `categories_Name`)
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+jjaruratbazaardbaruratbazaardb

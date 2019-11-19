@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
 from django.conf import settings
+from django.contrib.auth.views import logout
 from bazaarapp import views
 from django.conf.urls.static import settings
 from django.conf.urls.static import static
@@ -24,6 +25,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^',include('social_django.urls',namespace='social')),
     url(r'^user/',include('bazaarapp.urls')),
     url(r'^manager/',include('managerapp.urls')),
     url(r'^shopkeeper/',include('shopkeeperapp.urls')),

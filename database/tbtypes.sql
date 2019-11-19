@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS `managerapp_productstype` (
   `type_id` int(11) NOT NULL AUTO_INCREMENT,
   `type_Name` varchar(250) NOT NULL,
   PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table jaruratbazaardb.managerapp_productstype: ~7 rows (approximately)
+-- Dumping data for table jaruratbazaardb.managerapp_productstype: ~9 rows (approximately)
 /*!40000 ALTER TABLE `managerapp_productstype` DISABLE KEYS */;
 INSERT INTO `managerapp_productstype` (`type_id`, `type_Name`) VALUES
 	(7, 'Men\'s Clothing'),
@@ -28,7 +28,8 @@ INSERT INTO `managerapp_productstype` (`type_id`, `type_Name`) VALUES
 	(11, 'Kid\'s Clothing'),
 	(12, 'Kid\'s Toys'),
 	(13, 'Mobile'),
-	(14, 'Kid\'s Feetwear');
+	(14, 'Kid\'s Feetwear'),
+	(15, 'Electronics Accessories');
 /*!40000 ALTER TABLE `managerapp_productstype` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

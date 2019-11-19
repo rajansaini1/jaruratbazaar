@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS `managerapp_productsbrand` (
   `brand_isActive` tinyint(1) NOT NULL,
   PRIMARY KEY (`brand_id`),
   UNIQUE KEY `brand_Name` (`brand_Name`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
--- Dumping data for table jaruratbazaardb.managerapp_productsbrand: ~47 rows (approximately)
+-- Dumping data for table jaruratbazaardb.managerapp_productsbrand: ~51 rows (approximately)
 /*!40000 ALTER TABLE `managerapp_productsbrand` DISABLE KEYS */;
 INSERT INTO `managerapp_productsbrand` (`brand_id`, `brand_Name`, `brand_isActive`) VALUES
 	(9, 'Tommy Hilfiger', 1),
@@ -69,7 +69,11 @@ INSERT INTO `managerapp_productsbrand` (`brand_id`, `brand_Name`, `brand_isActiv
 	(56, 'Vivo', 1),
 	(57, 'Oppo', 1),
 	(58, 'Apple', 1),
-	(59, 'Asus', 1);
+	(59, 'Asus', 1),
+	(60, 'Nikon', 1),
+	(61, 'LG', 1),
+	(62, 'Hp', 1),
+	(63, 'pigeon', 1);
 /*!40000 ALTER TABLE `managerapp_productsbrand` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

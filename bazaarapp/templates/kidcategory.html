@@ -2,10 +2,11 @@
 {% block content %}
 {% if d3 %}
 {% for i in d3 %}
-<a href="/user/productdetail/?prid={{i.product_id}}">
-<img src="/media/{{i.product_image1}}" height="250px" width="250px" >
 
+<a href="/user/productdetail/?prid={{i.product_id}}">
+<img src="/media/{{i.product_image1}}" height="250px" width="250px">
 </a>
+
 {% endfor %}
 {% endif %}
 

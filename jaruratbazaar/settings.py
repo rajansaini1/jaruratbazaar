@@ -45,10 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bazaarapp',
     'managerapp',
-    'shopkeeperapp'
-
+    'shopkeeperapp',
+    'social_django'
 
 ]
+
+AUTHENTICATION_BACKENDS=(
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware'
 ]
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
@@ -136,9 +142,21 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+
+#content for google api
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='736802500939-m47vbeq2dm6k9cqvioaimbgrmkvmdbkk.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='MXi-1DTcskT_je3JB8HqBgjq'
+
 
 STATIC_URL = '/assets/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"assets")]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+
+
+LOGIN_URL='/auth/login/google-oauth2/'
+LOGIN_REDIRECT_URL='/manager/'
+LOGOUT_REDIRECT_URL='login'

@@ -34,10 +34,13 @@ CREATE TABLE IF NOT EXISTS `bazaarapp_tempdatatable` (
   `phone` varchar(255) DEFAULT NULL,
   `order_notes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Dumping data for table jaruratbazaardb.bazaarapp_tempdatatable: ~0 rows (approximately)
+-- Dumping data for table jaruratbazaardb.bazaarapp_tempdatatable: ~2 rows (approximately)
 /*!40000 ALTER TABLE `bazaarapp_tempdatatable` DISABLE KEYS */;
+INSERT INTO `bazaarapp_tempdatatable` (`table_id`, `email`, `first_name`, `last_name`, `product_id`, `product_name`, `product_disc`, `product_size`, `product_image`, `product_qty`, `product_price`, `total`, `country`, `comapany_name`, `street_address`, `apartment_address`, `state`, `zip`, `phone`, `order_notes`) VALUES
+	(6, '', '', '', '98', 'Plastic Toys', '', '5*3 inches', 'toy1.jpg', '6', '299', '', '', 'ProductsBrand object (19)', '', '', '', '', '', ''),
+	(10, '', '', '', '70', 'Men Clothing', '', 'S', 'yjacket.jpg', '3', '2525', '', '', 'ProductsBrand object (21)', '', '', '', '', '', '');
 /*!40000 ALTER TABLE `bazaarapp_tempdatatable` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

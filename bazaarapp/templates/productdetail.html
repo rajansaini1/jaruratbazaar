@@ -1,31 +1,55 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
 
+<section id="content1">
+                        <div class="row">
 
-{% if d1 %}
-<div style="color:seagreen;">
-    <h1>Your Choice:{{d1.product_name}}</h1>
-</div>
+                            <div class="col-lg-6">
+                                <div>
+                                    {% if d1 %}
+                                     <h2 style="color:red;">Your Selection : {{ d1.product_name }}</h2>
+                                </div><br><br>
+                                <img src="/media/{{ d1.product_image1 }}" class="img-fluid" alt="mobile-image">
+                            </div>
 
-    <img src="/media/{{d1.product_image1}}" height="200px" width="200px" >
-    <img src="/media/{{d1.product_image2}}" height="200px" width="200px" >
-    <img src="/media/{{d1.product_image3}}" height="200px" width="200px" >
-    <img src="/media/{{d1.product_image4}}" height="200px" width="200px" >
-<div style="color:black;"><h1>Rs.{{d1.product_price}}/-  <span style="color:lime;">You Save 20% 💥
-</span></h1></div>
+                            <div class="col-lg-6  p-3">
+                                <div class="text-center">
+                                     <a href="/user/login/" class="btn" style="background:white";>.</a>
+                            </div>
+
+<br><br><br>
+                                <div>
+                                <div class="col-lg-3">
+                                <img src="/media/{{ d1.product_image2 }}" class="img-fluid" alt="mobile-image">
+                                </div><br>
+                                <div class="col-lg-3">
+                                <img src="/media/{{ d1.product_image3 }}" class="img-fluid" alt="mobile-image">
+                                </div><br>
+                                <div class="col-lg-3">
+                                <img src="/media/{{ d1.product_image4 }}" class="img-fluid" alt="mobile-image">
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+<br><br>
+<div style="padding-left:50px;">
+<div style="color:black;"><h1>Rs.{{d1.product_price}}/-       <span style="color:red;">You Save 20% 💥</span></h1></div>
 <div style="color:;"><h2>{{d1.product_description}}</h2></div>
 <div style="color:;"><h3>Available Sizes:     {{d1.product_size}} , {{d1.product_size2}} ,
     {{d1.product_size3}} , {{d1.product_size4}}</h3></div>
-
+</div>
 <br><br>
 
 
-<a href="#" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
+<button><a href="/user/addtocart/?id={{d1.product_id}}" >ADD TO CART</a></button>
 
 <a href="#" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">BUY NOW</a>
+
+
+
 {% endif %}
-
-
 
 
 

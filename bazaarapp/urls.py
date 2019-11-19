@@ -20,8 +20,10 @@ urlpatterns=[
     url(r'^productcategory1/$', views.productcategory1),
     url(r'^productcategory2/$', views.productcategory2),
     url(r'^productcategory3/$', views.productcategory3),
-
     url(r'^productdetail/$', views.productdetail),
+    url(r'^addtocart/$', views.added),
+    url(r'^remove/$', views.remove),
+
 
 
 
