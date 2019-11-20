@@ -91,9 +91,9 @@ def pagenotfound(request):
     return render(request,"pagenotfound.html")
 def notlogin(request):
     return render(request,"notlogin.html")
-
 def unauth(request):
     return render(request,"unauthaccess.html")
+
 def home(request):
     try:
         authdata = authcheck.authentication(request.session['Authentication'], request.session['roleid'],
