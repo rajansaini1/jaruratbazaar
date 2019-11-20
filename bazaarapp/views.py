@@ -7,6 +7,7 @@ from authorize import authcheck
 from django.core.files.storage import FileSystemStorage,os    #to store image in ,media directory in project--
 from django.contrib.auth.hashers import make_password,check_password
 import datetime as dt
+from django.db.models import Sum
 import uuid,socket
 from managerapp.models import Products
 
@@ -297,7 +298,7 @@ def showprofile(request):
         state=request.POST["state"]
         updatedata=UserSignup(userEmail=emailid,userName=name,userMobile=mobile,userAddress=address,userCity=city,
                               userGender=gender, userPinCode=pincode,userDob=dob,userState=state)
-        updatedata.save(update_fields=["userMobile","userName","userAddress","userGender","userPinCode",
+        updatedata.save(update_fields=["userMobile","userName","userAddress","userCity","userGender","userPinCode",
                                        "userDob","userState"])
         mailsend.mail("Profile Edit", email, confirmationlink)
         return render(request,"viewprofile.html",{'view':True, 'd':data})
@@ -341,6 +342,9 @@ def addtocart(request):
         f.product_price=prodetail.product_price
         f.comapany_name = prodetail.brand
         f.product_size= prodetail.product_size
+        f.product_size = prodetail.product_size2
+        f.product_size = prodetail.product_size3
+        f.product_size = prodetail.product_size4
         f.email =userdetail.userEmail
         f.total=""
         f.country=""
@@ -366,3 +370,13 @@ def remove(request):
     data=TempdataTable.objects.get(table_id=pro)
     data.delete()
     return redirect("/user/viewcart/")
+
+
+def ordersummary(request):
+    user = request.session['email']
+    data = UserSignup.objects.get(userEmail=user)
+    tepdata=TempdataTable.objects.all()
+    totalsum= TempdataTable.objects.all().aggregate(Sum('product_price'))
+    return render(request,"ordersummary.html",{'os':tepdata,'ud':data,'total':totalsum})
+
+

@@ -1,35 +1,37 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
-<table cellspacing="0" cellpadding="10" border="2px solid black">
-    <tr>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Total</th>
-        <th>Action</th>
+
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4"><center><i>ADD TO CART</i></center></h1>
+<table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
+    <tr class="thead-dark">
+        <th><center>Image</center></th>
+        <th><center>Product</center></th>
+        <th><center>Price</center></th>
+        <th><center>Quantity</center></th>
+        <th><center>Action</center></th>
     </tr>
     {% if tpd %}
     {% for i in tpd %}
     <tr>
+        <td><img src="/media/{{i.product_image}}" class="log-responsive" height="50px" width="50px"></td>
         <td>{{i.product_name}}</td>
         <td>{{i.product_price}}</td>
         <td>{{i.product_qty}}</td>
-        <td>{{i.product_total}}</td>
         <td><a href="/user/remove/?id={{i.table_id}}">Remove</a></td>
     </tr>
     {% endfor %}
     {% endif %}
-    <tr>
-        <td>subtotal</td>
-    </tr>
+
 
 
 
 </table>
-<button><a href="/">Continue Shopping</a></button>
-<button><a href="/">CheckOut</a></button>
+    <br>
+<a href="//" class="btn btn-primary  btn-lg active" role="button" aria-pressed="true">Continue Shopping</a>
+<a href="/user/ordersummary/" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">Checkout</a>
 
-
+</div>
 <br><br><br><br><br><br><br><br><br><br>
 
 {% endblock %}

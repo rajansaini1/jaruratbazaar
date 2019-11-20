@@ -23,7 +23,9 @@ urlpatterns=[
     url(r'^productdetail/$', views.productdetail),
     url(r'^viewcart/$', views.viewcart),
     url(r'^remove/$', views.remove),
-    url(r'^addcart/$',views.addtocart)
+    url(r'^addcart/$',views.addtocart),
+    url(r'^ordersummary/$',views.ordersummary),
+
 
 
 

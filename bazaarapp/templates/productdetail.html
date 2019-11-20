@@ -37,23 +37,32 @@
 <div style="padding-left:50px;">
 <div style="color:black;"><h1>Rs.{{d1.product_price}}/-       <span style="color:red;">You Save 20% 💥</span></h1></div>
 <div style="color:;"><h2>{{d1.product_description}}</h2></div>
-<div style="color:;"><h3>Available Sizes: <input type="radio" name="b1">{{d1.product_size}} <input type="radio" name="b1">{{d1.product_size2}}
-    <input type="radio" name="b1">{{d1.product_size3}} <input type="radio" name="b1">{{d1.product_size4}}</h3></div>
+
+    <div style="color:;"><h3>Available Sizes: <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size}}">{{d1.product_size}} <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size2}}">{{d1.product_size2}}
+    <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size3}}">{{d1.product_size3}} <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size4}}">{{d1.product_size4}}</h3></div>
 </div>
 <br><br>
 
 {% if request.session.Authentication %}
-<a href="/user/addcart/?id={{d1.product_id}}" class="btn btn-primary  btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
+<a href="/user/addcart/?id={{d1.product_id}}" class="btn btn-primary addCart btn-lg disabled" role="button" aria-pressed="true">ADD TO CART</a>
 <a href="/user/ordersummary/" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">BUY NOW</a>
 {% else %}
-<button><a href="/user/login/" >ADD TO CART</a></button>
-
-<button><a href="/user/login/"> BUY NOW</a></button>
+<a href="/user/login/?id={{d1.product_id}}" class="btn btn-primary  btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
+<a href="/user/login/" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">BUY NOW</a>
 
 
 {% endif %}
 {% endif %}
-
+<script>
+    $(document).ready(function(){
+    $('.c1').click(function(){
+        $('.addCart').removeClass('disabled');
+        var csize = $(this).val();
+       var querystring = $(this).attr('data-size');
+       $('.addCart').attr("href", querystring+"&size=" + csize);
+    })
+    })
+</script>
 
 
 

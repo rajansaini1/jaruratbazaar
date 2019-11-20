@@ -34,15 +34,13 @@ CREATE TABLE IF NOT EXISTS `bazaarapp_tempdatatable` (
   `phone` varchar(255) DEFAULT NULL,
   `order_notes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
--- Dumping data for table jaruratbazaardb.bazaarapp_tempdatatable: ~2 rows (approximately)
+-- Dumping data for table jaruratbazaardb.bazaarapp_tempdatatable: ~1 rows (approximately)
 /*!40000 ALTER TABLE `bazaarapp_tempdatatable` DISABLE KEYS */;
 INSERT INTO `bazaarapp_tempdatatable` (`table_id`, `email`, `first_name`, `last_name`, `product_id`, `product_name`, `product_disc`, `product_size`, `product_image`, `product_qty`, `product_price`, `total`, `country`, `comapany_name`, `street_address`, `apartment_address`, `state`, `zip`, `phone`, `order_notes`) VALUES
-	(26, 'rajanynrsaini@gmail.com', 'rajan', 'rajan', '33', 'Shirt', '', 'S', 'shirt.jpg', '4', '1200', '', '', 'ProductsBrand object (10)', 'jfy', 'jfy', 'Haryana', 'iugugy', '5555555', ''),
-	(27, 'rajanynrsaini@gmail.com', 'rajan', 'rajan', '72', 'Men Jacket', '', 'S', 'jacket.jpg', '4', '3500', '', '', 'ProductsBrand object (20)', 'jfy', 'jfy', 'Haryana', 'iugugy', '5555555', ''),
-	(28, 'rajanynrsaini@gmail.com', 'rajan', 'rajan', '72', 'Men Jacket', 'Men Black Solid Leather Jacket', 'S', 'jacket.jpg', '4', '3500', '', '', 'ProductsBrand object (20)', 'jfy', 'jfy', 'Haryana', 'iugugy', '5555555', ''),
-	(29, 'rajanynrsaini@gmail.com', 'rajan', 'rajan', '86', 'Camera', 'Nikon D3500 DX-Format DSLR Two Lens Kit with AF-P DX Nikkor 18-55mm f/3.5-5.6G VR & AF-P DX Nikkor 70-300mm f/4.5-6.3G ED (Black) 16 GB Class 10 SD Card and DSLR Bag', '8c.m.', 'cam1.jpg', '4', '37990', '', '', 'ProductsBrand object (60)', 'jfy', 'jfy', 'Haryana', 'iugugy', '5555555', '');
+	(68, 'rajanynrsaini@gmail.com', 'rajan', 'rajan', '37', 'Shoes', 'Shoes', '8', 'whiteshoes.jpg', '3', '3000', '', '', 'ProductsBrand object (16)', 'jfy', 'jfy', 'Haryana', 'iugugy', '5555555', ''),
+	(70, 'rajanynrsaini@gmail.com', 'rajan', 'rajan', '98', 'Plastic Toys', 'Multicolor Ractangular pieces', '', 'toy1.jpg', '6', '299', '', '', 'ProductsBrand object (19)', 'jfy', 'jfy', 'Haryana', 'iugugy', '5555555', '');
 /*!40000 ALTER TABLE `bazaarapp_tempdatatable` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -1,0 +1,84 @@
+{% extends 'usermasterpage.html' %}
+{% block content %}
+<br>
+<div>
+    <div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4"><center><i>Delivery Address</i></center></h1>
+    <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
+        <tr class="thead-dark">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>PinCode</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Action</th>
+
+        </tr>
+        {% if ud %}
+        <tr>
+            <td>{{ud.userName}}</td>
+            <td>{{ud.userEmail}}</td>
+            <td>{{ud.userMobile}}</td>
+            <td>{{ud.userAddress}}</td>
+            <td>{{ud.userPinCode}}</td>
+            <td>{{ud.userCity}}</td>
+            <td>{{ud.userState}}</td>
+            <td><a href="/user/viewprofile/?id={{ud.userEmail}}">Edit</a><br>
+
+        </tr>
+
+        {% endif %}
+    </table>
+</div>
+
+
+
+<div class="outer-w3-agile mt-3">
+    <h1 class="tittle-w3-agileits mb-4"><center><i>Order Summary</i></center></h1>
+<table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
+    <tr class="thead-dark">
+        <th><center>Image</center></th>
+        <th><center>Product</center></th>
+        <th><center>Price</center></th>
+        <th><center>Quantity</center></th>
+        <th><center>Size</center></th>
+        <th><center>Action</center></th>
+         <th><center>Action</center></th>
+    </tr>
+    {% if os %}
+    {% for i in os %}
+    <tr>
+        <td><a href="/user/productdetail/"><img src="/media/{{i.product_image}}" class="log-responsive" height="50px" width="50px"></a></td>
+        <td>{{i.product_name}}</td>
+        <td>{{i.product_price}}</td>
+        <td>{{i.product_qty}}</td>
+        <td>{{i.product_size}}</td>
+        <td><a href="/?id={{i.table_id}}">Edit</a></td>
+        <td><a href="/user/remove/?id={{i.table_id}}">Remove</a></td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+    <tr>
+        <td>Subtotal: {{ total.product_price__sum }}</td>
+    </tr>
+
+
+
+</table>
+
+
+
+
+<button><a href="/">Continue Shopping</a></button>
+<button><a href="/">Place order</a></button>
+
+</div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}
