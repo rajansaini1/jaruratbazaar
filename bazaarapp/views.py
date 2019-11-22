@@ -378,5 +378,8 @@ def ordersummary(request):
     tepdata=TempdataTable.objects.all()
     totalsum= TempdataTable.objects.all().aggregate(Sum('product_price'))
     return render(request,"ordersummary.html",{'os':tepdata,'ud':data,'total':totalsum})
+def payment(request):
+   return render(request, "payment.html")
+
 
 

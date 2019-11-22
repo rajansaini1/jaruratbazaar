@@ -1,8 +1,7 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
 <br>
-<div>
-    <div class="outer-w3-agile mt-3">
+    <div class="jumbotron">
     <h1 class="tittle-w3-agileits mb-4"><center><i>Delivery Address</i></center></h1>
     <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
         <tr class="thead-dark">
@@ -35,7 +34,7 @@
 
 
 
-<div class="outer-w3-agile mt-3">
+<div class="jumbotron">
     <h1 class="tittle-w3-agileits mb-4"><center><i>Order Summary</i></center></h1>
 <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
     <tr class="thead-dark">
@@ -60,19 +59,19 @@
     </tr>
     {% endfor %}
     {% endif %}
-    <tr>
-        <td>Subtotal: {{ total.product_price__sum }}</td>
+    <tr align="right">
+        <td colspan="7" style="font-size:40px;text-style:bold;">Subtotal: {{ total.product_price__sum }}</td>
     </tr>
 
 
 
 </table>
 
+</div>
 
-
-
-<button><a href="/">Continue Shopping</a></button>
-<button><a href="/">Place order</a></button>
+<div align="center">
+    <button type="submit" class="btn btn-primary">Continue Shopping</button>
+    <a href="/user/payment/"><button type="submit" class="btn btn-primary">Place order</button></a>
 
 </div>
 
