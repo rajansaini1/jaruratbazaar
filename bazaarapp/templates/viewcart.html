@@ -17,7 +17,11 @@
         <td><img src="/media/{{i.product_image}}" class="log-responsive" height="50px" width="50px"></td>
         <td>{{i.product_name}}</td>
         <td>{{i.product_price}}</td>
-        <td>{{i.product_qty}}</td>
+        <td>    <div class="cart-quantity">
+        <input type='button' value='-' class='qtyminus' field ='updates_{{ product_qty }}' />
+        <input type="number" name="updates[]" id="updates_{{ product_qty }}" class="quantity" value="{{ i.product_qty }}" />
+        <input type='button' value='+' class='qtyplus' field ='updates_{{ product_qty }}' />
+    </div></td>
         <td><a href="/user/remove/?id={{i.table_id}}">Remove</a></td>
     </tr>
     {% endfor %}
@@ -34,4 +38,29 @@
 </div>
 <br><br><br><br><br><br><br><br><br><br>
 
+
+<script>
+$(document).ready(function(){
+    $('.qtyplus').click(function(e){
+        e.preventDefault();
+        fieldName = $(this).attr('field');
+        var currentVal = parseInt($('input[id='+fieldName+']').val());
+        if (!isNaN(currentVal)) {
+            $('input[id='+fieldName+']').val(currentVal + 1);
+        } else {
+            $('input[id='+fieldName+']').val(0);
+        }
+    });
+    $(".qtyminus").click(function(e) {
+        e.preventDefault();
+        fieldName = $(this).attr('field')
+        var currentVal = parseInt($('input[id='+fieldName+']').val());
+        if (!isNaN(currentVal) && currentVal > 0) {
+            $('input[id='+fieldName+']').val(currentVal - 1);
+        } else {
+            $('input[id='+fieldName+']').val(0);
+        }
+    });
+});
+</script>
 {% endblock %}
