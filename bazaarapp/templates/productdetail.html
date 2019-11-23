@@ -45,7 +45,7 @@
 
 {% if request.session.Authentication %}
 <a href="/user/addcart/?id={{d1.product_id}}" class="btn btn-primary addCart btn-lg disabled" role="button" aria-pressed="true">ADD TO CART</a>
-<a href="/user/ordersummary/?id={{d1.product_id}}" class="btn btn-warning buynow  btn-lg disabled" role="button" aria-pressed="true">BUY NOW</a>
+<a href="/user/buynow/?prid={{d1.product_id}}" class="btn btn-warning buynow  btn-lg disabled" role="button" aria-pressed="true">BUY NOW</a>
 {% else %}
 <a href="/user/login/?id={{d1.product_id}}" class="btn btn-primary  btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
 <a href="/user/login/" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">BUY NOW</a>

@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
-from bazaarapp.forms import UserSignupForm,LoginRecordForm,TempdataTableForm
-from bazaarapp.models import UserSignup,LoginRecord,TempdataTable
+from bazaarapp.forms import UserSignupForm,LoginRecordForm,TempdataTableForm,SaledataTableForm
+from bazaarapp.models import UserSignup,LoginRecord,TempdataTable,SaledataTable
 from managerapp.models import Products
 from miscellaneous import mailsend,myconstants
 from authorize import authcheck
@@ -346,7 +346,7 @@ def addtocart(request):
         f.product_size = prodetail.product_size3
         f.product_size = prodetail.product_size4
         f.email =userdetail.userEmail
-        f.total=""
+        f.total=str(int(prodetail.product_price)*int(prodetail.product_qty))
         f.country=""
         f.street_address=userdetail.userAddress
         f.apartment_address=userdetail.userAddress
@@ -378,8 +378,60 @@ def ordersummary(request):
     tepdata=TempdataTable.objects.all()
     totalsum= TempdataTable.objects.all().aggregate(Sum('product_price'))
     return render(request,"ordersummary.html",{'os':tepdata,'ud':data,'total':totalsum})
-def payment(request):
-   return render(request, "payment.html")
+
+def buynow(request):
+    user = request.session['email']
+    udata = UserSignup.objects.get(userEmail=user)
+    pid = request.GET['prid']
+    data = Products.objects.get(product_id=pid)
+
+    return render(request, "buynow.html", {'d1': data,'ud':udata})
+
+def placeorder(request):
+    uid = request.session['email']
+    tempdata=TempdataTable.objects.filter(email=uid)
+    totalsum = TempdataTable.objects.all().aggregate(Sum('product_price'))
+    for i in tempdata:
+        saletableform=SaledataTableForm()
+        f=saletableform.save(commit=False)
+        f.product_id=i.product_id
+        f.product_name = i.product_name
+        f.product_image = i.product_image
+        f.product_qty = i.product_qty
+        f.product_price = i.product_price
+        f.comapany_name = i.comapany_name
+        f.product_size = i.product_size
+        f.email = i.email
+        f.total = int(i.product_price)*int(i.product_qty)
+        f.country = ""
+        f.invoice=""
+        f.street_address = i.street_address
+        f.apartment_address = i.apartment_address
+        f.state = i.state
+        f.zip = i.zip
+        f.phone = i.phone
+        f.product_disc = i.product_disc
+        f.order_notes = ""
+        f.first_name = i.first_name
+        f.last_name = i.last_name
+        f.roleid_id = 2
+        f.save()
+        quant=int(i.product_qty)
+        prodetail = Products.objects.get(product_id=i.product_id)
+        totalquant=int(prodetail.product_qty)
+        leftquant=totalquant-quant
+        proobj=Products(
+            product_id=i.product_id,
+            product_qty=leftquant
+        )
+        proobj.save(update_fields=["product_qty"])
+    request.session["total"]=totalsum
+    tempdata = TempdataTable.objects.filter(email=uid)
+    tempdata.delete()
+
+    return render(request,"payment.html",{"suc":True})
+
+
 
 
 

@@ -1,5 +1,5 @@
 from django import forms
-from bazaarapp.models import UserSignup,LoginRecord,TempdataTable
+from bazaarapp.models import UserSignup,LoginRecord,TempdataTable,SaledataTable
 
 class UserSignupForm(forms.ModelForm):
     class Meta():
@@ -20,4 +20,11 @@ class TempdataTableForm(forms.ModelForm):
         model=TempdataTable
         exclude=["table_id","email","first_name","last_name","product_id","product_name","product_disc",
                  "product_size","product_image","product_qty","product_price"," total","country","comapany_name",
+                 "street_address","apartment_address","state","zip","phone","order_notes"]
+
+class SaledataTableForm(forms.ModelForm):
+    class Meta():
+        model=SaledataTable
+        exclude=["table_id","email","first_name","last_name","product_id","product_name","product_disc",
+                 "product_size","product_image","product_qty","product_price"," total","invoice","country","comapany_name",
                  "street_address","apartment_address","state","zip","phone","order_notes"]
