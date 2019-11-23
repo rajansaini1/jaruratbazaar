@@ -24,36 +24,85 @@
 </head>
 <body>
 <div>
-    <nav class="py-2" style="border:solid px black;background-color:skyblue;">
-                    <div id="logo">
-                        <h1> <a class="navbar-brand" href="/#/"><img src="/assets/images/jbb.jpg/ " height="50px"> </a>
-                        </h1>
-                    </div>
+<!--    <nav class="py-2" style="border:solid px black;background-color:skyblue;">-->
+<!--                    <div id="logo">-->
+<!--                        <h1> <a class="navbar-brand" href="/#/"><img src="/assets/images/jbb.jpg/ " height="50px"> </a>-->
+<!--                        </h1>-->
+<!--                    </div>-->
 
-                    <label for="drop" class="toggle">Menu</label>
-                    <input type="checkbox" id="drop" />
-                    <ul class="menu">
-						<li ><a href="/user/productcategory/">Men </a></li>
-                        <li><a href="/user/productcategory1/">Women</a></li>
-                        <li><a href="/user/productcategory2/">Kids</a></li>
-                        <li><a href="/user/productcategory3/">Electronics</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						{% if request.session.Authentication %}
-							<li><a href="/user/logout/">LogOut</a></li>
-							{% else %}
-								<li><a href="/user/login/">Login</a></li>
-								<li><a href="/user/usersignup/">Signup</a></li>&nbsp;&nbsp;
-                        {% endif %}
-						<li><img src="/assets/images/profile.jpg/" width="50px" height="50px"></li>
-						<li></li>
+<!--                    <label for="drop" class="toggle">Menu</label>-->
+<!--                    <input type="checkbox" id="drop" />-->
+<!--                    <ul class="menu">-->
+<!--						<li ><a href="/user/productcategory/">Men </a></li>-->
+<!--                        <li><a href="/user/productcategory1/">Women</a></li>-->
+<!--                        <li><a href="/user/productcategory2/">Kids</a></li>-->
+<!--                        <li><a href="/user/productcategory3/">Electronics</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--						{% if request.session.Authentication %}-->
+<!--							<li><a href="/user/logout/">LogOut</a></li>-->
+<!--							{% else %}-->
+<!--								<li><a href="/user/login/">Login</a></li>-->
+<!--								<li><a href="/user/usersignup/">Signup</a></li>&nbsp;&nbsp;-->
+<!--                        {% endif %}-->
+<!--						<li><img src="/assets/images/profile.jpg/" width="50px" height="50px"></li>-->
+<!--						<li></li>-->
 
-                    </ul>
+<!--                    </ul>-->
 
 
-                </nav>
+<!--                </nav>-->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="/"><img src="/assets/images/jbb.jpg/ " height="50px" style="background-color:white;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/user/productcategory/"><h5>Mens</h5></a>
+      </li>
+		<li class="nav-item active">
+			<a class="nav-link" href="/user/productcategory1/"><h5>Womens</h5></a>
+      </li>
+		<li class="nav-item active">
+			<a class="nav-link" href="/user/productcategory2/"><h5>Kids</h5></a>
+      </li>
+		<li class="nav-item active">
+			<a class="nav-link" href="/user/productcategory3/"><h5>Electronics</h5></a>
+      </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{% if request.session.Authentication %}
+			<li class="nav-item active">
+				<img src="/assets/images/profile.jpg/" width="50px" height="50px" id="profile">
+      		</li>
+			{% else %}
+				<li class="nav-item active">
+				<a class="nav-link" href="/user/login/"><h5>Login & SignUp</h5></a>
+      			</li>
+		{% endif %}
+	</ul>
+<!--    <form class="form-inline my-2 my-lg-0">-->
+<!--      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+<!--      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>-->
+<!--    </form>-->
+  </div>
+
+</nav><br><br><br>
+
+</div>
 <div>
     {% block content %}
 

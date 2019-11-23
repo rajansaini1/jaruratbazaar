@@ -45,7 +45,7 @@
 
 {% if request.session.Authentication %}
 <a href="/user/addcart/?id={{d1.product_id}}" class="btn btn-primary addCart btn-lg disabled" role="button" aria-pressed="true">ADD TO CART</a>
-<a href="/user/ordersummary/" class="btn btn-warning buynow  btn-lg disabled" role="button" aria-pressed="true">BUY NOW</a>
+<a href="/user/ordersummary/?id={{d1.product_id}}" class="btn btn-warning buynow  btn-lg disabled" role="button" aria-pressed="true">BUY NOW</a>
 {% else %}
 <a href="/user/login/?id={{d1.product_id}}" class="btn btn-primary  btn-lg active" role="button" aria-pressed="true">ADD TO CART</a>
 <a href="/user/login/" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">BUY NOW</a>
@@ -90,9 +90,5 @@
 </script>
 
 
-    <div class="cart-quantity">
-        <input type='button' value='-' class='qtyminus' field='updates_{{ item.id }}' />
-        <input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}" />
-        <input type='button' value='+' class='qtyplus' field='updates_{{ item.id }}' />
-    </div>
+
 {% endblock %}
