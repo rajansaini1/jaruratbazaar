@@ -2,7 +2,7 @@
 {% block content %}
 <br>
     <div class="jumbotron">
-    <h1 class="tittle-w3-agileits mb-4"><center><i>Delivery Address</i></center></h1>
+    <h1 class="tittle-w3-agileits mb-4"><center><i style="color:red;">Delivery Address</i></center></h1>
     <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
         <tr class="thead-dark">
             <th>Name</th>
@@ -24,7 +24,7 @@
             <td>{{ud.userPinCode}}</td>
             <td>{{ud.userCity}}</td>
             <td>{{ud.userState}}</td>
-            <td><a href="/user/viewprofile/?id={{ud.userEmail}}">Edit</a><br>
+            <td><a href="/user/viewprofile/?id={{ud.userEmail}}"><h4 style="color:red;">Edit</h4></a><br>
 
         </tr>
 
@@ -35,15 +35,14 @@
 
 
 <div class="jumbotron">
-    <h1 class="tittle-w3-agileits mb-4"><center><i>Order Summary</i></center></h1>
-<table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
+    <h1 class="tittle-w3-agileits mb-4"><center><i style="color:red;">Order Summary</i></center></h1>
+<table class="table table-bordered"  cellspacing="10" cellpadding="10" border="2px solid blue" align="center">
     <tr class="thead-dark">
         <th><center>Image</center></th>
         <th><center>Product</center></th>
         <th><center>Price</center></th>
         <th><center>Quantity</center></th>
         <th><center>Size</center></th>
-        <th><center>Action</center></th>
          <th><center>Action</center></th>
     </tr>
     {% if os %}
@@ -54,13 +53,12 @@
         <td>{{i.product_price}}</td>
         <td>{{i.product_qty}}</td>
         <td>{{i.product_size}}</td>
-        <td><a href="/?id={{i.table_id}}">Edit</a></td>
-        <td><a href="/user/remove/?id={{i.table_id}}">Remove</a></td>
+<!--        <td><a href="/user/remove/?id={{i.table_id}}">Remove</a></td>-->
     </tr>
     {% endfor %}
     {% endif %}
     <tr align="right">
-        <td colspan="7" style="font-size:40px;text-style:bold;">Subtotal: {{ total.product_price__sum }}</td>
+        <td colspan="7" style="font-size:40px;text-style:bold;color:red;">Subtotal: {{ total.product_price__sum }}</td>
     </tr>
 
 
@@ -71,7 +69,7 @@
 
 <div align="center">
     <button type="submit" class="btn btn-primary">Continue Shopping</button>
-    <a href="/user/payment/"><button type="submit" class="btn btn-primary">Place order</button></a>
+    <a href="/user/pay/"><button type="submit" class="btn btn-primary">Place order</button></a>
 
 </div>
 

@@ -369,7 +369,7 @@ def remove(request):
     pro=request.GET["id"]
     data=TempdataTable.objects.get(table_id=pro)
     data.delete()
-    return redirect("/user/viewcart/")
+    return render(request,"viewcart.html")
 
 
 def ordersummary(request):
@@ -384,9 +384,9 @@ def buynow(request):
     udata = UserSignup.objects.get(userEmail=user)
     pid = request.GET['prid']
     data = Products.objects.get(product_id=pid)
-
     return render(request, "buynow.html", {'d1': data,'ud':udata})
-
+# def paymethod(request):
+#     return render(request,"payment.html")
 def placeorder(request):
     uid = request.session['email']
     tempdata=TempdataTable.objects.filter(email=uid)
@@ -428,7 +428,6 @@ def placeorder(request):
     request.session["total"]=totalsum
     tempdata = TempdataTable.objects.filter(email=uid)
     tempdata.delete()
-
     return render(request,"payment.html",{"suc":True})
 
 

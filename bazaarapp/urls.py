@@ -25,7 +25,7 @@ urlpatterns=[
     url(r'^remove/$', views.remove),
     url(r'^addcart/$',views.addtocart),
     url(r'^ordersummary/$',views.ordersummary),
-    url(r'^payment/$',views.placeorder),
+    url(r'^payment/$',views.placeorder,name="pay"),
     url(r'^buynow/$',views.buynow),
 
 

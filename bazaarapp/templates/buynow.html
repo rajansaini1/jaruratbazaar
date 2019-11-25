@@ -2,7 +2,7 @@
 {% block content %}
 
    <div class="jumbotron">
-    <h1 class="tittle-w3-agileits mb-4"><center><i>Delivery Address</i></center></h1>
+    <h1 class="tittle-w3-agileits mb-4"><center style="color:red;"><i>Delivery Address</i></center></h1>
     <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
         <tr class="thead-dark">
             <th>Name</th>
@@ -24,17 +24,16 @@
             <td>{{ud.userPinCode}}</td>
             <td>{{ud.userCity}}</td>
             <td>{{ud.userState}}</td>
-            <td><a href="/user/viewprofile/?id={{ud.userEmail}}">Edit</a><br>
+            <td><a href="/user/viewprofile/?id={{ud.userEmail}}" style="color:red;"><h4>Edit</h4></a><br>
 
         </tr>
 
         {% endif %}
     </table>
 </div>
-
 <div class="jumbotron">
-    <h1 class="tittle-w3-agileits mb-4"><center><i>Order Summary</i></center></h1>
-<table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
+    <h1 class="tittle-w3-agileits mb-4"><center style="color:red;"><i>Order Summary</i></center></h1>
+<table class="table table-bordered"  cellspacing="0" cellpadding="10"  align="center">
     <tr class="thead-dark">
         <th><center>Image</center></th>
         <th><center>Product</center></th>
@@ -45,11 +44,11 @@
     </tr>
     {% if d1 %}
     <tr>
-        <td><img src="/media/{{d1.product_image}}" class="log-responsive" height="50px" width="50px"></a></td>
-        <td>{{d1.product_name}}</td>
-        <td><h2>{{d1.product_price}}</h2></td>
-        <td>{{d1.product_qty}}</td>
-        <td>{{d1.product_size}}</td>
+        <td><img src="/media/{{d1.product_image1}}" class="log-responsive" height="250px" width="200px"></td>
+        <td ><h2 style="color:blue;">{{d1.product_name}}</h2></td>
+        <td><h1 style="color:red;">Rs.{{d1.product_price}}/-</h1></td>
+        <td><h2 style="color:blue;">{{d1.product_qty}}</h2></td>
+        <td><h2 style="color:blue;">{{d1.product_Size}}</h2></td>
     </tr>
     {% endif %}
 

@@ -2,27 +2,29 @@
 {% block content %}
 <br>
 <div class="jumbotron">
-    <h1 class="tittle-w3-agileits mb-4"><center><i>YOUR CART</i></center></h1>
+    <h1 class="tittle-w3-agileits mb-4"><center><i style="color:red;">MY CART</i></center></h1>
 <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
     <tr class="thead-dark">
         <th><center>Image</center></th>
         <th><center>Product</center></th>
         <th><center>Price</center></th>
+        <th><center>Size</center></th>
         <th><center>Quantity</center></th>
         <th><center>Action</center></th>
     </tr>
     {% if tpd %}
     {% for i in tpd %}
     <tr>
-        <td><img src="/media/{{i.product_image}}" class="log-responsive" height="50px" width="50px"></td>
-        <td>{{i.product_name}}</td>
-        <td>{{i.product_price}}</td>
+        <td><img src="/media/{{i.product_image}}" class="log-responsive" height="100px" width="100px"></td>
+        <td><h4>{{i.product_name}}</h4></td>
+        <td><h2 style="color:red;">Rs.{{i.product_price}}/-</h2></td>
+        <td><h4 >{{i.product_size}}</h4></td>
         <td>    <div class="cart-quantity">
         <input type='button' value='-' class='qtyminus' field ='updates_{{ product_qty }}' />
         <input type="number" name="updates[]" id="updates_{{ product_qty }}" class="quantity" value="{{ i.product_qty }}" />
         <input type='button' value='+' class='qtyplus' field ='updates_{{ product_qty }}' />
     </div></td>
-        <td><a href="/user/remove/?id={{i.table_id}}">Remove</a></td>
+        <td><a href="/user/remove/?id={{i.table_id}}" ><b>Remove</b></a></td>
     </tr>
     {% endfor %}
     {% endif %}

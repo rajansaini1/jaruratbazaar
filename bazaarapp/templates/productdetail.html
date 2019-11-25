@@ -40,6 +40,9 @@
 
     <div style="color:;"><h3>Available Sizes: <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size}}">{{d1.product_size}} <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size2}}">{{d1.product_size2}}
     <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size3}}">{{d1.product_size3}} <input type="radio" name="b1" class="c1" data-size="/user/addcart/?id={{d1.product_id}}" value="{{d1.product_size4}}">{{d1.product_size4}}</h3></div>
+    <div style="color:;"><h3>Available Sizes: <input type="radio" name="b1" class="c1" data-size1="/user/buynow/?prid={{d1.product_id}}" value="{{d1.product_size}}">{{d1.product_size}} <input type="radio" name="b1" class="c1" data-size1="/user/buynow/?prid={{d1.product_id}}" value="{{d1.product_size2}}">{{d1.product_size2}}
+    <input type="radio" name="b1" class="c1" data-size1="/user/buynow/?prid={{d1.product_id}}" value="{{d1.product_size3}}">{{d1.product_size3}} <input type="radio" name="b1" class="c1" data-size1="/user/buynow/?prid={{d1.product_id}}" value="{{d1.product_size4}}">{{d1.product_size4}}</h3></div>
+
 </div>
 <br><br>
 
@@ -65,8 +68,8 @@
     $('.c1').click(function(){
         $('.buynow').removeClass('disabled');
         var csize = $(this).val();
-       var querystring = $(this).attr('data-size');
-       $('.addCart').attr("href", querystring+"&size=" + csize);
+       var querystring = $(this).attr('data-size1');
+       $('.buynow').attr("href", querystring+"&size=" + csize);
     })
 
     $("#b1").click(function(){
