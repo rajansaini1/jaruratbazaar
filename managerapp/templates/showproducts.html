@@ -1,6 +1,6 @@
 {% extends 'masterpage.html' %}
 {% block content %}
-<div class="outer-w3-agile mt-3">
+<div class="outer-w3-agile mt-6">
     <h1 class="tittle-w3-agileits mb-4" align="center">SHOW PRODUCTS</h1>
 <table  class="table table-bordered" cellpadding="6" cellspacing="0" border="1px">
 
@@ -33,10 +33,10 @@
         <td>{{i.product_size4}}</td>
         <td>{{i.product_qty}}</td>
         <td>{{i.product_price}}</td>
-        <td><img src="/media/{{i.product_image1}}" height="50px" width="60px"></td>
-        <td><img src="/media/{{i.product_image2}}"  height="50px" width="60px"></td>
-        <td><img src="/media/{{i.product_image3}}"  height="50px" width="60px"></td>
-        <td><img src="/media/{{i.product_image4}}"  height="50px" width="60px" ></td>
+        <td><img src="/media/{{i.product_image1}}" height="50px" width="30px"></td>
+        <td><img src="/media/{{i.product_image2}}"  height="50px" width="30px"></td>
+        <td><img src="/media/{{i.product_image3}}"  height="50px" width="30px"></td>
+        <td><img src="/media/{{i.product_image4}}"  height="50px" width="30px" ></td>
         <td><a href="/manager/updateproducts/?id={{i.product_id}}">Edit</a><br>
             <a href="/manager/deleteproducts/?id={{i.product_id}}">Delete</a></td>
     </tr>
