@@ -37,9 +37,11 @@
     <tr class="thead-dark">
         <th><center>Image</center></th>
         <th><center>Product</center></th>
-        <th><center>Price</center></th>
-        <th><center>Quantity</center></th>
+        <th><center>Price/piece</center></th>
         <th><center>Size</center></th>
+        <th><center>Quantity</center></th>
+        <th><center>TotalPrice</center></th>
+
 
     </tr>
     {% if d1 %}
@@ -47,12 +49,18 @@
         <td><img src="/media/{{d1.product_image1}}" class="log-responsive" height="250px" width="200px"></td>
         <td ><h2 style="color:blue;">{{d1.product_name}}</h2></td>
         <td><h1 style="color:red;">Rs.{{d1.product_price}}/-</h1></td>
-        <td><h2 style="color:blue;">{{d1.product_qty}}</h2></td>
-        <td><h2 style="color:blue;">{{d1.product_Size}}</h2></td>
+        <td><h2 style="color:blue;">{{d1.product_size}}</h2></td>
+        <td>    <div class="cart-quantity">
+        <input type='button' value='-' class='qtyminus' field ='updates_{{ d1.product_id }}' />
+        <input type="number" name="updates[]" id="updates_{{ d1.product_id }}" class="quantity" value="{{ d1.product_qty }}" />
+        <input type='button' value='+' class='qtyplus' field     ='updates_{{ d1.product_id }}' />
+    </div></td>
+        <td>
+            <h2 class="myShi" id='totalprice_{{ d1.product_id }}' style="color:red;">Rs.{{d1.product_price}}/-</h2>
+        </td>
+
     </tr>
     {% endif %}
-
-
 
 
 </table>
@@ -62,8 +70,62 @@
 
 <div align="center">
     <button type="submit" class="btn btn-primary">Continue Shopping</button>
-    <a href="/user/payment/"><button type="submit" class="btn btn-primary">Place order</button></a>
+    <a href="/user/payment/"><button type="submit" class="btn btn-primary">Place Order</button></a>
 
 </div>
 <br><br><br><br>
+
+<script>
+$(document).ready(function(){
+    $('.qtyplus').click(function(e){
+    //alert('helloplus');
+        e.preventDefault();
+        fieldName = $(this).attr('field');
+
+        var geek = fieldName.split("_")
+        //alert('helloattr'+geek[1]);
+        var fieldPrice='#price_'+geek[1];
+        //alert(fieldPrice);
+        var pricedata=$(fieldPrice).attr('data-value');
+        //alert(pricedata);
+        var currentVal = parseInt($('input[id='+fieldName+']').val());
+        if (!isNaN(currentVal)) {
+            $('input[id='+fieldName+']').val(currentVal + 1);
+            var tp=(currentVal + 1)*pricedata;
+            var totalPrice='#totalprice_'+geek[1];
+            //alert(totalPrice);
+            //alert(totalprice);
+            $(totalPrice).html(tp);
+        } else {
+
+            $('input[id='+fieldName+']').val(0);
+        }
+    });
+    $(".qtyminus").click(function(e) {
+        e.preventDefault();
+        fieldName = $(this).attr('field');
+
+        var geek = fieldName.split("_")
+        //alert('helloattr'+geek[1]);
+        var fieldPrice='#price_'+geek[1];
+        //alert(fieldPrice);
+        var pricedata=$(fieldPrice).attr('data-value');
+        //alert(pricedata);
+        //fieldName = $(this).attr('field')
+        var currentVal = parseInt($('input[id='+fieldName+']').val());
+        if (!isNaN(currentVal) && currentVal > 0) {
+            $('input[id='+fieldName+']').val(currentVal - 1);
+            var tp=(currentVal - 1)*pricedata;
+            var totalPrice='#totalprice_'+geek[1];
+            //alert(tp);
+            //alert(totalprice);
+            $(totalPrice).html(tp);
+
+        } else {
+            $('input[id='+fieldName+']').val(0);
+        }
+    });
+});
+</script>
+
 {% endblock %}

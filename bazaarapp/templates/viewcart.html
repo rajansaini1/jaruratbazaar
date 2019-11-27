@@ -10,25 +10,31 @@
         <th><center>Price</center></th>
         <th><center>Size</center></th>
         <th><center>Quantity</center></th>
+        <th>TotalPrice</th>
         <th><center>Action</center></th>
     </tr>
     {% if tpd %}
     {% for i in tpd %}
     <tr>
         <td><img src="/media/{{i.product_image}}" class="log-responsive" height="100px" width="100px"></td>
-        <td><h4>{{i.product_name}}</h4></td>
-        <td><h2 style="color:red;">Rs.{{i.product_price}}/-</h2></td>
-        <td><h4 >{{i.product_size}}</h4></td>
+        <td><h4 style="color:blue;">{{i.product_name}}</h4></td>
+        <td><h2 id ='price_{{ i.product_id }}' style="color:red;" data-value="{{i.product_price}}">Rs.{{i.product_price}}/-</h2></td>
+        <td><h4 style="color:blue;">{{i.product_size}}</h4></td>
         <td>    <div class="cart-quantity">
-        <input type='button' value='-' class='qtyminus' field ='updates_{{ product_qty }}' />
-        <input type="number" name="updates[]" id="updates_{{ product_qty }}" class="quantity" value="{{ i.product_qty }}" />
-        <input type='button' value='+' class='qtyplus' field ='updates_{{ product_qty }}' />
+        <input type='button' value='-' class='qtyminus' field ='updates_{{ i.product_id }}' />
+        <input type="number" name="updates[]" id="updates_{{ i.product_id }}" class="quantity" value="{{ i.product_qty }}" />
+        <input type='button' value='+' class='qtyplus' field     ='updates_{{ i.product_id }}' />
     </div></td>
+        <td>
+            <h2 class="myShi" id='totalprice_{{ i.product_id }}' style="color:red;">{{i.product_price}}</h2>
+        </td>
         <td><a href="/user/remove/?id={{i.table_id}}" ><b>Remove</b></a></td>
     </tr>
     {% endfor %}
     {% endif %}
-
+    <tr align="right">
+        <div><td colspan="7" style="font-size:40px;text-style:bold;color:red;background-color:skyblue;:right;">Subtotal:{{ tto.product_price__sum }}</td>
+        </div></tr>
 
 
 
@@ -36,7 +42,7 @@
 </div>
 
 <div align="center">
-<a href="//" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">Continue Shopping</a>
+<a href="/" class="btn btn-warning  btn-lg active" role="button" aria-pressed="true">Continue Shopping</a>
 <a href="/user/ordersummary/" class="btn btn-primary  btn-lg active" role="button" aria-pressed="true">Proceed To Checkout</a>
 
 </div>
@@ -46,25 +52,54 @@
 <script>
 $(document).ready(function(){
     $('.qtyplus').click(function(e){
+    //alert('helloplus');
         e.preventDefault();
         fieldName = $(this).attr('field');
+
+        var geek = fieldName.split("_")
+        //alert('helloattr'+geek[1]);
+        var fieldPrice='#price_'+geek[1];
+        //alert(fieldPrice);
+        var pricedata=$(fieldPrice).attr('data-value');
+        //alert(pricedata);
         var currentVal = parseInt($('input[id='+fieldName+']').val());
         if (!isNaN(currentVal)) {
             $('input[id='+fieldName+']').val(currentVal + 1);
+            var tp=(currentVal + 1)*pricedata;
+            var totalPrice='#totalprice_'+geek[1];
+            //alert(totalPrice);
+            //alert(totalprice);
+            $(totalPrice).html(tp);
         } else {
+
             $('input[id='+fieldName+']').val(0);
         }
     });
     $(".qtyminus").click(function(e) {
         e.preventDefault();
-        fieldName = $(this).attr('field')
+        fieldName = $(this).attr('field');
+
+        var geek = fieldName.split("_")
+        //alert('helloattr'+geek[1]);
+        var fieldPrice='#price_'+geek[1];
+        //alert(fieldPrice);
+        var pricedata=$(fieldPrice).attr('data-value');
+        //alert(pricedata);
+        //fieldName = $(this).attr('field')
         var currentVal = parseInt($('input[id='+fieldName+']').val());
         if (!isNaN(currentVal) && currentVal > 0) {
             $('input[id='+fieldName+']').val(currentVal - 1);
+            var tp=(currentVal - 1)*pricedata;
+            var totalPrice='#totalprice_'+geek[1];
+            //alert(tp);
+            //alert(totalprice);
+            $(totalPrice).html(tp);
+
         } else {
             $('input[id='+fieldName+']').val(0);
         }
     });
 });
 </script>
+
 {% endblock %}
