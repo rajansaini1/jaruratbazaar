@@ -384,49 +384,51 @@ def ordersummary(request):
     return render(request,"ordersummary.html",{'os':tepdata,'ud':data,'total':totalsum})
 
 def buynow(request):
-    form=SaledataTableForm()
+    form = SaledataTableForm()
     user = request.session['email']
     udata = UserSignup.objects.get(userEmail=user)
-    proid = request.GET['id']
+    proid = request.GET['pid']
     data = Products.objects.get(product_id=proid)
-    f = form.save(commit=False)
-    f.product_id = data.product_id
-    f.product_name = data.product_name
-    f.product_image = data.product_image1
-    f.product_qty = data.product_qty
-    f.product_price = data.product_price
-    f.comapany_name = data.brand
-    f.product_size = data.product_size
-    f.product_size = data.product_size2
-    f.product_size = data.product_size3
-    f.product_size = data.product_size4
-    f.email = udata.userEmail
-    f.total = int(data.product_price) * int(data.product_qty)
-    f.country = ""
-    f.invoice = ""
-    f.street_address = udata.userAddress
-    f.apartment_address = udata.userAddress
-    f.state = udata.userState
-    f.zip = udata.userPinCode
-    f.product_disc = data.product_description
-    f.order_notes = ""
-    f.first_name = udata.userName
-    f.last_name = udata.userName
-    f.roleid_id = 2
-    f.save()
-    quant = int(data.product_qty)
-    data = Products.objects.get(product_id=data.product_id)
-    totalquant = int(data.product_qty)
-    leftquant = totalquant - quant
-    proobj = Products(
-        product_id=data.product_id,
-        product_qty=leftquant
-    )
-    proobj.save(update_fields=["product_qty"])
-
+    if request.method=="POST":
+        f = form.save(commit=False)
+        f.product_id = data.product_id
+        f.product_name = data.product_name
+        f.product_image = data.product_image1
+        f.product_qty = data.product_qty
+        f.product_price = data.product_price
+        f.comapany_name = data.brand
+        f.product_size = data.product_size
+        f.product_size = data.product_size2
+        f.product_size = data.product_size3
+        f.product_size = data.product_size4
+        f.email = udata.userEmail
+        f.total = int(data.product_price) * int(data.product_qty)
+        f.country = ""
+        f.invoice = ""
+        f.street_address = udata.userAddress
+        f.apartment_address = udata.userAddress
+        f.state = udata.userState
+        f.zip = udata.userPinCode
+        f.product_disc = data.product_description
+        f.order_notes = ""
+        f.first_name = udata.userName
+        f.last_name = udata.userName
+        f.roleid_id = 2
+        f.save()
+        quant = int(data.product_qty)
+        data = Products.objects.get(product_id=data.product_id)
+        totalquant = int(data.product_qty)
+        leftquant = totalquant - quant
+        proobj = Products(
+            product_id=data.product_id,
+            product_qty=leftquant
+        )
+        proobj.save(update_fields=["product_qty"])
     return render(request,"buynow.html", {'d1': data,'ud': udata})
+
 def paymethod(request):
     return render(request,"payment.html")
+
 def placeorder(request):
         uid = request.session['email']
         tempdata=TempdataTable.objects.filter(email=uid)

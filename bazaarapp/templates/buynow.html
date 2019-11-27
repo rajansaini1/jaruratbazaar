@@ -48,7 +48,7 @@
     <tr>
         <td><img src="/media/{{d1.product_image1}}" class="log-responsive" height="250px" width="200px"></td>
         <td ><h2 style="color:blue;">{{d1.product_name}}</h2></td>
-        <td><h1 style="color:red;">Rs.{{d1.product_price}}/-</h1></td>
+        <td><h1 id="price_{{ d1.product_id }}" data-value="{{d1.product_price}}" style="color:red;">Rs.{{d1.product_price}}/-</h1></td>
         <td><h2 style="color:blue;">{{d1.product_size}}</h2></td>
         <td>    <div class="cart-quantity">
         <input type='button' value='-' class='qtyminus' field ='updates_{{ d1.product_id }}' />
@@ -56,23 +56,19 @@
         <input type='button' value='+' class='qtyplus' field     ='updates_{{ d1.product_id }}' />
     </div></td>
         <td>
-            <h2 class="myShi" id='totalprice_{{ d1.product_id }}' style="color:red;">Rs.{{d1.product_price}}/-</h2>
+            <h2 class="myShi" id='totalprice_{{ d1.product_id }}' style="color:red;">{{d1.product_price}}</h2>
         </td>
 
     </tr>
     {% endif %}
-
-
 </table>
-
 </div>
-
 
 <div align="center">
     <button type="submit" class="btn btn-primary">Continue Shopping</button>
     <a href="/user/payment/"><button type="submit" class="btn btn-primary">Place Order</button></a>
-
 </div>
+
 <br><br><br><br>
 
 <script>
