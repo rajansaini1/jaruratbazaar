@@ -21,8 +21,8 @@ from django.contrib.auth.views import logout
 from bazaarapp import views
 from django.conf.urls.static import settings
 from django.conf.urls.static import static
-
-
+from django.views.generic import TemplateView
+from managerapp import views as api_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('social_django.urls',namespace='social')),
@@ -32,6 +32,11 @@ urlpatterns = [
     url(r'^$',views.index),
     url(r'^verifyuser/$', views.verify),
     url(r'^demo/$',views.first),
+    url(r'^paypal/',include('paypal.standard.ipn.urls')),
+    url(r'^payment_process/$',api_views.payment_process, name='payment_process'),
+    url(r'^payment_done/$',TemplateView.as_view(template_name="payment_done.html"),name='payment_done'),
+    url(r'^payment_cancel/$',TemplateView.as_view(template_name="payment_cancel.html"),name='payment_cancel'),
+
 
 
 

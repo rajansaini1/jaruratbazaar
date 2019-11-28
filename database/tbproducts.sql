@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `managerapp_products` (
   CONSTRAINT `managerapp_products_brand_id_cd103159_fk_managerap` FOREIGN KEY (`brand_id`) REFERENCES `managerapp_productsbrand` (`brand_id`),
   CONSTRAINT `managerapp_products_productcategory_id_1f66a185_fk_managerap` FOREIGN KEY (`productcategory_id`) REFERENCES `managerapp_productscategories` (`categories_id`),
   CONSTRAINT `managerapp_products_productstype_id_be466a2c_fk_managerap` FOREIGN KEY (`productstype_id`) REFERENCES `managerapp_productstype` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table jaruratbazaardb.managerapp_products: ~63 rows (approximately)
 /*!40000 ALTER TABLE `managerapp_products` DISABLE KEYS */;
@@ -111,7 +111,8 @@ INSERT INTO `managerapp_products` (`product_id`, `product_name`, `product_descri
 	(120, ' Parka Jacket', 'Padded parka in woven fabric with a soft, brushed finish. Detachable, fleece-lined hood with a faux fur trim, a stand-up collar with a chin guard and a zip and wind flap with a hook and loop fastening down the front', '9-10Y', '11-12Y', '12-13Y', '13-14Y', 10, 1600, 'parkajacket.jpg', 'parkajacket2.jpg', 'parkajacket3.jpg', 'parkajacket4.jpg', 1, '2019-11-26 12:38:59.020088', 42, 11, 11, 'tusharsaini503@gmail.com'),
 	(121, ' Parka Jacket', 'Padded parka in woven fabric with a soft, brushed finish. Detachable, fleece-lined hood with a faux fur trim, a stand-up collar with a chin guard and a zip and wind flap with a hook and loop fastening down the front', '9-10Y', '11-12Y', '12-13Y', '13-14Y', 0, 1600, 'parkajacket.jpg', 'parkajacket2.jpg', 'parkajacket3.jpg', 'parkajacket4.jpg', 1, '2019-11-26 12:38:59.181692', 42, 11, 11, 'tusharsaini503@gmail.com'),
 	(124, 'Headphones', 'Black wireless headphones Built-in microphone and track, call and volume controls Warranty: 1 year', '', '', '', '', 10, 2800, 'mic.jpg', 'mic2.jpg', 'mic3.jpg', 'mic4.jpg', 1, '2019-11-26 13:22:43.024177', 61, 12, 15, 'tusharsaini503@gmail.com'),
-	(125, ' Wired Headphone', 'boAt Black BassHeads 900 Wired Headphone with Mic Super Extra Bass: Enjoy powerful, dynamic sound with punchy bass and clear, natural vocals with the responsive 40mm Neodymium drivers,', '', '', '', '', 10, 690, 'headphone.jpg', 'headphone2.jpg', 'headphone3.jpg', 'headphone4.jpg', 1, '2019-11-26 13:28:10.963079', 60, 12, 15, 'tusharsaini503@gmail.com');
+	(125, ' Wired Headphone', 'boAt Black BassHeads 900 Wired Headphone with Mic Super Extra Bass: Enjoy powerful, dynamic sound with punchy bass and clear, natural vocals with the responsive 40mm Neodymium drivers,', '', '', '', '', 10, 690, 'headphone.jpg', 'headphone2.jpg', 'headphone3.jpg', 'headphone4.jpg', 1, '2019-11-26 13:28:10.963079', 60, 12, 15, 'tusharsaini503@gmail.com'),
+	(126, 'Printed SweatShirt', 'Grey printed sweatshirt, has a hood, two pockets, long sleeves, zip closure, straight hem', '9-10Y', '11-12Y', '12-13Y', '13-14Y', 10, 750, 'printedhood.jpg', 'printedhood2.jpg', 'printedhood3.jpg', 'printedhood4.jpg', 1, '2019-11-28 09:50:15.555229', 42, 11, 11, 'sainimanraj01@gmail.com');
 /*!40000 ALTER TABLE `managerapp_products` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

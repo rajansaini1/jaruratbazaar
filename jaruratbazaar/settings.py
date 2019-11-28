@@ -31,7 +31,7 @@ SECRET_KEY = 'krjo2i&1cp$*)!h5ec0&hyk6*s=d$chxk$zfvujy=4nyh3(f2%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -46,9 +46,13 @@ INSTALLED_APPS = [
     'bazaarapp',
     'managerapp',
     'shopkeeperapp',
-    'social_django'
+    'social_django',
+    'paypal.standard.ipn',
 
 ]
+PAYPAL_RECEIVER_EMAIL = 'sb-nltpp647584@business.example.com'
+PAYPAL_TEST=True
+
 
 AUTHENTICATION_BACKENDS=(
     'social_core.backends.google.GoogleOAuth2',

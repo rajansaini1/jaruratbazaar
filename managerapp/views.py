@@ -6,6 +6,13 @@ from django.core.files.storage import FileSystemStorage,os
 from authorize import authcheck
 import datetime as dt
 from bazaarapp.models import UserSignup
+from django.conf import settings
+from django.urls import reverse
+from django.shortcuts import render
+from paypal.standard.forms import PayPalPaymentsForm
+
+
+
 # Create your views here.
 def manager(request):
     try:
@@ -310,3 +317,16 @@ def deleteproducts(request):
     data.delete()
     return redirect("/manager/showproducts/")
 
+def payment_process(request):
+    host = request.get_host()
+    paypal_dict = {
+        'business' : settings.PAYPAL_RECEIVER_EMAIL,
+        'amount' : '10',
+        'item_name' : 'Item_Name_xyz',
+        'invoice' : 'rajani@889',
+        'currency_code' : 'USD',
+        'notify_url' : 'https://()()'.format(host, reverse('paypal-ipn')),
+        'return-url' : 'https://()()'.format(host, reverse('payment_done')),
+    }
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    return render(request, 'payment_process.html',{'form': form})
