@@ -22,11 +22,11 @@
         <td><h4 style="color:blue;">{{i.product_size}}</h4></td>
         <td>    <div class="cart-quantity">
         <input type='button' value='-' class='qtyminus' field ='updates_{{ i.product_id }}' />
-        <input type="number" name="updates[]" id="updates_{{ i.product_id }}" class="quantity" value="{{ i.product_qty }}" />
+        <input type="text" readonly name="updates[]" id="updates_{{ i.product_id }}" class="quantity" value="{{ i.product_qty }}" />
         <input type='button' value='+' class='qtyplus' field     ='updates_{{ i.product_id }}' />
     </div></td>
         <td>
-            <h2 class="myShi" id='totalprice_{{ i.product_id }}' style="color:red;">{{i.product_price}}</h2>
+            <h2 class="myShi" data-set="shi" id='totalprice_{{ i.product_id }}' style="color:red;">{{i.product_price}}</h2>
         </td>
         <td><a href="/user/remove/?id={{i.table_id}}" ><b>Remove</b></a></td>
     </tr>

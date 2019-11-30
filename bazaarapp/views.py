@@ -326,7 +326,6 @@ def productcategory3(request):
 
 
 
-
 def productdetail(request):
     pid = request.GET['prid']
     data = Products.objects.get(product_id=pid)
@@ -388,46 +387,73 @@ def buynow(request):
     user = request.session['email']
     udata = UserSignup.objects.get(userEmail=user)
     proid = request.GET['pid']
+    try:
+      total = request.GET['tp']
+    except:
+        total=""
     data = Products.objects.get(product_id=proid)
-    if request.method=="POST":
-        f = form.save(commit=False)
-        f.product_id = data.product_id
-        f.product_name = data.product_name
-        f.product_image = data.product_image1
-        f.product_qty = data.product_qty
-        f.product_price = data.product_price
-        f.comapany_name = data.brand
-        f.product_size = data.product_size
-        f.product_size = data.product_size2
-        f.product_size = data.product_size3
-        f.product_size = data.product_size4
-        f.email = udata.userEmail
-        f.total = int(data.product_price) * int(data.product_qty)
-        f.country = ""
-        f.invoice = ""
-        f.street_address = udata.userAddress
-        f.apartment_address = udata.userAddress
-        f.state = udata.userState
-        f.zip = udata.userPinCode
-        f.product_disc = data.product_description
-        f.order_notes = ""
-        f.first_name = udata.userName
-        f.last_name = udata.userName
-        f.roleid_id = 2
-        f.save()
-        quant = int(data.product_qty)
-        data = Products.objects.get(product_id=data.product_id)
-        totalquant = int(data.product_qty)
-        leftquant = totalquant - quant
-        proobj = Products(
-            product_id=data.product_id,
-            product_qty=leftquant
+    form = SaledataTableForm()
+    f = form.save(commit=False)
+    f.product_id = data.product_id
+    f.product_name = data.product_name
+    f.product_image = data.product_image1
+    if len(total)>0:
+        f.total = total
+    elif len(total)<=0:
+        f.total=data.product_price
+    if len(total)>0:
+        f.product_qty=int(int(total)//int(data.product_price))
+    elif len(total)<=0:
+        f.product_qty=1
+    f.comapany_name = data.brand
+    f.product_size = data.product_size
+    f.product_size = data.product_size2
+    f.product_size = data.product_size3
+    f.product_size = data.product_size4
+    f.email = udata.userEmail
+    f.product_price =data.product_price
+    f.country = ""
+    f.invoice = ""
+    f.street_address = udata.userAddress
+    f.apartment_address = udata.userAddress
+    f.state = udata.userState
+    f.zip = udata.userPinCode
+    f.product_disc = data.product_description
+    f.order_notes = ""
+    f.first_name = udata.userName
+    f.last_name = udata.userName
+    f.roleid_id = 2
+    f.save()
+    if len(total)>0:
+        quant=int(int(total)//int(data.product_price))
+    elif len(total)<=0:
+        quant=1
+    data = Products.objects.get(product_id=data.product_id)
+    totalquant = int(data.product_qty)
+    leftquant = totalquant - quant
+    proobj = Products(
+        product_id=data.product_id,
+        product_qty=leftquant
         )
-        proobj.save(update_fields=["product_qty"])
-    return render(request,"buynow.html", {'d1': data,'ud': udata})
+    proobj.save(update_fields=["product_qty"])
 
-def paymethod(request):
     return render(request,"payment.html")
+
+def buynowbutton(request):
+    user = request.session['email']
+    udata = UserSignup.objects.get(userEmail=user)
+    proid = request.GET['pid']
+    size=request.GET['size']
+    print(size)
+    data = Products.objects.get(product_id=proid)
+    return render(request,"buynow.html", {'d1': data,'ud': udata,'d3':proid,'s1':size})
+
+
+
+
+
+
+
 
 def placeorder(request):
         uid = request.session['email']

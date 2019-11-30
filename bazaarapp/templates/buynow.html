@@ -1,6 +1,5 @@
 {% extends 'usermasterpage.html' %}
 {% block content %}
-
    <div class="jumbotron">
     <h1 class="tittle-w3-agileits mb-4"><center style="color:red;"><i>Delivery Address</i></center></h1>
     <table class="table table-bordered"  cellspacing="0" cellpadding="10" border="2px solid blue" align="center">
@@ -49,35 +48,38 @@
         <td><img src="/media/{{d1.product_image1}}" class="log-responsive" height="250px" width="200px"></td>
         <td ><h2 style="color:blue;">{{d1.product_name}}</h2></td>
         <td><h1 id="price_{{ d1.product_id }}" data-value="{{d1.product_price}}" style="color:red;">Rs.{{d1.product_price}}/-</h1></td>
-        <td><h2 style="color:blue;">{{d1.product_size}}</h2></td>
+        <td><h2 style="color:blue;">{{s1}}</h2></td>
         <td>    <div class="cart-quantity">
-        <input type='button' value='-' class='qtyminus' field ='updates_{{ d1.product_id }}' />
-        <input type="number" name="updates[]" id="updates_{{ d1.product_id }}" class="quantity" value="{{ d1.product_qty }}" />
-        <input type='button' value='+' class='qtyplus' field     ='updates_{{ d1.product_id }}' />
+        <input type='button' value='-' class='qtyminus ' field ='updates_{{ d1.product_id }}' />
+        <input type="text" readonly name="updates[]" id="updates_{{ d1.product_id }}" class="quantity" value="1" />
+        <input type='button' value='+' class='qtyplus ' field ='updates_{{ d1.product_id }}' />
     </div></td>
         <td>
-            <h2 class="myShi" id='totalprice_{{ d1.product_id }}' style="color:red;">{{d1.product_price}}</h2>
+            <h2 class="myShi"  data-set="shi" id='totalprice_{{ d1.product_id }}' style="color:red;">{{d1.product_price}}</h2>
         </td>
 
     </tr>
-    {% endif %}
+
 </table>
 </div>
 
 <div align="center">
     <button type="submit" class="btn btn-primary">Continue Shopping</button>
-    <a href="/user/payment/"><button type="submit" class="btn btn-primary">Place Order</button></a>
+     {% if d3 %}
+    <a id="getQuery" href="/user/buynoworder/?pid={{d3}}"><button type="submit"  class="btn btn-primary buy place">Place Order</button></a>
+     {% endif %}
 </div>
-
+   {% endif %}
 <br><br><br><br>
+
 
 <script>
 $(document).ready(function(){
+    var get_href = $('#getQuery').attr('href');
     $('.qtyplus').click(function(e){
     //alert('helloplus');
         e.preventDefault();
         fieldName = $(this).attr('field');
-
         var geek = fieldName.split("_")
         //alert('helloattr'+geek[1]);
         var fieldPrice='#price_'+geek[1];
@@ -92,6 +94,8 @@ $(document).ready(function(){
             //alert(totalPrice);
             //alert(totalprice);
             $(totalPrice).html(tp);
+            $('#getQuery').attr('href', get_href + "&tp=" + tp);
+
         } else {
 
             $('input[id='+fieldName+']').val(0);
@@ -116,6 +120,7 @@ $(document).ready(function(){
             //alert(tp);
             //alert(totalprice);
             $(totalPrice).html(tp);
+            $('#getQuery').attr('href', get_href + "&tp=" + tp);
 
         } else {
             $('input[id='+fieldName+']').val(0);
